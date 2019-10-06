@@ -12,7 +12,7 @@ alias m='mkdir'
 alias t='touch'
 
 function c {
-    builtin cd "$@" && ls -lta
+    builtin cd "$@" && l 
     }
 
 # scripts
