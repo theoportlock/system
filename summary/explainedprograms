@@ -13,3 +13,5 @@ terminal multiplexer - tmux
 text editor - vim
 3d graphics - mesa
 bluetooth - blueman
+sound - pulseaudio + pavucontrol
+

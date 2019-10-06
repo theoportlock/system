@@ -1,9 +1,13 @@
 # copy wifi configuration files
 sudo cp -r wifiprofiles/* /etc/wpa_supplicant/ ;
 
-#install packages
+# install packages
 sudo pacman --needed -S - < programlist ;
 
 # copy rc files
 sudo cp -a rcfiles/. ~/
 
+# install git projects
+cd && 
+git clone https://github.com/theoportlock/thoughts.git &&
+git clone https://github.com/theoportlock/tis.git
