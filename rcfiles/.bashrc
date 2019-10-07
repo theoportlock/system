@@ -5,7 +5,6 @@
 alias ls='ls --color=auto'
 alias l='ls --color=auto -lrth'
 alias v='vim'
-alias b='cd ../'
 alias vi='vim'
 alias lock='i3lock -c 000000'
 alias m='mkdir'
@@ -13,6 +12,10 @@ alias t='touch'
 
 function c {
     builtin cd "$@" && l 
+    }
+
+function b {
+    builtin cd "../" && l 
     }
 
 # scripts
