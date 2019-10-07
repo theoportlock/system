@@ -11,3 +11,7 @@ sudo cp -a rcfiles/. ~/
 cd && 
 git clone https://github.com/theoportlock/thoughts.git &&
 git clone https://github.com/theoportlock/tis.git
+
+# change history setup
+shopt -s histappend
+shotp -s cmdhist

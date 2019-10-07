@@ -21,11 +21,6 @@ function b {
 # scripts
 export PATH=$PATH:~/system/scripts/
 
-# ccpnmr
-export CCPNMR_TOP_DIR=/usr/local/ccpnmr
-export PATH=$PATH:$CCPNMR_TOP_DIR/bin
-export PATH=/opt/android-studio/jre/bin:$PATH
-
 # setting the uk keyboard
 setxkbmap gb
 
@@ -34,3 +29,11 @@ export PS1="\[\e[01;36m\]\t\[\e[m\]\[\e[01;36m\]\w\[\e[m\] "
 
 # vim navigation commands
 set -o vi
+
+# bash history
+HISTFILESIZE=100000
+HISTSIZE=100000
+HISTCONTROL=ignoreboth
+HISTIGNORE='ls:history'
+HISTTIMEFORMAT='%F %T '
+PROMPT_COMMAND='history -a'
