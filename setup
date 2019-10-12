@@ -1,9 +1,9 @@
 # copy wifi configuration files
-sudo cp -r wifiprofiles/* /etc/wpa_supplicant/ ;
+#sudo cp -r wifiprofiles/* /etc/wpa_supplicant/ ;
 
 #install packages
-sudo pacman --needed -S - < programlist ;
+sudo pacman -S - < programlist
 
 # copy rc files
-sudo cp -a rcfiles/. ~/
+#sudo cp -a rcfiles/. ~/
 
