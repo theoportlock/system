@@ -17,4 +17,4 @@ shopt -s histappend
 shotp -s cmdhist
 
 # change git commit editor
-git config core.editor "vim"
+git config --global core.editor "vim"
