@@ -3,6 +3,7 @@
 
 # shortcut aliases
 alias ls='ls --color=auto'
+alias h='history'
 alias l='ls --color=auto -lrth'
 alias v='vim'
 alias vi='vim'
