@@ -15,3 +15,6 @@ git clone https://github.com/theoportlock/tis.git
 # change history setup
 shopt -s histappend
 shotp -s cmdhist
+
+# change git commit editor
+git config core.editor "vim"
