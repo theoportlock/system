@@ -16,6 +16,9 @@ alias gr="git rebase"
 alias gp="git push origin HEAD"
 alias gb="git branch"
 alias gc="git checkout"
+alias gnb="git checkout -b"
+alias gdb="git branch -d"
+alias gd="git diff"
 
 function c {
     builtin cd "$@" && l 
