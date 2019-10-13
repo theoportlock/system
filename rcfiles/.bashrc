@@ -3,13 +3,19 @@
 
 # shortcut aliases
 alias ls='ls --color=auto'
-alias h='history'
 alias l='ls --color=auto -lrth'
 alias v='vim'
 alias vi='vim'
 alias lock='i3lock -c 000000'
 alias m='mkdir'
 alias t='touch'
+alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
+alias gs="git add .; git commit"
+alias gm="git merge"
+alias gr="git rebase"
+alias gp="git push origin HEAD"
+alias gb="git branch"
+alias gc="git checkout"
 
 function c {
     builtin cd "$@" && l 
