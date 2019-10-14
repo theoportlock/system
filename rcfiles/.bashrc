@@ -12,6 +12,7 @@ alias t='touch'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 alias gs="git add .; git commit"
 alias gm="git merge"
+alias gmm="git merge origin master"
 alias gr="git rebase"
 alias gp="git push origin HEAD"
 alias gb="git branch"
