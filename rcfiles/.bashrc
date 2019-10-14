@@ -18,7 +18,7 @@ alias gb="git branch"
 alias gc="git checkout"
 alias gnb="git checkout -b"
 alias gdb="git branch -d"
-alias gd="git diff"
+alias gd="git diff master"
 
 function c {
     builtin cd "$@" && l 
