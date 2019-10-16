@@ -20,7 +20,7 @@ alias gc="git checkout"
 alias gcm="git checkout master"
 alias gnb="git checkout -b"
 alias gdb="git branch -d"
-alias gd="git diff master"
+alias gd="git difftool master"
 alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 

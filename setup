@@ -18,3 +18,4 @@ shotp -s cmdhist
 
 # change git commit editor
 git config --global core.editor "vim"
+git config diff.tool vimdiff
