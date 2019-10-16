@@ -12,14 +12,17 @@ alias t='touch'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 alias gs="git add .; git commit"
 alias gm="git merge"
-alias gmm="git merge origin master"
+alias gmm="git merge master"
 alias gr="git rebase"
 alias gp="git push origin HEAD"
 alias gb="git branch"
 alias gc="git checkout"
+alias gc="git checkout master"
 alias gnb="git checkout -b"
 alias gdb="git branch -d"
 alias gd="git diff master"
+alias f="find . -iname"
+alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 
 function c {
     builtin cd "$@" && l 

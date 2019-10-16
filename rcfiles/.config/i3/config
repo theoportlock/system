@@ -16,6 +16,10 @@ bindsym $mod+d exec dmenu_run
 bindsym $mod+c exec chromium
 bindsym Mod4+l exec i3lock -c 000000
 
+# volume controls
+bindsym $mod+m exec /home/theo/system/scripts/volup
+bindsym $mod+n exec /home/theo/system/scripts/voldown
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -138,3 +142,4 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
