@@ -1,9 +1,15 @@
 # copy wifi configuration files
-#sudo cp -r wifiprofiles/* /etc/wpa_supplicant/ ;
+sudo cp -r wifiprofiles/* /etc/wpa_supplicant/ ;
 
 #install packages
 sudo pacman -S - < programlist
 
 # copy rc files
-#sudo cp -a rcfiles/. ~/
+sudo cp -a rcfiles/. ~/
+
+# make wifi work
+sudo echo "nameserver 8.8.8.8" > /etc/resolv.conf
+
+# make autostart work - not sure about this yet as may remove the symbolic link
+sudo cp autostart/getty\@tty1.service /etc/systemd/system/getty.target.wants/
 

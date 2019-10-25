@@ -1,2 +1,3 @@
 sudo pacman --noconfirm -Syu
+# sudo cp autostart/getty\@tty1.service /etc/systemd/system/getty.target.wants/
 yay --noconfirm -Syu
