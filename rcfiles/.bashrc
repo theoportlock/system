@@ -13,7 +13,7 @@ alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen
 alias gs="git add .; git commit"
 alias gm="git merge"
 alias gmm="git merge master"
-alias gr="git rebase"
+alias gr="git reset --hard"
 alias gp="git push origin HEAD"
 alias gb="git branch"
 alias gc="git checkout"
