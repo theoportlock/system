@@ -36,6 +36,9 @@ noremap <C-j> ^
 noremap <C-k> $
 noremap <C-l> %
 
+" Set encoding
+set encoding=utf-8
+
 " For wildmenu
 set wildmenu
 set wildmode=full
@@ -54,6 +57,9 @@ noremap ; l
 noremap l k
 noremap k j
 noremap j h
+
+" clipboard integration?
+set clipboard=unnamedplus
 
 " make jk do esc
 inoremap jk <Esc>
