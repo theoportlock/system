@@ -52,6 +52,10 @@ set relativenumber!
 " For global defaults
 set gdefault
 
+" Run current script
+nnoremap <F5> <esc>:w<enter>:!%:p<enter>
+inoremap <F5> <esc>:w<enter>:!%:p<enter>
+
 " proper navigation
 noremap ; l
 noremap l k
