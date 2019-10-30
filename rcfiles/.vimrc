@@ -56,6 +56,9 @@ set gdefault
 nnoremap <F5> <esc>:w<enter>:!%:p<enter>
 inoremap <F5> <esc>:w<enter>:!%:p<enter>
 
+" For indenting wrapped text
+set breakindent
+
 " proper navigation
 noremap ; l
 noremap l k

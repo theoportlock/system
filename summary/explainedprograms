@@ -1,4 +1,5 @@
 HDMI interface - arandr
+midi interface - alsa-utils
 installer - yay
 clipboard - xclip
 browser - chromium

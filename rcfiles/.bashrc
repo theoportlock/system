@@ -9,11 +9,14 @@ alias vi='vim'
 alias lock='i3lock -c 000000'
 alias m='mkdir'
 alias t='touch'
+alias b='cd ../;l'
+## gitstuff
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 alias gs="git add .; git commit"
 alias gm="git merge"
 alias gmm="git merge master"
 alias gr="git add .;git reset --hard"
+alias ga="git add ."
 alias gp="git push origin HEAD"
 alias gb="git branch"
 alias gc="git checkout"
@@ -21,15 +24,12 @@ alias gcm="git checkout master"
 alias gnb="git checkout -b"
 alias gdb="git branch -d"
 alias gd="git difftool master"
+## find
 alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
-
+## special c function
 function c {
     builtin cd "$@" && l 
-    }
-
-function b {
-    builtin cd "../" && l 
     }
 
 # scripts
