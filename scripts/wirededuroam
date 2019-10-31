@@ -1,1 +1,2 @@
+#!/bin/bash
 sudo wpa_supplicant -c/etc/wpa_supplicant/wirededuraom.conf -D wired -i eth0

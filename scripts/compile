@@ -1,0 +1,6 @@
+#!/bin/bash
+pdflatex "$1.tex" && 
+bibtex $inp && 
+pdflatex "$1.tex" && 
+pdflatex "$1.tex" && 
+chromium "$1.pdf" && bg 
