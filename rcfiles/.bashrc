@@ -2,14 +2,17 @@
 [[ $- != *i* ]] && return
 
 # shortcut aliases
-alias ls='ls --color=auto'
 alias l='ls --color=auto -lrth'
+alias ls='ls --color=auto -lrth'
 alias v='vim'
 alias vi='vim'
+alias vd='vim -d'
 alias lock='i3lock -c 000000'
 alias m='mkdir'
 alias t='touch'
 alias b='cd ../;l'
+alias te='tar -xzvf'
+alias ch='chmod a+x'
 ## gitstuff
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 alias gs="git add .; git commit"
