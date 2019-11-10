@@ -1,7 +1,3 @@
-if v:progname =~? "evim"
-  finish
-endif
-
 source $VIMRUNTIME/defaults.vim
 
 if has("vms")
@@ -24,12 +20,11 @@ else
   set autoindent		" always set autoindenting on
 endif " has("autocmd")
 
-if has('syntax') && has('eval')
-  packadd! matchit
-endif
-
 " For search cases
 set infercase
+
+" Colouring
+syntax on
 
 " Start and end
 noremap <C-j> ^
@@ -48,6 +43,9 @@ nnoremap <leader><Tab> :buffer<Space><Tab>
 " For the numbering
 set number
 set relativenumber!
+
+" For hidden buffer exiting
+set hidden
 
 " For global defaults
 set gdefault
@@ -72,17 +70,18 @@ set clipboard=unnamedplus
 " make jk do esc
 inoremap jk <Esc>
 vnoremap jk <Esc>
+inoremap JK <esc>
+vnoremap JK <Esc>
 
-" For latex writing
-inoremap ;r \ref()<Space>(<>)<Esc>T{i
-inoremap ;c :! ./compile.sh
+" leader commands writing
+" for latex
+nnoremap <Leader>lr \ref()<Space>(<>)<Esc>T{i
+nnoremap <Leader>lc :! ~/system/scripts/compile %:r
+" others
+vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR>
+
 " Display name of file
 set statusline +=%{resolve(expand('%:p'))}\ %*
 
-" For xclip integration
-function! Copying()
-    silent !clear
-    execute "!xclip -selection clipboard " . @y
-endfunction
-
-vnoremap <silent><Leader>y "yy <Bar> :call Copying()<CR>
+" pyhelp
+nnoremap <buffer> H :<C-u>execute "!pydoc3 " . expand("<cword>")<CR>

@@ -13,6 +13,9 @@ alias t='touch'
 alias b='cd ../;l'
 alias te='tar -xzvf'
 alias ch='chmod a+x'
+alias pi='sudo pacman -S'
+alias p='python'
+alias pip='sudo pip'
 ## gitstuff
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 alias gs="git add .; git commit"
@@ -24,6 +27,7 @@ alias gp="git push origin HEAD"
 alias gb="git branch"
 alias gc="git checkout"
 alias gcm="git checkout master"
+alias gcf="git checkout feature"
 alias gnb="git checkout -b"
 alias gdb="git branch -d"
 alias gd="git difftool master"
@@ -42,8 +46,13 @@ export PATH=$PATH:~/system/scripts/
 setxkbmap gb
 
 # change prompt colour
-export PS1="\[\e[01;36m\]\t\[\e[m\]\[\e[01;36m\]\w\[\e[m\] "
-
+git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+acolor() {
+  [[ -n $(git status --porcelain=v2 2>/dev/null) ]] && echo 31 || echo 33
+}
+export PS1="\[\e[01;36m\]\t\[\e[m\] \[\033[01;32m\]\w\[\033[\$(acolor)m\]\$(git_branch)\[\033[00m\] "
 # vim navigation commands
 set -o vi
 

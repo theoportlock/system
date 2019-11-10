@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo vi /sys/class/backlight/intel_backlight/brightness
