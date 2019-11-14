@@ -78,7 +78,7 @@ vnoremap JK <Esc>
 nnoremap <Leader>lr \ref()<Space>(<>)<Esc>T{i
 nnoremap <Leader>lc :! ~/system/scripts/compile %:r
 " others
-vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR>
+vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
 
 " Display name of file
 set statusline +=%{resolve(expand('%:p'))}\ %*

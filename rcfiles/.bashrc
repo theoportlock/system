@@ -30,10 +30,12 @@ alias gcm="git checkout master"
 alias gcf="git checkout feature"
 alias gnb="git checkout -b"
 alias gdb="git branch -d"
-alias gd="git difftool master"
+alias gdm="git difftool master"
 ## find
 alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
+alias starwars="telnet towel.blinkenlights.nl"
+
 ## special c function
 function c {
     builtin cd "$@" && l 
@@ -52,9 +54,10 @@ git_branch() {
 acolor() {
   [[ -n $(git status --porcelain=v2 2>/dev/null) ]] && echo 31 || echo 33
 }
-export PS1="\[\e[01;36m\]\t\[\e[m\] \[\033[01;32m\]\w\[\033[\$(acolor)m\]\$(git_branch)\[\033[00m\] "
+ # export PS1="\e[01;36m\t \u@\h \[\e[01;32m\\w\e[01;\$(acolor)m\]\$(git_branch)\e[01;00m$"
+ export PS1="\[\e[01;36m\]\t \u@\h \[\e[01;32m\]\\w\[\e[01;\$(acolor)m\]\$(git_branch)\[\e[01;00m\] "
 # vim navigation commands
-set -o vi
+# export PS1="\u@\h \t \w "
 
 # bash history
 HISTFILESIZE=100000
