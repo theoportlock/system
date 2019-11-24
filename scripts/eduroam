@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo wpa_supplicant -iwlp2s0 -c/etc/wpa_supplicant/eduroam_wpa_supplicant.conf -B ; sudo dhcpcd wlp2s0
+sudo wpa_supplicant -iwlp5s0b1 -c/etc/wpa_supplicant/eduroam_wpa_supplicant.conf -B ; sudo dhcpcd wlp5s0b1

@@ -1,0 +1,2 @@
+#!/bin/bash
+xwd -root -out screenshot.xwd

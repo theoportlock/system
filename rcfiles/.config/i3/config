@@ -20,6 +20,9 @@ bindsym Mod4+l exec i3lock -c 000000
 bindsym $mod+m exec /home/theo/system/scripts/volup
 bindsym $mod+n exec /home/theo/system/scripts/voldown
 
+# screenshot
+bindsym $mod+s exec /home/theo/system/scripts/screenshot
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -55,7 +58,7 @@ new_window 1pixel
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+bindsym $mod+v layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+o layout toggle split
 
