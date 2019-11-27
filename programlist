@@ -1,6 +1,8 @@
 arandr
 alsa-utils
 blueman
+base-devel
+w3m
 chromium
 dhcpcd
 dialog
@@ -17,7 +19,6 @@ i3-wm
 i3lock
 i3status
 iw
-less
 mesa
 openssh
 perl
@@ -36,10 +37,7 @@ unzip
 vim
 wget
 which
-xbindkeys
 xclip
-xf86-video-vesa
 xorg
-xterm
 pulseaudio
 pavucontrol

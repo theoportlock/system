@@ -20,3 +20,15 @@
 ## change git commit editor
 #git config --global core.editor "vim"
 #git config diff.tool vimdiff
+#
+#grive setup
+cd ~
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+yay -S grive
+mkdir ~/tdrive
+cd ~/tdrive
+grive -a
+mkdir ~/gdrive
+grive -a

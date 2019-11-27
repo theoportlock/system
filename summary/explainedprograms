@@ -2,17 +2,17 @@ HDMI interface - arandr
 midi interface - alsa-utils
 installer - yay
 clipboard - xclip
-browser - chromium
+browser - chromium - w3m
 music editor - lmms
 photo edotor - gimp
 activity monitor - htop
 file viewing - tree
 shortcut and multimedia keys - xbindkeys (not working yet!)
 windows emulator - wine
-system specs - screenfetch;
+system specs - screenfetch
 terminal multiplexer - tmux
 text editor - vim
 3d graphics - mesa
 bluetooth - blueman
-sound - pulseaudio + pavucontrol
+sound - pulseaudio - pavucontrol
 
