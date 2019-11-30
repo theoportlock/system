@@ -39,3 +39,5 @@ xclip
 xf86-video-vesa
 xorg
 xterm
+pulseaudio
+pavucontrol

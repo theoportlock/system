@@ -1,15 +1,34 @@
 # copy wifi configuration files
 sudo cp -r wifiprofiles/* /etc/wpa_supplicant/ ;
 
+<<<<<<< HEAD
 #install packages
 sudo pacman -S - < programlist
+=======
+# install packages
+sudo pacman --needed -S - < programlist ;
+>>>>>>> master
 
 # copy rc files
 sudo cp -a rcfiles/. ~/
 
+<<<<<<< HEAD
 # make wifi work
 sudo echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
 # make autostart work - not sure about this yet as may remove the symbolic link
 sudo cp autostart/getty\@tty1.service /etc/systemd/system/getty.target.wants/
 
+=======
+# install git projects
+cd && 
+git clone https://github.com/theoportlock/thoughts.git &&
+git clone https://github.com/theoportlock/tis.git
+
+# change history setup
+shopt -s histappend
+shotp -s cmdhist
+
+# change git commit editor
+git config --global core.editor "vim"
+>>>>>>> master

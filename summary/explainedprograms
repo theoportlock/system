@@ -13,6 +13,11 @@ terminal multiplexer - tmux
 text editor - vim
 3d graphics - mesa
 bluetooth - blueman
+<<<<<<< HEAD
 audio over HDMI - pavucontrol
 webcam - VLC
 audio - pulseaudio
+=======
+sound - pulseaudio + pavucontrol
+
+>>>>>>> master
