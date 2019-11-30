@@ -39,5 +39,7 @@ wget
 which
 xclip
 xorg
+xorg-xinit
+xterm
 pulseaudio
 pavucontrol
