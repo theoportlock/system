@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 #!/bin/bash
 sudo wpa_supplicant -c/etc/wpa_supplicant/wirededuraom.conf -D wired -i eth0
+=======
+sudo wpa_supplicant -c /etc/wpa_supplicant/wirededuroam.conf -D wired -i eth0
+>>>>>>> raspi

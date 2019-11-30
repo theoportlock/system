@@ -7,6 +7,12 @@ sudo pacman --needed -S - < programlist ;
 # copy rc files
 sudo cp -a rcfiles/. ~/
 
+# make wifi work
+sudo echo "nameserver 8.8.8.8" > /etc/resolv.conf
+
+# make autostart work - not sure about this yet as may remove the symbolic link
+sudo cp autostart/getty\@tty1.service /etc/systemd/system/getty.target.wants/
+
 # install git projects
 cd && 
 git clone https://github.com/theoportlock/thoughts.git &&
@@ -18,4 +24,3 @@ shotp -s cmdhist
 
 # change git commit editor
 git config --global core.editor "vim"
-git config diff.tool vimdiff
