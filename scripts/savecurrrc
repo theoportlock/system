@@ -1,0 +1,9 @@
+#!/bin/bash
+name=$(sed -n -e 's/^name=//p' ~/.computer)
+curr=~/system/computers/$name/curr_rcfiles
+[ -d "$curr" ] && rm -r $curr
+mkdir $curr &&
+cp -r ~/.?*rc $curr
+cp -r ~/.X* $curr
+cp ~/.bash_profile $curr
+diff -rq $curr ~/system/computers/$name/rcfiles
