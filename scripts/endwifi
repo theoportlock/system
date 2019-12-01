@@ -1,9 +1,2 @@
-<<<<<<< HEAD
 #!/bin/bash
-=======
-<<<<<<< HEAD
 sudo killall wpa_supplicant ; sudo killall dhcpcd
-=======
->>>>>>> raspi
-sudo killall wpa_supplicant; sudo killall dhcpcd
->>>>>>> master
