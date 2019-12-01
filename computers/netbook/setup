@@ -1,3 +1,9 @@
+##read -p "Continue (y/n)?" choice
+#case "$choice" in 
+#  y|Y ) echo "yes";;
+#  n|N ) echo "no";;
+#  * ) echo "invalid";;
+#esac#
 # copy wifi configuration files
 #sudo cp -r wifiprofiles/* /etc/wpa_supplicant/ ;
 
