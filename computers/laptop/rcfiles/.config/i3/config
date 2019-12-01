@@ -15,6 +15,16 @@ bindsym $mod+Return exec --no-startup-id urxvt
 bindsym $mod+d exec dmenu_run
 bindsym $mod+c exec chromium
 
+# volume controls
+bindsym $mod+m exec /home/theo/system/scripts/volup
+bindsym $mod+n exec /home/theo/system/scripts/voldown
+
+# brightness
+bindsym $mod+b exec /home/theo/system/scripts/changebrightness
+
+# screenshot
+bindsym $mod+s exec /home/theo/system/scripts/screenshot
+
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -46,14 +56,11 @@ bindsym $mod+i split v
 # remove title bar
 new_window 1pixel
 
-# i3lock
-exec --no-startup-id xautolock -time 10 -locker 'i3lock -c 000000'
-
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+bindsym $mod+v layout stacking
 bindsym $mod+t layout tabbed
 bindsym $mod+o layout toggle split
 
@@ -67,7 +74,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 # focus the child container
-bindsym $mod+shiftvvvVklls focus child
+bindsym $mod+z focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -114,7 +121,7 @@ bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
+ 
 # resize window (you can also use the mouse for that)
 mode "resize" {
         bindsym j resize shrink width 10 px or 10 ppt
