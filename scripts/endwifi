@@ -1,3 +1,2 @@
 #!/bin/bash
 sudo killall wpa_supplicant ; sudo killall dhcpcd
-sudo killall wpa_supplicant; sudo killall dhcpcd
