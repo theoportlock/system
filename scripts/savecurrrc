@@ -5,5 +5,8 @@ curr=~/system/computers/$name/curr_rcfiles
 mkdir $curr &&
 cp -r ~/.?*rc $curr
 cp -r ~/.X* $curr
+cp -r ~/.computer $curr
+mkdir -p $curr/.config/i3 && cp -r ~/.config/i3/config $curr/.config/i3
+cp -r ~/.i3status.conf $curr
 cp ~/.bash_profile $curr
 diff -rq $curr ~/system/computers/$name/rcfiles

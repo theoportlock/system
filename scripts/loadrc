@@ -1,5 +1,5 @@
 #!/bin/bash
 name=$(sed -n -e 's/^name=//p' ~/.computer)
 files=~/system/computers/$name/rcfiles
-cp -r $files/* ~/
+cp -a $files/. ~/
 diff -rq $files ~/system/computers/$name/rcfiles
