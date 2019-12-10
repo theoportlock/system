@@ -14,13 +14,9 @@ bindsym $mod+q kill
 bindsym $mod+Return exec --no-startup-id urxvt
 bindsym $mod+d exec dmenu_run
 bindsym $mod+c exec chromium
-bindsym Mod4+l exec i3lock -c 000000
-
-# volume controls
 bindsym $mod+m exec /home/theo/system/scripts/volup
 bindsym $mod+n exec /home/theo/system/scripts/voldown
-
-# screenshot
+bindsym $mod+b exec /home/theo/system/scripts/changebrightness
 bindsym $mod+s exec /home/theo/system/scripts/screenshot
 
 # change focus

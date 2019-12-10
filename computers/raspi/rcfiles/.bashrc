@@ -14,7 +14,6 @@ alias b='cd ../;l'
 alias te='tar -xzvf'
 alias ch='chmod a+x'
 alias pi='sudo pacman -S'
-alias pu='sudo pacman -Syu'
 alias p='python'
 alias pip='sudo pip'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
@@ -31,6 +30,13 @@ alias gcf="git checkout feature"
 alias gnb="git checkout -b"
 alias gdb="git branch -d"
 alias gdm="git difftool master"
+alias gdf="git difftool feature"
+alias gspull="git subtree pull --prefix tester https://github.com/theoportlock/tester.git master --squash"
+alias gspush="git subtree push --prefix tester https://github.com/theoportlock/tester.git master" 
+alias mu="sudo mount /dev/sdc2 /mnt"
+alias umu="sudo umount /mnt"
+
+## find
 alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"

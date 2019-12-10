@@ -1,5 +1,7 @@
 arandr
+alsa-utils
 blueman
+base-devel
 w3m
 chromium
 dhcpcd
@@ -16,7 +18,6 @@ i3-wm
 i3lock
 i3status
 iw
-less
 mesa
 openssh
 perl

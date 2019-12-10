@@ -1,0 +1,6 @@
+#!/bin/bash
+sudo pacman --noconfirm -Syu
+#work out how to replace with sed command
+#sudo cp autostart/getty\@tty1.service /etc/systemd/system/getty.target.wants/
+yay --noconfirm -Syu
+sudo pip freeze — local | grep -v ‘^\-e’ | cut -d = -f 1 | xargs -n1 sudo pip install -U

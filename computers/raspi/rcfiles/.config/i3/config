@@ -20,6 +20,9 @@ bindsym Mod4+l exec i3lock -c 000000
 bindsym $mod+m exec /home/theo/system/scripts/volup
 bindsym $mod+n exec /home/theo/system/scripts/voldown
 
+# brightness
+bindsym $mod+b exec /home/theo/system/scripts/changebrightness
+
 # screenshot
 bindsym $mod+s exec /home/theo/system/scripts/screenshot
 

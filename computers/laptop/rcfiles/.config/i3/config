@@ -14,15 +14,9 @@ bindsym $mod+q kill
 bindsym $mod+Return exec --no-startup-id urxvt
 bindsym $mod+d exec dmenu_run
 bindsym $mod+c exec chromium
-
-# volume controls
 bindsym $mod+m exec /home/theo/system/scripts/volup
 bindsym $mod+n exec /home/theo/system/scripts/voldown
-
-# brightness
 bindsym $mod+b exec /home/theo/system/scripts/changebrightness
-
-# screenshot
 bindsym $mod+s exec /home/theo/system/scripts/screenshot
 
 # change focus
@@ -147,3 +141,4 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+

@@ -7,26 +7,26 @@
 # copy wifi configuration files
 #sudo cp -r wifiprofiles/* /etc/wpa_supplicant/ ;
 
-# install packages
+## install packages
 #pacman --needed -S - < programlist ;
 #sudo pip install -r piprequirements.txt
 
-# copy rc files
+## copy rc files
 #sudo cp -a rcfiles/. ~/
 
-# install git projects
+## install git projects
 #cd && 
 #git clone https://github.com/theoportlock/thoughts.git &&
 #git clone https://github.com/theoportlock/tis.git
 #
-# change history setup
+## change history setup
 #shopt -s histappend
 #shotp -s cmdhist
 #
 ## change git commit editor
 #git config --global core.editor "vim"
 #git config diff.tool vimdiff
-#
+
 #grive setup
 cd ~
 git clone https://aur.archlinux.org/yay.git

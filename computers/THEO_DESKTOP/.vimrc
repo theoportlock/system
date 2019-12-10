@@ -91,7 +91,6 @@ vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :ca
 
 " Display name of file
 set statusline +=%{resolve(expand('%:p'))}\ %*
-
 " pyhelp
 nnoremap <buffer> H :<C-u>execute "!pydoc3 " . expand("<cword>")<CR>
 
