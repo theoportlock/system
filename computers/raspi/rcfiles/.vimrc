@@ -73,9 +73,6 @@ noremap l k
 noremap k j
 noremap j h
 
-" clipboard integration?
-set clipboard=unnamedplus
-
 " make jk do esc
 inoremap jk <Esc>
 vnoremap jk <Esc>

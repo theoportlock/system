@@ -35,8 +35,6 @@ alias gspull="git subtree pull --prefix tester https://github.com/theoportlock/t
 alias gspush="git subtree push --prefix tester https://github.com/theoportlock/tester.git master" 
 alias mu="sudo mount /dev/sdc2 /mnt"
 alias umu="sudo umount /mnt"
-
-## find
 alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"

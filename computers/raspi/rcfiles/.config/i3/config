@@ -149,3 +149,5 @@ bar {
         status_command i3status
 }
 
+# autoconnect to homewifi
+exec /home/theo/system/scripts/con homewifi
