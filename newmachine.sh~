@@ -1,4 +1,0 @@
-#!/bin/bash
-hostnam=$(hostname)
-mkdir ~/system/computers/$hostnam
-screenfetch -Nn > ~/system/computers/$hostnam/stats
