@@ -38,3 +38,5 @@ cd ~/tdrive
 grive -a
 mkdir ~/gdrive
 grive -a
+
+#change pacman mirrors in new shell with prompt
