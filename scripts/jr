@@ -1,0 +1,4 @@
+#!/bin/bash
+grep "\.java" $0
+#javac $1; 
+#name=$(sed -n -e 's/^name=//p' ~/.computer)

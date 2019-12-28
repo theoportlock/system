@@ -1,5 +1,0 @@
-#!/bin/bash
-name=$(sed -n -e 's/^name=//p' ~/.computer)
-#diff -rq $curr ~/system/computers/$name/rcfiles
-#urxvt -hold  -e bash -c dimdiff ~/system/computers/$name/rcfiles ~. 
-urxvt -e bash -c "sleep 5; bash"
