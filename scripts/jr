@@ -1,4 +1,5 @@
 #!/bin/bash
+# having a go at java compile and run configurations
 grep "\.java" $0
 #javac $1; 
 #name=$(sed -n -e 's/^name=//p' ~/.computer)
