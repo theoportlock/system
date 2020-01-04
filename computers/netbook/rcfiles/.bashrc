@@ -42,10 +42,14 @@ alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
 alias starwars="telnet towel.blinkenlights.nl"
 
-## special c function
+## special functions
 function c {
     builtin cd "$@" && l 
     }
+
+goo() {
+    IFS=+ w3m https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"
+}
 
 # scripts
 export PATH=$PATH:~/system/scripts/
