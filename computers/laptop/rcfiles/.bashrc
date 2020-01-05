@@ -42,7 +42,7 @@ alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
 alias starwars="telnet towel.blinkenlights.nl"
 
-## special c function
+## special functions
 function c {
     builtin cd "$@" && l 
     }
