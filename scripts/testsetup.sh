@@ -1,12 +1,12 @@
 #!/bin/bash
 
-Question(){
+Question($command){
 	read -p "$1" choice
 	case "$choice" in 
-		y|Y ) $($2) ;;
+		y|Y ) $command ;;
 		* );;
 	esac
 }
 
-inputs=$(echo "test1";)
-Question "does this work y/n " inputs
+inputs=$(echo test1)
+Question($inputs) "does this work y/n "
