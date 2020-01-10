@@ -12,6 +12,8 @@ alias t='touch'
 alias b='cd ../;l'
 alias te='tar -xzvf'
 alias ch='chmod a+x'
+alias pi='sudo apt-get install'
+alias pu='sudo apt-get update; sudo apt-get upgrade'
 alias p='python'
 alias pip='sudo pip'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
@@ -20,7 +22,8 @@ alias gm="git merge"
 alias gmm="git merge master"
 alias gr="git add .;git reset --hard"
 alias ga="git add ."
-alias gp="git push origin HEAD"
+alias gpush="git push --all origin"
+alias gpull="git pull --all"
 alias gb="git branch"
 alias gc="git checkout"
 alias gcm="git checkout master"
@@ -38,10 +41,14 @@ alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
 alias starwars="telnet towel.blinkenlights.nl"
 
-## special c function
+## special functions
 function c {
     builtin cd "$@" && l 
     }
+
+goo() {
+    IFS=+ w3m https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"
+}
 
 # scripts
 export PATH=$PATH:~/system/scripts/

@@ -58,12 +58,6 @@ inoremap <F5> <esc>:w<enter>:!%:p<enter>
 set breakindent
 set linebreak
 
-" proper navigation
-noremap ; l
-noremap l k
-noremap k j
-noremap j h
-
 " make jk do esc
 inoremap jk <Esc>
 vnoremap jk <Esc>
