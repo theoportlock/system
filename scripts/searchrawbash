@@ -1,0 +1,1 @@
+find . -name report | xargs head -n 18 > reportreport.txt
