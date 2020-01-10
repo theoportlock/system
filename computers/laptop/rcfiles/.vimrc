@@ -34,6 +34,15 @@ noremap <C-l> %
 " Set encoding
 set encoding=utf-8
 
+" Remove stupid sounds
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" Sudo saves the file
+command! W w !sudo tee % > /dev/null
+
 " For wildmenu
 set wildmenu
 set wildmode=full
@@ -64,10 +73,10 @@ vnoremap jk <Esc>
 inoremap JK <esc>
 vnoremap JK <Esc>
 
-" leader commands writing
 " for latex
 nnoremap <Leader>lr \ref()<Space>(<>)<Esc>T{i
 nnoremap <Leader>lc :! ~/system/scripts/compile %:r
+
 " others
 vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
 
@@ -75,7 +84,25 @@ vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :ca
 set statusline +=%{resolve(expand('%:p'))}\ %*
 
 " pyhelp
-nnoremap <buffer> H :<C-u>execute "!pydoc3 " . expand("<cword>")<CR>
+nnoremap <buffer> H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
+
+" toggle spellcheck
+map <leader>ss :setlocal spell!<cr>
+
+" omnicomplete
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
+" cycle through buffers
+:nnoremap <C-n> :bnext<CR>
+:nnoremap <C-p> :bprevious<CR>
+
+" mergetool for 1,2,3 for local base and remote
+if &diff
+    map <leader>1 :diffget LOCAL<CR>
+    map <leader>2 :diffget BASE<CR>
+    map <leader>3 :diffget REMOTE<CR>
+endif
 
 " omnicomplete remove popup
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif

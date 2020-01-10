@@ -23,7 +23,8 @@ alias gm="git merge"
 alias gmm="git merge master"
 alias gr="git add .;git reset --hard"
 alias ga="git add ."
-alias gp="git push origin HEAD"
+alias gpush="git push --all origin"
+alias gpull="git pull --all"
 alias gb="git branch"
 alias gc="git checkout"
 alias gcm="git checkout master"
@@ -41,10 +42,14 @@ alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
 alias starwars="telnet towel.blinkenlights.nl"
 
-## special c function
+## special functions
 function c {
     builtin cd "$@" && l 
     }
+
+goo() {
+    IFS=+ w3m https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"
+}
 
 # scripts
 export PATH=$PATH:~/system/scripts/

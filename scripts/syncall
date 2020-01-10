@@ -1,3 +1,4 @@
 #!/bin/bash
+#/p prints only substitued lines, -n supresses print, -e is just for the command and can be used without if there are no other flags
 name=$(sed -n -e 's/^name=//p' ~/.computer)
 ~/system/computers/$name/scripts/syncall
