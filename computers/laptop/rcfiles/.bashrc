@@ -16,7 +16,7 @@ alias ch='chmod a+x'
 alias pi='sudo pacman -S'
 alias pu='sudo pacman -Syu'
 alias p='python'
-alias pip='sudo pip'
+alias ve='source venv/bin/activate'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 alias gs="git add .; git commit"
 alias gm="git merge"
