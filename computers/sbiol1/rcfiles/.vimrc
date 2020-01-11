@@ -64,6 +64,10 @@ vnoremap jk <Esc>
 inoremap JK <esc>
 vnoremap JK <Esc>
 
+" for backups
+set backupdir=~/.vimtmp//,.
+set directory=~/.vimtmp//,.
+
 " leader commands writing
 " for latex
 nnoremap <Leader>lr \ref()<Space>(<>)<Esc>T{i

@@ -1,5 +1,8 @@
 # If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 # shortcut aliases
 alias l='ls --color=auto -lrth'
@@ -7,16 +10,15 @@ alias ls='ls --color=auto -lrth'
 alias v='vim'
 alias vi='vim'
 alias vd='vim -d'
-alias lock='i3lock -c 000000'
 alias m='mkdir'
 alias t='touch'
 alias b='cd ../;l'
 alias te='tar -xzvf'
 alias ch='chmod a+x'
-alias pi='sudo pacman -S'
-alias pu='sudo pacman -Syu'
+alias pi='sudo apt-get install'
+alias pu='sudo apt-get update; sudo apt-get upgrade'
 alias p='python'
-alias ve='source venv/bin/activate'
+alias pip='sudo pip'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 alias gs="git add .; git commit"
 alias gm="git merge"
@@ -42,7 +44,15 @@ alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
 alias starwars="telnet towel.blinkenlights.nl"
 
-## special functions
+# work specific
+alias janv5="/soft/scripts/jans_startup/lnv5"
+alias nv5="/soft/all/nmrview5.2.2/nv5"
+alias bbassign="/soft/all/nmrview5.2.2/nv5_bb"
+alias scassign="/soft/all/nmrview5.2.2/nv5_sc"
+alias ccpnmr="/soft/ccpnmr/bin/analysis"
+alias specView="/soft/ccpnmr/ccpnmr3.0/bin/specView"
+alias bb_ntta_comp='/home/theoportlock/data/nmr/complex/ntta/bb_assignment/run_ntta_comp'
+
 function c {
     builtin cd "$@" && l 
     }
@@ -54,9 +64,13 @@ goo() {
 # scripts
 export PATH=$PATH:~/system/scripts/
 
-# setting the uk keyboard
-setxkbmap gb
+# Added by CCP4 package manager:
+source /soft/ccp4-7.0/bin/ccp4.setup-sh
 
+# scripts
+export PATH=$PATH:~/system/scripts/
+export PATH=$PATH:/soft/PINT/
+export PATH=$PATH:/soft/ccpnmr3.0.0/bin/
 # change prompt colour
 git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
@@ -69,6 +83,8 @@ export PS1="\[\e[01;36m\]\u@\h \[\e[01;32m\]\\w\[\e[01;\$(acolor)m\]\$(git_branc
 # vim navigation commands
 # export PS1="\u@\h \t \w "
 
+# vim shortcuts
+set -o vi
 # bash history
 HISTSIZE=100000
 HISTCONTROL=ignoreboth
