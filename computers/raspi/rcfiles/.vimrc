@@ -67,22 +67,14 @@ inoremap <F5> <esc>:w<enter>:!%:p<enter>
 set breakindent
 set linebreak
 
-" proper navigation
-noremap ; l
-noremap l k
-noremap k j
-noremap j h
-
 " make jk do esc
 inoremap jk <Esc>
 vnoremap jk <Esc>
 inoremap JK <esc>
 vnoremap JK <Esc>
 
-" for latex
 nnoremap <Leader>lr \ref()<Space>(<>)<Esc>T{i
 nnoremap <Leader>lc :! ~/system/scripts/compile %:r
-
 " others
 vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
 
@@ -96,5 +88,7 @@ nnoremap <buffer> H :<C-u>execute "!pydoc3 " . expand("<cword>")<CR>
 map <leader>ss :setlocal spell!<cr>
 
 " omnicomplete
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
