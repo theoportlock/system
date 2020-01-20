@@ -1,6 +1,7 @@
 #!/bin/bash
-pdflatex "$1.tex" && 
-bibtex $1 && 
-pdflatex "$1.tex" && 
-pdflatex "$1.tex" && 
-zathura $1.pdf &
+nam=$(echo $1 | cut -f 1 -d  '.')
+pdflatex $1 && 
+bibtex $nam && 
+pdflatex $1 && 
+pdflatex $1 && 
+zathura $nam.pdf &
