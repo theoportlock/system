@@ -64,13 +64,9 @@ goo() {
 # scripts
 export PATH=$PATH:~/system/scripts/
 
-# Added by CCP4 package manager:
-source /soft/ccp4-7.0/bin/ccp4.setup-sh
-
 # scripts
 export PATH=$PATH:~/system/scripts/
 export PATH=$PATH:/soft/PINT/
-export PATH=$PATH:/soft/ccpnmr3.0.0/bin/
 # change prompt colour
 git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'

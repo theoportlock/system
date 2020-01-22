@@ -65,13 +65,14 @@ inoremap JK <esc>
 vnoremap JK <Esc>
 
 " for backups
-set backupdir=~/.vimtmp//,.
-set directory=~/.vimtmp//,.
+set backup
+set backupdir=~/.vim/tmp//,.
+set directory=~/.vim/tmp//,.
 
 " leader commands writing
 " for latex
 nnoremap <Leader>lr \ref()<Space>(<>)<Esc>T{i
-nnoremap <Leader>lc :! ~/system/scripts/compile %:r
+nnoremap <Leader>lc :! ~/system/scripts/compile %
 " others
 vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
 

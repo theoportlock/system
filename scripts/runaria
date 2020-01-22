@@ -1,8 +1,8 @@
 #!/bin/bash
 # names = lspc_tmhrhr, ntta, lspd_n0
 # curr = 17,28,35
-nam="ntta"
-run=60
+nam="lspc_tmhrhr"
+run=17
 prevrun=$(($run-1))
 state=1
 
