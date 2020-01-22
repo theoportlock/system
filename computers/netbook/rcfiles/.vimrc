@@ -75,7 +75,8 @@ vnoremap JK <Esc>
 
 " leader commands
 nnoremap <Leader>lr \ref()<Space>(<>)<Esc>T{i
-nnoremap <Leader>lc :! ~/system/scripts/compile %:r
+nnoremap <Leader>lc :! ~/system/scripts/compile %
+" others
 vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
 
 " set backups, swp, tmp
