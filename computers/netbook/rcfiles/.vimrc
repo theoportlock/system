@@ -34,6 +34,15 @@ noremap <C-l> %
 " Set encoding
 set encoding=utf-8
 
+" Remove stupid sounds
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" Sudo saves the file
+command! W w !sudo tee % > /dev/null
+
 " For wildmenu
 set wildmenu
 set wildmode=full
@@ -64,12 +73,15 @@ vnoremap jk <Esc>
 inoremap JK <esc>
 vnoremap JK <Esc>
 
-" leader commands writing
-" for latex
+" leader commands
 nnoremap <Leader>lr \ref()<Space>(<>)<Esc>T{i
 nnoremap <Leader>lc :! ~/system/scripts/compile %:r
-" others
 vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
+
+" set backups, swp, tmp
+set backupdir=~/.vim/backup/,/tmp//
+set directory=~/.vim/swap/,/tmp//
+set undodir=~/.vim/undo/,/tmp//
 
 " Display name of file
 set statusline +=%{resolve(expand('%:p'))}\ %*
@@ -77,6 +89,11 @@ set statusline +=%{resolve(expand('%:p'))}\ %*
 " pyhelp
 nnoremap <buffer> H :<C-u>execute "!pydoc3 " . expand("<cword>")<CR>
 
-" omnicomplete remove popup
+" toggle spellcheck
+map <leader>ss :setlocal spell!<cr>
+
+" omnicomplete
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
