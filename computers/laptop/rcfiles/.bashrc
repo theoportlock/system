@@ -40,6 +40,7 @@ alias umu="sudo umount /mnt"
 alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
+alias rm='mv -t /tmp'
 alias starwars="telnet towel.blinkenlights.nl"
 
 ## special functions

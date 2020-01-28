@@ -69,8 +69,12 @@ set linebreak
 
 " make jk do esc
 inoremap jk <Esc>
-vnoremap jk <Esc>
+inoremap Jk <Esc>
+inoremap jK <Esc>
 inoremap JK <esc>
+vnoremap jk <Esc>
+vnoremap jK <Esc>
+vnoremap Jk <Esc>
 vnoremap JK <Esc>
 
 " for latex

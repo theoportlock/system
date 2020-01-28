@@ -1,3 +1,0 @@
-#!/bin/bash
-nam=$(echo $1 | cut -f 1 -d  '.')
-dot -Tpdf -o ${nam}.pdf $1 && zathura ${nam}.pdf &

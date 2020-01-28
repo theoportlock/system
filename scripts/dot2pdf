@@ -1,0 +1,10 @@
+#!/bin/bash
+nam=$(echo $1 | cut -f 1 -d  '.')
+dot -Tpdf -Kneato -o ${nam}.pdf $1 && zathura ${nam}.pdf &
+'''
+can also use the -K<format> where format is
+	neato
+	fdp
+	sfdp
+	twopi
+	circo
