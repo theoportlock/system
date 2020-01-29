@@ -18,7 +18,7 @@ alias pu='sudo pacman -Syu'
 alias pr='sudo pacman -Rns'
 alias tks='tmux kill-server'
 alias p='python'
-alias pip='sudo pip'
+alias ve='source venv/bin/activate'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 alias gs="git add .; git commit"
 alias gm="git merge"
@@ -42,6 +42,7 @@ alias umu="sudo umount /mnt"
 alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
+alias rm='mv -t /tmp'
 alias starwars="telnet towel.blinkenlights.nl"
 
 ## special functions

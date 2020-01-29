@@ -15,6 +15,8 @@ alias te='tar -xzvf'
 alias ch='chmod a+x'
 alias pi='sudo pacman -S'
 alias pu='sudo pacman -Syu'
+alias pr='sudo pacman -Rns'
+alias tks='tmux kill-server'
 alias p='python'
 alias ve='source venv/bin/activate'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
@@ -50,6 +52,10 @@ function c {
 
 goo() {
     IFS=+ w3m https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"
+}
+
+wiki() {
+    IFS=+ w3m https://en.wikipedia.org/w/index.php?search="$*"
 }
 
 # scripts
