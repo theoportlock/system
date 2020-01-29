@@ -1,8 +1,5 @@
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+[[ $- != *i* ]] && return
 
 # shortcut aliases
 alias l='ls --color=auto -lrth'
@@ -53,7 +50,7 @@ alias ccpnmr="/soft/ccpnmr/bin/analysis"
 alias specView="/soft/ccpnmr/ccpnmr3.0/bin/specView"
 alias bb_ntta_comp='/home/theoportlock/data/nmr/complex/ntta/bb_assignment/run_ntta_comp'
 
-function c {
+c() {
     builtin cd "$@" && l 
     }
 
@@ -61,16 +58,17 @@ goo() {
     IFS=+ w3m https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"
 }
 
+wiki() {
+    IFS=+ w3m https://en.wikipedia.org/w/index.php?search="$*"
+}
+
 # scripts
 export PATH=$PATH:~/system/scripts/
-
-# Added by CCP4 package manager:
-source /soft/ccp4-7.0/bin/ccp4.setup-sh
 
 # scripts
 export PATH=$PATH:~/system/scripts/
 export PATH=$PATH:/soft/PINT/
-export PATH=$PATH:/soft/ccpnmr3.0.0/bin/
+
 # change prompt colour
 git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
