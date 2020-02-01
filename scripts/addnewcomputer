@@ -1,0 +1,7 @@
+#!/bin/bash
+hostnam=$(hostname)
+if [[ ! -e ~/system/computers/$hostnam ]]; then
+	mkdir ~/system/computers/$hostnam
+else
+	echo "computer with that name already exists"
+fi
