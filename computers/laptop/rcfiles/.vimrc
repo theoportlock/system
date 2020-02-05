@@ -69,16 +69,24 @@ set linebreak
 
 " make jk do esc
 inoremap jk <Esc>
-vnoremap jk <Esc>
+inoremap Jk <Esc>
+inoremap jK <Esc>
 inoremap JK <esc>
+vnoremap jk <Esc>
+vnoremap jK <Esc>
+vnoremap Jk <Esc>
 vnoremap JK <Esc>
 
-" for latex
+" leader commands
 nnoremap <Leader>lr \ref()<Space>(<>)<Esc>T{i
-nnoremap <Leader>lc :! ~/system/scripts/compile %:r
-
+nnoremap <Leader>lc :! ~/system/scripts/compile %
 " others
 vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
+
+" set backups, swp, tmp
+set backupdir=~/.vim/backup/,/tmp//
+set directory=~/.vim/swap/,/tmp//
+set undodir=~/.vim/undo/,/tmp//
 
 " Display name of file
 set statusline +=%{resolve(expand('%:p'))}\ %*

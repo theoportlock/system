@@ -15,6 +15,8 @@ alias te='tar -xzvf'
 alias ch='chmod a+x'
 alias pi='sudo pacman -S'
 alias pu='sudo pacman -Syu'
+alias pr='sudo pacman -Rns'
+alias tks='tmux kill-server'
 alias p='python'
 alias ve='source venv/bin/activate'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
@@ -40,6 +42,7 @@ alias umu="sudo umount /mnt"
 alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
+alias rm='mv -t /tmp'
 alias starwars="telnet towel.blinkenlights.nl"
 
 ## special functions
@@ -49,6 +52,10 @@ function c {
 
 goo() {
     IFS=+ w3m https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"
+}
+
+wiki() {
+    IFS=+ w3m https://en.wikipedia.org/w/index.php?search="$*"
 }
 
 # scripts

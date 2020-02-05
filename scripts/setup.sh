@@ -1,24 +1,45 @@
 #!/bin/bash
-Question(){
-	read -p "$1" choice
-	case "$choice" in 
-		y|Y ) $($2) ;;
-		* );;
-	esac
-}
-
 hostnam=$(hostname)
-if [[ ! -e ~/system/computers/$hostnam ]]; then
-	mkdir ~/system/computers/$hostnam
-	screenfetch -Nn > ~/system/computers/$hostnam/stats
-	echo "name=$hostnam" > ~.computer
+
+copy_wifi_profiles=$(sed -n -e 's/^copy_wifi_profiles=//p' ~/.computer)
+install_pacman_programs=$(sed -n -e 's/^install_pacman_programs=//p' ~/.computer)
+install_git_repositories=$(sed -n -e 's/^install_git_repositories=//p' ~/.computer)
+setup_grive=$(sed -n -e 's/^setup_grive=//p' ~/.computer)
+fix_history_settings=$(sed -n -e 's/^fix_history_settings=//p' ~/.computer)
+stats=$(sed -n -e 's/^stats=//p' ~/.computer)
+
+if [[ copy_wifi_profiles == "y"]]; then
+	sudo cp -r ~/system/wifiprofiles/* /etc/wpa_supplicant/; 
 fi
 
-Question "Copy wifi profiles (y/n?)" $(sudo cp -r wifiprofiles/* /etc/wpa_supplicant/; )
-Question "Install pacman programs (y/n)?" $(pacman --needed -S - < programlist; )
-Question "Install pip programs (y/n)?" $(pip install -r piprequirements.txt; )
-Question "Copy rc files (y/n)?" $(sudo cp -a rcfiles/. ~/; )
-Question "Install git repositories (y/n)?" $(cd && git clone https://github.com/theoportlock/thoughts.git ; git clone https://github.com/theoportlock/tis.git; )
-Question "Setup grive (y/n)?" $(cd ~ && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si && yay -S grive && mkdir ~/tdrive && cd ~/tdrive && grive -a && mkdir ~/gdrive && grive -a; )
-Question "Fix history settings (y/n)?" $( shopt -s histappend && shopt -s cmdhist; )
-Question "Fix git configuration settings (y/n)?" $(git config --global core.editor "vim" && git config diff.tool vimdiff && git config --global credential.helper cache && git config --global credential.helper 'cache --timeout=36000'; )
+if [[install_pacman_programs == "y"]]; then
+	pacman --needed -S - < ~/system/computers/$hostnam/programlist
+fi
+
+if [[install_git_repositories == "y"]]; then
+	cd &&
+	git clone https://github.com/theoportlock/thoughts.git ;
+	git clone https://github.com/theoportlock/tis.git 
+fi
+
+if [[setup_grive == "y"]]; then
+	cd ~ &&
+	git clone https://aur.archlinux.org/yay.git &&
+	cd yay &&
+	makepkg -si &&
+	yay -S grive &&
+	mkdir ~/tdrive &&
+	cd ~/tdrive &&
+	grive -a &&
+	mkdir ~/gdrive &&
+	grive -a
+fi
+
+if [[fix_history_settings == "y"]]; then
+	shopt -s histappend &&
+	shopt -s cmdhist
+fi
+
+if [[stats == "y"]]; then
+	screenfetch -Nn > ~/system/computers/$hostnam/stats
+fi

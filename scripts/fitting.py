@@ -7,6 +7,7 @@ def fitting(obj1,select1,obj2,select2):
   """
 DESCRIPTION
 
+
   "fitting" allows the superpositioning of object1 onto object2 using
   the atoms in selection1 and selection2 (side chains are ignored).  The
   residue names, residue numbers chain identifiers, segment identifiers,
