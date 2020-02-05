@@ -2,9 +2,9 @@
 # names = lspc_tmhrhr, ntta, lspd_n0
 # curr = 17,28,35
 nam="lspc_tmhrhr"
-run=17
+run=20
 prevrun=$(($run-1))
-state=1
+state=0
 
 if [ $state == 0 ]; then
 	scp -r ~/data/nmr/${nam}/ccpnmr/run${run}analysis/ tportlock@tportlock.nmrbox.org:/home/nmrbox/tportlock/aria/${nam}/ &&
