@@ -14,8 +14,9 @@ alias te='tar -xzvf'
 alias ch='chmod a+x'
 alias pi='sudo apt-get install'
 alias pu='sudo apt-get update; sudo apt-get upgrade'
+alias tks='tmux kill-server'
 alias p='python'
-alias pip='sudo pip'
+alias ve='source venv/bin/activate'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 alias gs="git add .; git commit"
 alias gm="git merge"
@@ -39,6 +40,7 @@ alias umu="sudo umount /mnt"
 alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
+alias rm='mv -t /tmp'
 alias starwars="telnet towel.blinkenlights.nl"
 
 # work specific
