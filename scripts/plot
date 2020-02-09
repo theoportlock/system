@@ -4,30 +4,19 @@ import sys
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def converter(inp,out):
 
-    fil1=open(sys.argv[1],'r')
-    lines = fil1.readlines()
-    lines = [line.replace(' ', '\t') for line in lines]
-    lines = [line.replace('dVolume', 'one\ttwo\tthree') for line in lines]
-    lines = [line.replace('\t', ',') for line in lines]
-    fil=open(out,"wa+")
-    for line in lines:
-        fil.write(line)
+df1 = pd.read_csv(sys.argv[1])
+df2 = pd.read_csv(sys.argv[2])
+df3 = pd.read_csv(sys.argv[3])
 
-converter(sys.argv[1],"1.csv")
-converter(sys.argv[2],"2.csv")
-converter(sys.argv[3],"3.csv")
+fig, axs = plt.subplots(3,1, sharex=True)
 
-df1 = pd.read_csv("1.csv",usecols=['#assi','DecayRate'])
-df2 = pd.read_csv("2.csv",usecols=['#assi','DecayRate'])
-df3 = pd.read_csv("3.csv",usecols=['#assi','DecayRate'])
-
-fig, axs = plt.subplots(3,1, figsize=(9,3), sharex=True)
-
-axs[0].scatter(df1["#assi"], df1["DecayRate"])
-axs[1].scatter(df2["#assi"], df2["DecayRate"])
-axs[2].scatter(df3["#assi"], df3["DecayRate"])
+axs[0].scatter(df1["Residue Number"], df1["DecayRate"],s=5)
+axs[1].scatter(df2["Residue Number"], df2["DecayRate"],s=5)
+axs[2].scatter(df3["Residue Number"], df3["NOE"],s=5)
+axs[0].set(ylabel="R1") 
+axs[1].set(ylabel="R2") 
+axs[2].set(ylabel="NOE") 
 plt.xticks(rotation=90)
-plt.show()
-plt.savefig('foo.png')
+plt.xlabel("Residue Number")
+plt.savefig("foo.png")
