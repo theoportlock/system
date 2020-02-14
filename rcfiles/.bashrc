@@ -7,6 +7,7 @@ alias ls='ls --color=auto -lrth'
 alias v='vim'
 alias vi='vim'
 alias vd='vim -d'
+alias fehsvg='feh --conversion-timeout 1'
 alias m='mkdir'
 alias t='touch'
 alias b='cd ../;l'
@@ -39,19 +40,11 @@ alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
 alias r='mv -t /tmp'
+alias poweroff="sync; poweroff"
 alias pms='export PATH=$PATH:~/proteintools/scripts'
 alias pms-ls='ls ~/proteintools/scripts/'
 alias brc='source ~/.bashrc'
 alias starwars="telnet towel.blinkenlights.nl"
-
-# work specific
-alias janv5="/soft/scripts/jans_startup/lnv5"
-alias nv5="/soft/all/nmrview5.2.2/nv5"
-alias bbassign="/soft/all/nmrview5.2.2/nv5_bb"
-alias scassign="/soft/all/nmrview5.2.2/nv5_sc"
-alias ccpnmr="/soft/ccpnmr/bin/analysis"
-alias specView="/soft/ccpnmr/ccpnmr3.0/bin/specView"
-alias bb_ntta_comp='/home/theoportlock/data/nmr/complex/ntta/bb_assignment/run_ntta_comp'
 
 c() {
     builtin cd "$@" && l 
