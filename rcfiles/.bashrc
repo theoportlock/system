@@ -40,7 +40,7 @@ alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
 alias r='mv -t /tmp'
 alias pms='export PATH=$PATH:~/proteintools/pymolscripts'
-alias pms-ls='ls ~/proteintools/pymolscripts/'
+alias pms-ls='ls ~/proteintools/scripts/'
 alias brc='source ~/.bashrc'
 alias starwars="telnet towel.blinkenlights.nl"
 
