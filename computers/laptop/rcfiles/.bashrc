@@ -8,6 +8,7 @@ alias v='vim'
 alias vi='vim'
 alias vd='vim -d'
 alias lock='i3lock -c 000000'
+alias fehsvg='feh --conversion-timeout 1'
 alias m='mkdir'
 alias t='touch'
 alias b='cd ../;l'
@@ -42,7 +43,10 @@ alias umu="sudo umount /mnt"
 alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
-alias rm='mv -t /tmp'
+alias r='mv -t /tmp'
+alias poweroff="sync; poweroff"
+alias pms="export PATH=$PATH:/home/theo/proteintools/scripts"
+alias pms-ls="ls ~/proteintools/scripts"
 alias starwars="telnet towel.blinkenlights.nl"
 
 ## special functions
@@ -71,10 +75,10 @@ git_branch() {
 acolor() {
   [[ -n $(git status --porcelain=v2 2>/dev/null) ]] && echo 31 || echo 33
 }
- # export PS1="\e[01;36m\t \u@\h \[\e[01;32m\\w\e[01;\$(acolor)m\]\$(git_branch)\e[01;00m$"
+
+# prompt configuration
 export PS1="\[\e[01;36m\]\u@\h \[\e[01;32m\]\\w\[\e[01;\$(acolor)m\]\$(git_branch)\[\e[01;00m\] "
 # vim navigation commands
-# export PS1="\u@\h \t \w "
 
 # bash history
 HISTSIZE=100000

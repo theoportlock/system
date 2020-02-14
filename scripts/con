@@ -1,0 +1,5 @@
+#!/bin/bash
+wifi_card=$(sed -n -e 's/^wifi_card=//p' ~/.computer)
+echo $wifi_card
+echo $1
+sudo wpa_supplicant -i$wifi_card -c/etc/wpa_supplicant/$1.conf -B ; sudo dhcpcd $wifi_card
