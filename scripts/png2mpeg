@@ -1,5 +1,6 @@
 #!/bin/bash
 #nam=$(echo $1 | cut -f 1 -d  '.')
 #ffmpeg -framerate 1/5 -i *.png -c:v libx264 -r 30 -pix_fmt yuv420p out.mp4
-ffmpeg -r 60 -f image2 -s 1920x1080 -i out%04d.png -vcodec libx264 -crf 25  -pix_fmt yuv420p test.mp4
+ffmpeg -r 60 -f image2 -s 1920x1080 -i out%04d.png -vb 20M -vcodec libx264 -crf 25  -pix_fmt yuv420p test.mp4
+#ffmpeg -r 20 -f image2 -i out%04d.png -f mp4 -q:v 0 -vcodec mpeg4 -r 20 out.mp4
 
