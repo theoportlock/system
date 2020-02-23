@@ -61,6 +61,10 @@ wiki() {
 # scripts
 export PATH=$PATH:~/system/scripts/
 
+# scripts
+export PATH=$PATH:~/system/scripts
+export PATH=$PATH:/soft/PINT
+
 # change prompt colour
 git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
