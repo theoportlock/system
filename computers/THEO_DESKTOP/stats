@@ -1,9 +1,10 @@
  theo@THEO_DESKTOP
- OS: kali 
+ OS: Debian 
  Kernel: x86_64 Linux 4.4.0-18362-Microsoft
- Uptime: 16m
- Packages: Unknown
- Shell: bash 5.0.11
- Disk: 617G / 1.9T (34%)
+ Uptime: 1h 31m
+ Packages: 415
+ Shell: bash 5.0.3
+ WM: Not Found
  CPU: Intel Core i5-2550K @ 4x 3.701GHz
- RAM: 4142MiB / 8175MiB
+ GPU: 
+ RAM: 3709MiB / 8175MiB
