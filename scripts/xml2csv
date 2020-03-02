@@ -1,0 +1,5 @@
+#!/bin/bash
+echo $1
+echo "this doesn't work yet"
+#soffice --convert-to csv:$1 $1
+#maybe try the pandas dataframe thing first? Works for libreoffice import
