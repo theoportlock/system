@@ -1,10 +1,11 @@
 #!/bin/bash
 hostnam=$(hostname)
 
+# install programs and copy rc files from another computer
 ./scripts/makecomputerfile &&
 
 copy_wifi_profiles=$(sed -n -e 's/^copy_wifi_profiles=//p' ~/.computer)
-install_pacman_programs=$(sed -n -e 's/^install_pacman_programs=//p' ~/.computer)
+install_programs=$(sed -n -e 's/^install_programs=//p' ~/.computer)
 install_git_repositories=$(sed -n -e 's/^install_git_repositories=//p' ~/.computer)
 fix_history_settings=$(sed -n -e 's/^fix_history_settings=//p' ~/.computer)
 stats=$(sed -n -e 's/^stats=//p' ~/.computer)
@@ -14,9 +15,11 @@ then
 	sudo cp -r ~/system/wifiprofiles/* /etc/wpa_supplicant/; 
 fi
 
-if [ $install_pacman_programs == "y" ]
+if [ $install_programs== "y" ]
 then
+	sudo apt install $(cat ~/system/computers/$hostnam/programlist)
 	pacman --needed -S - < ~/system/computers/$hostnam/programlist
+	sudo pip install -r ~/system/computers/$hostnam/pythonlist
 fi
 
 if [ $install_git_repositories == "y" ]
