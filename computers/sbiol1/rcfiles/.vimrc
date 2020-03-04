@@ -69,8 +69,12 @@ set linebreak
 
 " make jk do esc
 inoremap jk <Esc>
-vnoremap jk <Esc>
+inoremap Jk <Esc>
+inoremap jK <Esc>
 inoremap JK <esc>
+vnoremap jk <Esc>
+vnoremap jK <Esc>
+vnoremap Jk <Esc>
 vnoremap JK <Esc>
 
 " leader commands
@@ -88,13 +92,26 @@ set undodir=~/.vim/undo/,/tmp//
 set statusline +=%{resolve(expand('%:p'))}\ %*
 
 " pyhelp
-nnoremap <buffer> H :<C-u>execute "!pydoc3 " . expand("<cword>")<CR>
+nnoremap <buffer> H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
 
 " toggle spellcheck
 map <leader>ss :setlocal spell!<cr>
 
 " omnicomplete
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+
+" cycle through buffers
+:nnoremap <C-n> :bnext<CR>
+:nnoremap <C-p> :bprevious<CR>
+
+" mergetool for 1,2,3 for local base and remote
+if &diff
+    map <leader>1 :diffget LOCAL<CR>
+    map <leader>2 :diffget BASE<CR>
+    map <leader>3 :diffget REMOTE<CR>
+endif
+
+" omnicomplete remove popup
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif

@@ -8,13 +8,17 @@ alias v='vim'
 alias vi='vim'
 alias vd='vim -d'
 alias fehsvg='feh --conversion-timeout 1'
+alias lock='i3lock -c 000000'
 alias m='mkdir'
 alias t='touch'
 alias b='cd ../;l'
 alias te='tar -xzvf'
 alias ch='chmod a+x'
+alias pi='sudo apt-get install'
+alias pu='sudo apt-get update; sudo apt-get upgrade'
+alias pr='sudo apt-get remove'
 alias tks='tmux kill-server'
-alias p='python3'
+alias p='python'
 alias ve='source venv/bin/activate'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 alias gs="git add .; git commit"
@@ -62,7 +66,6 @@ wiki() {
 export PATH=$PATH:~/system/scripts/
 
 # scripts
-export PATH=$PATH:~/system/scripts
 export PATH=$PATH:/soft/PINT
 
 # change prompt colour
