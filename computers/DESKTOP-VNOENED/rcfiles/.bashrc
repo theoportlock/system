@@ -48,7 +48,7 @@ alias poweroff="sync; poweroff"
 alias pms='export PATH=$PATH:~/proteintools/scripts'
 alias pms-ls='ls ~/proteintools/scripts/'
 alias brc='source ~/.bashrc'
-alias hom="cd 
+alias hom="cd"
 alias starwars="telnet towel.blinkenlights.nl"
 
 c() {
