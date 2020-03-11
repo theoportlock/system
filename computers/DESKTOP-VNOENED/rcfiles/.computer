@@ -1,8 +1,0 @@
-name=DESKTOP-VNOENED
-wifi_card=wifi0
-copy_wifi_profiles=n
-install_pacman_programs=n
-install_git_repositories=n
-setup_grive=n
-fix_history_settings=y
-stats=y

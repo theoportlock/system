@@ -26,9 +26,11 @@ install_pip_programs=$(sed -n -e 's/^install_pip_programs=//p' ~/.computer)
 install_git_repositories=$(sed -n -e 's/^install_git_repositories=//p' ~/.computer)
 setup_rclone=$(sed -n -e 's/^setup_rclone=//p' ~/.computer)
 
-if [ $copy_rcfiles == "y" ]
+echo "$copy_computer_profile_name"
+
+if [[ $copy_rcfiles == "y" ]]
 then
-	cp -r ~/system/computers/$(copy_computer_profile_name)/rcfiles/* ~
+	cp -a ~/system/computers/$copy_computer_profile_name/rcfiles/. ~
 fi
 
 if [ $install_bash_programs == "y" ]
