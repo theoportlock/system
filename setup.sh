@@ -5,6 +5,7 @@ hostnam=$(hostname)
 ./scripts/makecomputerfile &&
 
 copy_wifi_profiles=$(sed -n -e 's/^copy_wifi_profiles=//p' ~/.computer)
+copy_rcfiles_from_computer=$(sed -n -e 's/^copy_rcfiles_from_computer=//p' ~/.computer)
 install_programs=$(sed -n -e 's/^install_programs=//p' ~/.computer)
 install_git_repositories=$(sed -n -e 's/^install_git_repositories=//p' ~/.computer)
 fix_history_settings=$(sed -n -e 's/^fix_history_settings=//p' ~/.computer)
