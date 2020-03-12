@@ -19,31 +19,31 @@ if [[ ! -e ~/.computer ]]; then
 fi
 
 copy_computer_profile_name=$(sed -n -e 's/^copy_computer_profile_name=//p' ~/.computer)
-package_manager_install_command=$(sed -n -e 's/^package_manage_install_commandr=//p' ~/.computer)
+package_manager_install_command=$(sed -n -e 's/^package_manager_install_command=//p' ~/.computer)
 copy_rcfiles=$(sed -n -e 's/^copy_rcfiles=//p' ~/.computer)
 install_bash_programs=$(sed -n -e 's/^install_bash_programs=//p' ~/.computer)
 install_pip_programs=$(sed -n -e 's/^install_pip_programs=//p' ~/.computer)
 install_git_repositories=$(sed -n -e 's/^install_git_repositories=//p' ~/.computer)
 setup_rclone=$(sed -n -e 's/^setup_rclone=//p' ~/.computer)
 
-echo "$copy_computer_profile_name"
+echo "$package_manager_install_command"
 
 if [[ $copy_rcfiles == "y" ]]
 then
 	cp -a ~/system/computers/$copy_computer_profile_name/rcfiles/. ~
 fi
 
-if [ $install_bash_programs == "y" ]
+if [[ $install_bash_programs == "y" ]]
 then
-	sudo $(package_manage_install_command) $(cat ~/system/computers/$(copy_computer_profile_name)/programlist)
+	eval "$package_manager_install_command ~/system/computers/$copy_computer_profile_name/programlist"
 fi
 
-if [ $install_pip_programs == "y" ]
+if [[ $install_pip_programs == "y" ]]
 then
-	sudo pip3 install -r ~/system/computers/$(copy_computer_profile_name)/pythonlist
+	sudo pip3 install -r ~/system/computers/$copy_computer_profile_name/pythonlist
 fi
 
-if [ $install_git_repositories == "y" ]
+if [[ $install_git_repositories == "y" ]]
 then
 	cd &&
 	git clone https://github.com/theoportlock/thoughts.git ;
