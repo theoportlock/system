@@ -18,7 +18,7 @@ fi
 if [ $install_programs== "y" ]
 then
 	sudo apt install $(cat ~/system/computers/$hostnam/programlist)
-	pacman --needed -S - < ~/system/computers/$hostnam/programlist
+	#pacman --needed -S - < ~/system/computers/$hostnam/programlist
 	sudo pip install -r ~/system/computers/$hostnam/pythonlist
 fi
 
