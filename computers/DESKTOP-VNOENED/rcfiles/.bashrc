@@ -7,6 +7,8 @@ alias ls='ls --color=auto -lrth'
 alias v='vim'
 alias vi='vim'
 alias vd='vim -d'
+alias fehsvg='feh --conversion-timeout 1'
+alias lock='i3lock -c 000000'
 alias m='mkdir'
 alias t='touch'
 alias b='cd ../;l'
@@ -15,6 +17,7 @@ alias ch='chmod a+x'
 alias pi='sudo apt-get install'
 alias pu='sudo apt-get update; sudo apt-get upgrade'
 alias pr='sudo apt-get remove'
+alias tks='tmux kill-server'
 alias p='python'
 alias ve='source venv/bin/activate'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
@@ -40,11 +43,15 @@ alias umu="sudo umount /mnt"
 alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
-alias rm='mv -t /tmp'
+alias r='mv -t /tmp'
+alias poweroff="sync; poweroff"
+alias pms='export PATH=$PATH:~/proteintools/scripts'
+alias pms-ls='ls ~/proteintools/scripts/'
+alias brc='source ~/.bashrc'
+alias hom="cd"
 alias starwars="telnet towel.blinkenlights.nl"
 
-## special functions
-function c {
+c() {
     builtin cd "$@" && l 
     }
 
@@ -71,6 +78,8 @@ export PS1="\[\e[01;36m\]\u@\h \[\e[01;32m\]\\w\[\e[01;\$(acolor)m\]\$(git_branc
 # vim navigation commands
 # export PS1="\u@\h \t \w "
 
+# vim shortcuts
+set -o vi
 # bash history
 HISTSIZE=100000
 HISTCONTROL=ignoreboth
