@@ -1,11 +1,5 @@
-arandr
-alsa-utils
-blueman
 base-devel
 w3m
-chromium
-dhcpcd
-dialog
 dmenu
 gawk
 gimp
@@ -40,5 +34,3 @@ xclip
 xorg
 xorg-xinit
 xterm
-pulseaudio
-pavucontrol
