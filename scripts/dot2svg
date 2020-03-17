@@ -1,6 +1,6 @@
 #!/bin/bash
 nam=$(echo $1 | cut -f 1 -d  '.')
-dot -Tpdf -Kcirco -o ${nam}.pdf $1 && zathura ${nam}.pdf &
+dot -Tsvg -Kcirco -o ${nam}.svg $1 && feh --conversion-timeout 1 ${nam}.svg &
 #can also use the -K<format> where format is
 #neato
 #fdp

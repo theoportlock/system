@@ -1,1 +1,2 @@
-vlc v4l:// :v4l-vdev="/dev/video0" :v4l-adev="dev/audio2" --sout "#transcode{vcodec=mp1v,vb=1024,scale=1,acodec=mpga,ab=192,channels=2}:duplicate{dst=std{access=file,mux=mpeg1,dst=/tmp/test.mpg}}"
+#!/bin/bash
+ffmpeg -f v4l2 -video_size 640x480 -i /dev/video0 -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac webcam.mp4
