@@ -44,6 +44,7 @@ alias poweroff="sync; poweroff"
 alias pms='export PATH=$PATH:~/proteintools/scripts'
 alias pms-ls='ls ~/proteintools/scripts/'
 alias brc='source ~/.bashrc'
+alias ipy='ipython --TerminalInteractiveShell.editing_mode=vi'
 alias starwars="telnet towel.blinkenlights.nl"
 
 c() {
