@@ -7,7 +7,7 @@ from pytrends.request import TrendReq
 
 def get_searches(key_word):
     trend = TrendReq(hl='en-US', tz=360)
-    trend.build_payload([key_word],timeframe="all")    
+    trend.build_payload([key_word],timeframe='today 5-y')    
 
     df = trend.interest_over_time()
 
@@ -21,6 +21,6 @@ def get_searches(key_word):
     plt.xticks(rotation=45)
 
 if __name__ == "__main__":
-    get_searches(sys.argv[1])
+    get_searches(str(sys.argv[1]))
     #plt.savefig("output.png")
     plt.show()
