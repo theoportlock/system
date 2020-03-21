@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+import matplotlib.pyplot as plt
+import sys
+import seaborn as sns
+import pandas as pd
+from pytrends.request import TrendReq
+
+def get_searches(key_word):
+    trend = TrendReq(hl='en-US', tz=360)
+    trend.build_payload([key_word],timeframe="all")    
+
+    df = trend.interest_over_time()
+
+    sns.set()
+    df['timestamp'] = pd.to_datetime(df.index)
+    sns.lineplot(df['timestamp'], df[key_word]/100)
+    
+    plt.title("Normalized Searches for {}".format(key_word))
+    plt.ylabel("Number of Searches")
+    plt.xlabel("Date")
+    plt.xticks(rotation=45)
+
+if __name__ == "__main__":
+    get_searches(sys.argv[1])
+    #plt.savefig("output.png")
+    plt.show()
