@@ -18,7 +18,7 @@ alias pi='sudo apt-get install'
 alias pu='sudo apt update && sudo apt upgrade'
 alias pr='sudo pacman -Rns'
 alias tks='tmux kill-server'
-alias p='python'
+alias p='python3'
 alias ve='source venv/bin/activate'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 alias gs="git add .; git commit"

@@ -35,12 +35,12 @@ fi
 
 if [[ $install_bash_programs == "y" ]]
 then
-	eval "$package_manager_install_command ~/system/computers/$copy_computer_profile_name/programlist"
+	sudo xargs -a ~/system/computers/$copy_computer_profile_name/programlist $package_manager_install_command
 fi
 
 if [[ $install_pip_programs == "y" ]]
 then
-	sudo pip3 install -r ~/system/computers/$copy_computer_profile_name/pythonlist
+	sudo pip3 install -r ~/system/computers/$copy_computer_profile_name/pythonlist 
 fi
 
 if [[ $install_git_repositories == "y" ]]
@@ -61,3 +61,6 @@ shopt -s cmdhist
 
 # stats
 screenfetch -Nn > ~/system/computers/$hostnam/stats
+
+# copy current packages
+sudo dpkg-query -f '${binary:Package}\n' -W > ~/system/computers/$hostnam/programlist
