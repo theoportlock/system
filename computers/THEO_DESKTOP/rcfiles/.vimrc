@@ -1,38 +1,52 @@
 source $VIMRUNTIME/defaults.vim
+let mapleader = ","
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file (restore to previous version)
-  if has('persistent_undo')
-    set undofile	" keep an undo file (undo changes after closing)
-  endif
-endif
+" omnicomplete
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-if has("autocmd")
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-  augroup END
-else
-  set autoindent		" always set autoindenting on
-endif " has("autocmd")
+" python setup
+syntax enable
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set number
+set relativenumber!
+filetype indent on
+set autoindent
+set encoding=utf-8
+nnoremap <buffer> H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
+autocmd FileType python nnoremap <F5> <esc>:w<enter>:!%:p<enter>
+autocmd FileType python inoremap <Leader>m if __name__ == "__main__":<enter>
+autocmd FileType python set omnifunc=python3complete#Complete
+
+" latex setup
+autocmd FileType tex inoremap <Leader>r \ref{}<Space><Esc>T{i
+autocmd FileType tex inoremap <Leader>c \cite{}<Space><Esc>T{i
+autocmd FileType tex inoremap <Leader>g \gls{}<Space><Esc>T{i
+autocmd FileType tex map <F5> <esc>:wa<enter>:!~/system/scripts/com %<enter><enter>
+autocmd FileType tex map <leader>ss :setlocal spell!<cr>
+
+" commenting 
+autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType conf,fstab       let b:comment_leader = '# '
+autocmd FileType tex              let b:comment_leader = '% '
+autocmd FileType mail             let b:comment_leader = '> '
+autocmd FileType vim              let b:comment_leader = '" '
+noremap <silent><Leader>cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent><Leader>cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 " For search cases
 set infercase
 
+" Proper yank
+nnoremap Y y$ 
+
 " Colouring
 syntax on
-
-" Start and end
-noremap <C-j> ^
-noremap <C-k> $
-noremap <C-l> %
-
-" Set encoding
-set encoding=utf-8
 
 " Remove stupid sounds
 set noerrorbells
@@ -45,23 +59,13 @@ command! W w !sudo tee % > /dev/null
 
 " For wildmenu
 set wildmenu
-set wildmode=full
+set wildmode=list:longest,full
 set wildcharm=<Tab>
+set hidden
 nnoremap <leader><Tab> :buffer<Space><Tab>
 
-" For the numbering
-set number
-set relativenumber!
-
-" For hidden buffer exiting
-set hidden
-
 " For global defaults
-set gdefault
-
-" Run current script
-nnoremap <F5> <esc>:w<enter>:!%:p<enter>
-inoremap <F5> <esc>:w<enter>:!%:p<enter>
+" set gdefault
 
 " For indenting wrapped text properly
 set breakindent
@@ -77,33 +81,37 @@ vnoremap jK <Esc>
 vnoremap Jk <Esc>
 vnoremap JK <Esc>
 
-" leader commands
-nnoremap <Leader>lr \ref()<Space>(<>)<Esc>T{i
-nnoremap <Leader>lc :! ~/system/scripts/compile %
-" others
+" linux copypaste
 vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
 
 " set backups, swp, tmp
-set backupdir=~/.vim/backup/,/tmp//
-set directory=~/.vim/swap/,/tmp//
+set nobackup
+set nowritebackup
+set noswapfile
 set undodir=~/.vim/undo/,/tmp//
+set undofile
 
 " Display name of file
 set statusline +=%{resolve(expand('%:p'))}\ %*
 
-" pyhelp
-nnoremap <buffer> H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
-
-" toggle spellcheck
-map <leader>ss :setlocal spell!<cr>
-
-" omnicomplete
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
+" good background colouring
+set background=dark
 
 " cycle through buffers
-:nnoremap <C-n> :bnext<CR>
-:nnoremap <C-p> :bprevious<CR>
+" Buffers - explore/next/previous: Alt-F12, F12, Shift-F12.
+nnoremap <leader>l :ls<CR>
+nnoremap <leader>n :bn<CR>
+nnoremap <F12> :e#<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
 
 " mergetool for 1,2,3 for local base and remote
 if &diff
@@ -111,7 +119,3 @@ if &diff
     map <leader>2 :diffget BASE<CR>
     map <leader>3 :diffget REMOTE<CR>
 endif
-
-" omnicomplete remove popup
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
