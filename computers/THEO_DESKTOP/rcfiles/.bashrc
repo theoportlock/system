@@ -48,9 +48,11 @@ alias poweroff="sync; poweroff"
 alias pms="export PATH=$PATH:/home/theo/proteintools/scripts"
 alias pms-ls="ls ~/proteintools/scripts"
 alias starwars="telnet towel.blinkenlights.nl"
+alias hom="cd /mnt/c/Users/User/"
+alias thesis="vim ~/thesis/thesis.tex ~/thesis/chapters/*.tex ~/thesis/library.bib "
 
 ## special functions
-function c {
+c() {
     builtin cd "$@" && l 
     }
 
@@ -58,8 +60,16 @@ goo() {
     IFS=+ w3m https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"
 }
 
+syn() {
+	rclone sync $1: ~/$1
+}
+
 wiki() {
     IFS=+ w3m https://en.wikipedia.org/w/index.php?search="$*"
+}
+
+wo() {
+	powershell.exe -Command Start-Process $(wslpath -wa $1)
 }
 
 # scripts
