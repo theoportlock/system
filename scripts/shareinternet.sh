@@ -1,4 +1,6 @@
 #!/bin/bash
-sudo ip addr add 192.168.123.201/24 dev enp3s0  # arbitrary address, first three blocks must match the address from above
-sudo ip link set up dev enp3s0
-sudo ip route add default via 192.168.123.201/24 dev enp3s0   # same address as in the beginning
+sudo ip addr flush dev enp3s0
+sudo ip addr add 192.168.5.5/24 dev enp3s0
+sudo ip link set dev enp3s0 down
+sudo ip link set dev enp3s0 up
+sudo ip route add default via 192.168.5.6 dev enp3s0
