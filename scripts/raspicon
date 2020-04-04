@@ -5,3 +5,4 @@ echo $1
 sudo systemctl stop systemd-resolved
 sudo sh -c 'echo "nameserver 192.168.1.254" > /etc/resolv.conf'
 sudo wpa_supplicant -i$wifi_card -c/etc/wpa_supplicant/$1.conf -B ; sudo dhcpcd $wifi_card
+sudo systemctl start systemd-resolved
