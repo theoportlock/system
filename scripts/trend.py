@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import matplotlib.pyplot as plt
 import sys
-import seaborn as sns
 import pandas as pd
 from pytrends.request import TrendReq
 
@@ -11,9 +10,8 @@ def get_searches(key_word):
 
     df = trend.interest_over_time()
 
-    sns.set()
     df['timestamp'] = pd.to_datetime(df.index)
-    sns.lineplot(df['timestamp'], df[key_word]/100)
+    plt.plot(df['timestamp'], df[key_word]/100)
     
     plt.title("Normalized Searches for {}".format(key_word))
     plt.ylabel("Number of Searches")

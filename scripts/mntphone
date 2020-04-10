@@ -1,4 +1,4 @@
 #!/bin/bash
 cd ~ &&
 mkdir $1 &&
-jmptfs $1
+jmtpfs $1
