@@ -1,0 +1,13 @@
+ theo@raspi
+ OS: Arch Linux 
+ Kernel: aarch64 Linux 5.5.4-1-ARCH
+ Uptime: 6m
+ Packages: 501
+ Shell: bash 5.0.16
+ Resolution: 1920x1080
+ WM: i3
+ GTK Theme: Adwaita [GTK3]
+ Disk: 4.5G / 15G (32%)
+ CPU: Unknown @ 4x 1.4GHz
+
+ RAM: 134MiB / 902MiB
