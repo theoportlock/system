@@ -2,8 +2,10 @@ urxvt.termName: rxvt-unicode
 urxvt.scrollBar: false
 urxvt.background: black
 urxvt.foreground: gray
-urxvt.font: xft:DejaVu Sans Mono:pixelsize=16
-urxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=16:weight=bold
+urxvt.font: xft:DejaVu Sans Mono:pixelsize=13
+urxvt.perl-ext-common:
+urxvt.perl-ext:
+urxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=13:weight=bold
 urxvt.letterSpace: -1
 URxvt.color0: rgb:00/00/00
 URxvt.color1: rgb:CC/00/00
