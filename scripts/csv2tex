@@ -1,0 +1,7 @@
+#!/usr/bin/env python3
+import pandas as pd
+import sys 
+import os
+fullname = sys.argv[1]
+df = pd.read_csv(fullname)
+df.to_latex(os.path.splitext(fullname)[0]+".tex",index=False)
