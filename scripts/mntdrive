@@ -1,4 +1,4 @@
 #!/bin/bash
 cd ~ &&
-mkdir $1 &&
+mkdir $1;
 rclone mount $1: $1 &
