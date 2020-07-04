@@ -1,0 +1,3 @@
+#!/bin/bash
+fusermount -uz $1 ;
+rm -r $1

@@ -1,7 +1,9 @@
 #!/bin/bash
-nam=$(echo $1 | cut -f 1 -d  '.')
-pdflatex $1 && 
+fullnam="thesis.tex"
+nam=$(echo $fullnam | cut -f 1 -d  '.')
+cd ~/thesis/ &&
+pdflatex -shell-escape $fullnam && 
+makeindex -s $nam.ist -t $nam.glg -o $nam.gls $nam.glo &&
 bibtex $nam && 
-pdflatex $1 && 
-pdflatex $1 && 
-zathura $nam.pdf &
+pdflatex -shell-escape $fullnam && 
+pdflatex -shell-escape $fullnam &

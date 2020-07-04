@@ -1,2 +1,9 @@
 name=DESKTOP-VNOENED
 wifi_card=wifi0
+copy_computer_profile_name=
+package_manager_install_command=
+copy_rcfiles=y
+install_bash_programs=n
+install_pip_programs=n
+install_git_repositories=n
+setup_rclone=n

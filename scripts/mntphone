@@ -1,0 +1,4 @@
+#!/bin/bash
+cd ~ &&
+mkdir $1 &&
+jmtpfs $1

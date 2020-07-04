@@ -1,0 +1,9 @@
+#!/bin/sh
+
+readarray array <<< $( cat "$@" )
+
+for element in ${array[@]}
+do
+	echo "Cloning $element"
+	git clone $element
+done
