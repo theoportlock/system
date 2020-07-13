@@ -6,7 +6,6 @@ alias l='ls --color=auto -lrth'
 alias ls='ls --color=auto -lrth'
 alias v='vim'
 alias vi='vim'
-alias vd='vim -d'
 alias lock='i3lock -c 000000'
 alias fehsvg='feh --conversion-timeout 1'
 alias m='mkdir'
@@ -18,22 +17,16 @@ alias pi='sudo pacman -S'
 alias pu='sudo pacman -Syu'
 alias pr='sudo pacman -Rns'
 alias tks='tmux kill-server'
-alias p='python'
+alias p='python3'
 alias ipy='python -m IPython'
 alias ve='source venv/bin/activate'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 alias gs="git add .; git commit"
-alias gm="git merge"
-alias gmm="git merge master"
 alias gr="git add .;git reset --hard"
 alias ga="git add ."
 alias gpush="git push --all origin"
 alias gpull="git pull --all"
-alias gb="git branch"
-alias gc="git checkout"
 alias gcm="git checkout master"
-alias gcf="git checkout feature"
-alias gnb="git checkout -b"
 alias gdb="git branch -d"
 alias gdm="git difftool master"
 alias gdf="git difftool feature"

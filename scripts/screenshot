@@ -1,2 +1,4 @@
 #!/bin/bash
-xwd -root -out screenshot.xwd
+xwd -root -out screenshot.xwd &&
+convert screenshot.xwd screenshot.png &&
+rm screenshot.xwd
