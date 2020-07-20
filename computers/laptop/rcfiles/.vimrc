@@ -31,7 +31,6 @@ command! W w !sudo tee % > /dev/null
 set wildmenu
 set wildmode=full
 set wildcharm=<Tab>
-nnoremap <leader><Tab> :buffer<Space><Tab>
 
 " For the numbering
 set number
@@ -93,10 +92,6 @@ map <leader>ss :setlocal spell!<cr>
 " omnicomplete
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
-
-" cycle through buffers
-:nnoremap <C-n> :bnext<CR>
-:nnoremap <C-p> :bprevious<CR>
 
 " mergetool for 1,2,3 for local base and remote
 if &diff
