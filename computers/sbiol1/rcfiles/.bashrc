@@ -1,5 +1,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+xset r rate 200 50
 setxkbmap us
 
 # shortcut aliases
@@ -7,7 +8,6 @@ alias l='ls --color=auto'
 alias ra='ranger'
 alias v='vim'
 alias vi='vim'
-alias vd='vim -d'
 alias lock='i3lock -c 000000'
 alias fehsvg='feh --conversion-timeout 1'
 alias m='mkdir'
@@ -43,17 +43,19 @@ alias gdm="git difftool master"
 alias gdf="git difftool feature"
 alias gspull="git subtree pull --prefix tester https://github.com/theoportlock/tester.git master --squash"
 alias gspush="git subtree push --prefix tester https://github.com/theoportlock/tester.git master" 
-alias mu="sudo mount /dev/sdc2 /mnt"
 alias umu="sudo umount /mnt"
 alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
 alias r='mv -t /tmp'
 alias poweroff="sync; poweroff"
+alias reboot="sync; reboot"
 alias pms="export PATH=$PATH:/home/theo/proteintools/scripts"
 alias pms-ls="ls ~/proteintools/scripts"
 alias starwars="telnet towel.blinkenlights.nl"
 alias ccpnmr="/soft/ccpnmr/bin/analysis"
+alias ts="~/tester/main.py"
+alias checktemp="watch -n 2 sensors"
 
 ## special functions
 c() {
@@ -75,6 +77,7 @@ export PATH=$PATH:~/system/scripts/
 git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
+
 acolor() {
   [[ -n $(git status --porcelain=v2 2>/dev/null) ]] && echo 31 || echo 33
 }

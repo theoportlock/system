@@ -1,12 +1,13 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
+xset r rate 200 50
+setxkbmap gb
 
 # shortcut aliases
-alias l='ls --color=auto -lrth'
-alias ls='ls --color=auto -lrth'
+alias l='ls --color=auto'
+alias ra='ranger'
 alias v='vim'
 alias vi='vim'
-alias vd='vim -d'
 alias lock='i3lock -c 000000'
 alias fehsvg='feh --conversion-timeout 1'
 alias m='mkdir'
@@ -18,7 +19,7 @@ alias pi='sudo pacman -S'
 alias pu='sudo pacman -Syu'
 alias pr='sudo pacman -Rns'
 alias tks='tmux kill-server'
-alias p='python'
+alias p='python3'
 alias ipy='python -m IPython'
 alias ve='source venv/bin/activate'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
@@ -49,14 +50,13 @@ alias reboot="sync; reboot"
 alias pms="export PATH=$PATH:/home/theo/proteintools/scripts"
 alias pms-ls="ls ~/proteintools/scripts"
 alias starwars="telnet towel.blinkenlights.nl"
-
-# set uk keyboard
-setxkbmap gb
+alias ts="~/tester/main.py"
+alias checktemp="watch -n 2 sensors"
 
 ## special functions
-c () {
+c() {
     builtin cd "$@" && l 
-}
+    }
 
 goo() {
     IFS=+ w3m https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"
@@ -69,7 +69,7 @@ wiki() {
 # scripts
 export PATH=$PATH:~/system/scripts/
 
-# prompt configuration
+# change prompt colour
 git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
@@ -78,7 +78,9 @@ acolor() {
   [[ -n $(git status --porcelain=v2 2>/dev/null) ]] && echo 31 || echo 33
 }
 
+# prompt configuration
 export PS1="\[\e[01;36m\]\u@\h \[\e[01;32m\]\\w\[\e[01;\$(acolor)m\]\$(git_branch)\[\e[01;00m\] "
+# vim navigation commands
 
 # bash history
 HISTSIZE=100000
