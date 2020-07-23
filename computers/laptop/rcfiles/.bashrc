@@ -1,6 +1,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-xset r rate 200 50
+xset r rate 300 50
 setxkbmap gb
 
 # shortcut aliases
@@ -44,7 +44,7 @@ alias reboot="sync; reboot"
 alias pms="export PATH=$PATH:/home/theo/proteintools/scripts"
 alias pms-ls="ls ~/proteintools/scripts"
 alias starwars="telnet towel.blinkenlights.nl"
-alias ts="~/tester/main.py"
+alias wf="~/workforce/workforce.py"
 alias checktemp="watch -n 2 sensors"
 
 ## special functions
@@ -72,9 +72,7 @@ acolor() {
   [[ -n $(git status --porcelain=v2 2>/dev/null) ]] && echo 31 || echo 33
 }
 
-# prompt configuration
 export PS1="\[\e[01;36m\]\u@\h \[\e[01;32m\]\\w\[\e[01;\$(acolor)m\]\$(git_branch)\[\e[01;00m\] "
-# vim navigation commands
 
 # bash history
 HISTSIZE=100000
