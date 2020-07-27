@@ -31,7 +31,7 @@ alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen
 alias gs="git add .; git commit"
 alias gr="git add .;git reset --hard"
 alias gpush="git push --all origin"
-alias gpull="git pull --all origin"
+alias gpull="git pull --all"
 alias gcm="git checkout master"
 alias gcf="git checkout feature"
 alias gd="git difftool"
