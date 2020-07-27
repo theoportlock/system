@@ -5,11 +5,9 @@ setxkbmap gb
 
 # shortcut aliases
 alias l='ls --color=auto'
-alias ra='ranger'
 alias v='vim'
 alias vi='vim'
 alias lock='i3lock -c 000000'
-alias fehsvg='feh --conversion-timeout 1'
 alias m='mkdir'
 alias t='touch'
 alias b='cd ../;l'
@@ -18,14 +16,12 @@ alias ch='chmod a+x'
 alias pi='sudo pacman -S'
 alias pu='sudo pacman -Syu'
 alias pr='sudo pacman -Rns'
-alias tks='tmux kill-server'
 alias p='python3'
-alias ipy='python -m IPython'
+alias ipython='python -m IPython'
 alias ve='source venv/bin/activate'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 alias gs="git add .; git commit"
 alias gr="git add .;git reset --hard"
-alias ga="git add ."
 alias gpush="git push --all origin"
 alias gpull="git pull --all"
 alias gcm="git checkout master"
@@ -34,18 +30,15 @@ alias gdm="git difftool master"
 alias gdf="git difftool feature"
 alias gspull="git subtree pull --prefix tester https://github.com/theoportlock/tester.git master --squash"
 alias gspush="git subtree push --prefix tester https://github.com/theoportlock/tester.git master" 
-alias umu="sudo umount /mnt"
 alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
 alias r='mv -t /tmp'
 alias poweroff="sync; poweroff"
 alias reboot="sync; reboot"
-alias pms="export PATH=$PATH:/home/theo/proteintools/scripts"
-alias pms-ls="ls ~/proteintools/scripts"
-alias starwars="telnet towel.blinkenlights.nl"
 alias wf="~/workforce/workforce.py"
 alias checktemp="watch -n 2 sensors"
+alias starwars="telnet towel.blinkenlights.nl"
 
 ## special functions
 c() {
