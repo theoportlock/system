@@ -1,35 +1,19 @@
 source $VIMRUNTIME/defaults.vim
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file (restore to previous version)
-  if has('persistent_undo')
-    set undofile	" keep an undo file (undo changes after closing)
-  endif
-endif
+nnoremap <SPACE> <Nop>
+let mapleader = " "
 
-if has("autocmd")
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-  augroup END
-else
-  set autoindent		" always set autoindenting on
-endif " has("autocmd")
+" indenting
+set autoindent
+set smartindent
 
 " For search cases
+set ignorecase
 set infercase
+set incsearch
 
 " Colouring
 syntax on
-
-" Start and end
-noremap <C-j> ^
-noremap <C-k> $
-noremap <C-l> %
 
 " Set encoding
 set encoding=utf-8
@@ -47,7 +31,6 @@ command! W w !sudo tee % > /dev/null
 set wildmenu
 set wildmode=full
 set wildcharm=<Tab>
-nnoremap <leader><Tab> :buffer<Space><Tab>
 
 " For the numbering
 set number
@@ -59,15 +42,32 @@ set hidden
 " For global defaults
 set gdefault
 
-" Run current script
+" File explorer
+let g:netrw_banner = 0
+let g:netrw_browse_split = 2
+let g:netrw_winsize = 25
+
+" Leader commands
+nnoremap <leader>a <esc>:Lexplore<enter>
+nnoremap <leader>; :w<enter>:let @" = expand("%")<CR> <bar> :silent !urxvt -hold -e bash --rcfile <(echo '. ~/.bashrc; ./%') & <CR> 
+nnoremap <leader>t <esc>:let @" = expand("%")<CR> <bar> :vert rightbelow term<CR>./<C-W>"0<CR>
+nnoremap <leader>lc :w<enter>:silent !urxvt -hold -e bash --rcfile <(echo '. ~/.bashrc; ./compile.sh') & <CR>
 nnoremap <F5> <esc>:w<enter>:!%:p<enter>
-inoremap <F5> <esc>:w<enter>:!%:p<enter>
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>p :bprevious<CR>
+nnoremap <leader>ss :setlocal spell!<CR>
+vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
+" vnoremap <leader>h :let @" = expand("%")<CR> <bar> :<C-U>!pydoc3 % <CR>
+" nnoremap <leader> H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
+
+" Normal mode for terminal
+tnoremap <F1> <C-W>N
 
 " For indenting wrapped text properly
 set breakindent
 set linebreak
 
-" make jk do esc
+" Make jk do esc
 inoremap jk <Esc>
 inoremap Jk <Esc>
 inoremap jK <Esc>
@@ -77,40 +77,34 @@ vnoremap jK <Esc>
 vnoremap Jk <Esc>
 vnoremap JK <Esc>
 
-" leader commands
-nnoremap <Leader>lr \ref()<Space>(<>)<Esc>T{i
-nnoremap <Leader>lc :! ~/system/scripts/compile %
-" others
-vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
 
-" set backups, swp, tmp
-set backupdir=~/.vim/backup/,/tmp//
-set directory=~/.vim/swap/,/tmp//
-set undodir=~/.vim/undo/,/tmp//
+" Set backups, swp, tmp
+set backupdir=~/.vim/tmp//
+set directory=~/.vim/tmp//
+set undodir=~/.vim/tmp//
+set undofile
 
 " Display name of file
 set statusline +=%{resolve(expand('%:p'))}\ %*
 
-" pyhelp
-nnoremap <buffer> H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
 
-" toggle spellcheck
-map <leader>ss :setlocal spell!<cr>
-
-" omnicomplete
+" Omnicomplete
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
-" cycle through buffers
-:nnoremap <C-n> :bnext<CR>
-:nnoremap <C-p> :bprevious<CR>
+" Omnicomplete remove popup
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-" mergetool for 1,2,3 for local base and remote
+" Vim mergetool 
 if &diff
     map <leader>1 :diffget LOCAL<CR>
     map <leader>2 :diffget BASE<CR>
     map <leader>3 :diffget REMOTE<CR>
 endif
+
+" Default to not read-only in vimdiff
+set noro
 
 " omnicomplete remove popup
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif

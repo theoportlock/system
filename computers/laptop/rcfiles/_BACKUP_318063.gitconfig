@@ -11,7 +11,8 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
-[merge]
-	tool = vimdiff
-[pull]
-	rebase = false
+<<<<<<< HEAD
+[alias]
+	d = difftool
+=======
+>>>>>>> db86e72c469f1d8d0b2e1ef72c9de6d9279e2ae0
