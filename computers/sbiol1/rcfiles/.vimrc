@@ -47,11 +47,19 @@ set gdefault
 let g:netrw_banner = 0
 let g:netrw_browse_split = 2
 let g:netrw_winsize = 25
-nnoremap <leader>a <esc>:Lexplore<enter>
 
-" Run current script
-nnoremap <leader>; <esc>:let @" = expand("%")<CR> <bar> :vert rightbelow term<CR>./<C-W>"0<CR>
+" Leader commands
+nnoremap <leader>a <esc>:Lexplore<enter>
+nnoremap <leader>; :w<enter>:let @" = expand("%")<CR> <bar> :silent !urxvt -hold -e bash --rcfile <(echo '. ~/.bashrc; ./%') & <CR> 
+nnoremap <leader>t <esc>:let @" = expand("%")<CR> <bar> :vert rightbelow term<CR>./<C-W>"0<CR>
+nnoremap <leader>lc :w<enter>:silent !urxvt -hold -e bash --rcfile <(echo '. ~/.bashrc; ./compile.sh') & <CR>
 nnoremap <F5> <esc>:w<enter>:!%:p<enter>
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>p :bprevious<CR>
+nnoremap <leader>ss :setlocal spell!<CR>
+vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
+" vnoremap <leader>h :let @" = expand("%")<CR> <bar> :<C-U>!pydoc3 % <CR>
+" nnoremap <leader> H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
 
 " Normal mode for terminal
 tnoremap <F1> <C-W>N
@@ -60,7 +68,7 @@ tnoremap <F1> <C-W>N
 set breakindent
 set linebreak
 
-" make jk do esc
+" Make jk do esc
 inoremap jk <Esc>
 inoremap Jk <Esc>
 inoremap jK <Esc>
@@ -70,12 +78,8 @@ vnoremap jK <Esc>
 vnoremap Jk <Esc>
 vnoremap JK <Esc>
 
-" leader commands
-nnoremap <Leader>lc :! ~/system/scripts/compile %
-" others
-vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
 
-" set backups, swp, tmp
+" Set backups, swp, tmp
 set backupdir=~/.vim/backup/,/tmp//
 set directory=~/.vim/swap/,/tmp//
 set undodir=~/.vim/undo/,/tmp//
@@ -84,27 +88,21 @@ set undofile
 " Display name of file
 set statusline +=%{resolve(expand('%:p'))}\ %*
 
-" pyhelp
-nnoremap <buffer> H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
 
-" toggle spellcheck
-map <leader>ss :setlocal spell!<cr>
-
-" omnicomplete
+" Omnicomplete
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
-" cycle through buffers
-:nnoremap <C-n> :bnext<CR>
-:nnoremap <C-p> :bprevious<CR>
+" Omnicomplete remove popup
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-" mergetool for 1,2,3 for local base and remote
+" Vim mergetool 
 if &diff
     map <leader>1 :diffget LOCAL<CR>
     map <leader>2 :diffget BASE<CR>
     map <leader>3 :diffget REMOTE<CR>
 endif
 
-" omnicomplete remove popup
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+" Default to not read-only in vimdiff
+set noro

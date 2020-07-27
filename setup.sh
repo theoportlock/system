@@ -48,7 +48,7 @@ then
 	cd &&
 	git clone https://github.com/theoportlock/thoughts.git ;
 	git clone https://github.com/theoportlock/tis.git ;
-	git clone https://github.com/theoportlock/tester.git ;
+	git clone https://github.com/theoportlock/workforce.git ;
 	git clone https://github.com/theoportlock/proteintools.git ;
 	git clone https://github.com/theoportlock/thesis.git ;
 	git clone https://github.com/theoportlock/notes.git ;
