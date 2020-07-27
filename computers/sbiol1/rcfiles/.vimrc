@@ -31,7 +31,6 @@ command! W w !sudo tee % > /dev/null
 set wildmenu
 set wildmode=full
 set wildcharm=<Tab>
-nnoremap <leader><Tab> :buffer<Space><Tab>
 
 " For the numbering
 set number
@@ -106,3 +105,7 @@ endif
 
 " Default to not read-only in vimdiff
 set noro
+
+" omnicomplete remove popup
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif

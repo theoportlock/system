@@ -5,7 +5,6 @@ setxkbmap us
 
 # shortcut aliases
 alias l='ls --color=auto'
-alias ra='ranger'
 alias v='vim'
 alias vi='vim'
 alias lock='i3lock -c 000000'
@@ -20,13 +19,10 @@ alias ch='chmod a+x'
 alias pi='sudo apt-get install'
 alias pu='sudo apt-get update && sudo apt-get upgrade'
 alias pr='sudo apt remove'
-alias tks='tmux kill-server'
+alias p='python3'
+alias ipython='python -m IPython'
 alias va='source venv/bin/activate'
 alias venv='python3 -m venv venv'
-alias janv5="/soft/scripts/jans_startup/lnv5"
-alias nv5="/soft/all/nmrview5.2.2/nv5"
-alias bbassign="/soft/all/nmrview5.2.2/nv5_bb"
-alias scassign="/soft/all/nmrview5.2.2/nv5_sc"
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 alias gs="git add .; git commit"
 alias gr="git add .;git reset --hard"
@@ -37,17 +33,20 @@ alias gcf="git checkout feature"
 alias gd="git difftool"
 alias gspull="git subtree pull --prefix tester https://github.com/theoportlock/tester.git master --squash"
 alias gspush="git subtree push --prefix tester https://github.com/theoportlock/tester.git master" 
-alias umu="sudo umount /mnt"
 alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
 alias poweroff="sync; poweroff"
 alias reboot="sync; reboot"
-alias starwars="telnet towel.blinkenlights.nl"
-alias ccpnmr="/soft/ccpnmr/bin/analysis"
 alias wf="~/workforce/workforce.py"
 alias checktemp="watch -n 2 sensors"
+alias starwars="telnet towel.blinkenlights.nl"
 
+alias janv5="/soft/scripts/jans_startup/lnv5"
+alias nv5="/soft/all/nmrview5.2.2/nv5"
+alias bbassign="/soft/all/nmrview5.2.2/nv5_bb"
+alias scassign="/soft/all/nmrview5.2.2/nv5_sc"
+alias ccpnmr="/soft/ccpnmr/bin/analysis"
 ## special functions
 c() {
     builtin cd "$@" && l 

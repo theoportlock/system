@@ -11,5 +11,7 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
+[merge]
+	tool = vimdiff
 [pull]
 	rebase = false
