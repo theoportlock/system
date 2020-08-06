@@ -79,9 +79,9 @@ vnoremap JK <Esc>
 
 
 " Set backups, swp, tmp
-set backupdir=~/.vim/backup/,/tmp//
-set directory=~/.vim/swap/,/tmp//
-set undodir=~/.vim/undo/,/tmp//
+set backupdir=~/.vim/tmp//
+set directory=~/.vim/tmp//
+set undodir=~/.vim/tmp//
 set undofile
 
 " Display name of file

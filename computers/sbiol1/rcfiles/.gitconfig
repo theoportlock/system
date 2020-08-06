@@ -15,3 +15,5 @@
 	tool = vimdiff
 [pull]
 	rebase = false
+[mergetool]
+	keepBackup = false
