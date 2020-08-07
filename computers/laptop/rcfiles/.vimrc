@@ -92,7 +92,7 @@ nnoremap <buffer> H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
 " toggle spellcheck
 map <leader>ss :setlocal spell!<cr>
 
-" omnicomplete
+" Omnicomplete
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
@@ -103,6 +103,12 @@ if &diff
     map <leader>3 :diffget REMOTE<CR>
 endif
 
+" Default to not read-only in vimdiff
+set noro
+
 " omnicomplete remove popup
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" proper yank function
+nnoremap Y y$

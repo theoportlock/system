@@ -109,3 +109,6 @@ set noro
 " omnicomplete remove popup
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" proper yank function
+nnoremap Y y$
