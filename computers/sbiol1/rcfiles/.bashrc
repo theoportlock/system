@@ -14,13 +14,14 @@ alias b='cd ../;l'
 alias r='mv -t /tmp'
 alias v='vim'
 alias p='python3'
+alias pt='python3 -m unittest'
 alias te='tar -xzvf'
 alias ch='chmod a+x'
 alias pi='sudo apt-get install'
 alias pu='sudo apt-get update && sudo apt-get upgrade'
 alias pr='sudo apt remove'
 alias p='python3'
-alias ipython='python -m IPython'
+alias ipython='python -m IPython --no-confirm-exit'
 alias va='source venv/bin/activate'
 alias venv='python3 -m venv venv'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
@@ -39,6 +40,7 @@ alias xc="xclip -sel clip"
 alias poweroff="sync; poweroff"
 alias reboot="sync; reboot"
 alias wf="~/workforce/workforce.py"
+alias kw="pkill -9 -f ~/workforce/workforce.py"
 alias checktemp="watch -n 2 sensors"
 alias starwars="telnet towel.blinkenlights.nl"
 
@@ -62,6 +64,10 @@ wiki() {
 
 # scripts
 export PATH=$PATH:~/system/scripts/
+
+# better autocomplete
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
 
 # change prompt colour
 git_branch() {

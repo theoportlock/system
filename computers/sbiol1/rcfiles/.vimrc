@@ -109,3 +109,14 @@ set noro
 " omnicomplete remove popup
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" trailing whitespaces
+" set listchars=trail:·
+" set list
+
+" Make Y yank till end of line
+nnoremap Y y$
+
+" Tag support
+set tagrelative
+set tags=./tags,tags;
