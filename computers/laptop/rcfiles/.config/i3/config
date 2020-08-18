@@ -13,11 +13,10 @@ bindsym $mod+q kill
 # start program
 bindsym $mod+Return exec --no-startup-id urxvt
 bindsym $mod+d exec dmenu_run
-bindsym $mod+c exec chromium
-bindsym $mod+m exec /home/theo/system/scripts/volup
-bindsym $mod+n exec /home/theo/system/scripts/voldown
+bindsym $mod+c exec google-chrome
 bindsym $mod+b exec /home/theo/system/scripts/changebrightness
 bindsym $mod+s exec /home/theo/system/scripts/screenshot
+bindsym $mod+m exec youtube-music-desktop-app
 
 # change focus
 bindsym $mod+h focus left
@@ -43,12 +42,8 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in orientation
-bindsym $mod+u split h
-bindsym $mod+i split v
-
 # remove title bar
-new_window 1pixel
+new_window pixel 2
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -56,7 +51,11 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+v layout stacking
 bindsym $mod+t layout tabbed
-bindsym $mod+o layout toggle split
+bindsym $mod+i layout toggle split
+
+# split in orientation
+bindsym $mod+y split h
+bindsym $mod+u split v
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -118,10 +117,10 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
  
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt

@@ -1,0 +1,4 @@
+#!/bin/bash
+name=$(sed -n -e 's/^name=//p' ~/.computer)
+files=~/system/computers/$name/rcfiles
+dirdiff $files ~

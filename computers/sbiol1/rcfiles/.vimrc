@@ -58,7 +58,8 @@ nnoremap <leader>p :bprevious<CR>
 nnoremap <leader>ss :setlocal spell!<CR>
 vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
 " vnoremap <leader>h :let @" = expand("%")<CR> <bar> :<C-U>!pydoc3 % <CR>
-" nnoremap <leader> H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
+" nnoremap <leader>H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
+nnoremap <leader>f :w<enter>:let @" = expand("%")<CR> <bar> :!flake8 %
 
 " Normal mode for terminal
 tnoremap <F1> <C-W>N
@@ -116,6 +117,10 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Make Y yank till end of line
 nnoremap Y y$
+
+" Python support
+" autocmd BufNewFile,BufRead *.py set textwidth=80
+" autocmd BufNewFile,BufRead *.py set formatoptions+=t
 
 " Tag support
 set tagrelative

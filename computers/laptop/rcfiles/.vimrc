@@ -58,7 +58,8 @@ nnoremap <leader>p :bprevious<CR>
 nnoremap <leader>ss :setlocal spell!<CR>
 vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
 " vnoremap <leader>h :let @" = expand("%")<CR> <bar> :<C-U>!pydoc3 % <CR>
-" nnoremap <leader> H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
+" nnoremap <leader>H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
+nnoremap <leader>f :w<enter>:let @" = expand("%")<CR> <bar> :!flake8 %
 
 " Normal mode for terminal
 tnoremap <F1> <C-W>N
@@ -77,26 +78,26 @@ vnoremap jK <Esc>
 vnoremap Jk <Esc>
 vnoremap JK <Esc>
 
-" set backups, swp, tmp
-set backupdir=~/.vim/backup/,/tmp//
-set directory=~/.vim/swap/,/tmp//
-set undodir=~/.vim/undo/,/tmp//
+
+" Set backups, swp, tmp
+set backupdir=~/.vim/tmp//
+set directory=~/.vim/tmp//
+set undodir=~/.vim/tmp//
 set undofile
 
 " Display name of file
 set statusline +=%{resolve(expand('%:p'))}\ %*
 
-" pyhelp
-nnoremap <buffer> H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
-
-" toggle spellcheck
-map <leader>ss :setlocal spell!<cr>
 
 " Omnicomplete
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 
-" mergetool for 1,2,3 for local base and remote
+" Omnicomplete remove popup
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" Vim mergetool 
 if &diff
     map <leader>1 :diffget LOCAL<CR>
     map <leader>2 :diffget BASE<CR>
@@ -110,5 +111,17 @@ set noro
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
-" proper yank function
+" trailing whitespaces
+" set listchars=trail:·
+" set list
+
+" Make Y yank till end of line
 nnoremap Y y$
+
+" Python support
+" autocmd BufNewFile,BufRead *.py set textwidth=80
+" autocmd BufNewFile,BufRead *.py set formatoptions+=t
+
+" Tag support
+set tagrelative
+set tags=./tags,tags;
