@@ -1,2 +1,0 @@
-#!/bin/bash
-amixer -q sset PCM 5+
