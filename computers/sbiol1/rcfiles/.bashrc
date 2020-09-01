@@ -42,7 +42,6 @@ alias xc="xclip -sel clip"
 alias poweroff="sync; poweroff"
 alias reboot="sync; reboot"
 alias wf="~/workforce/workforce.py"
-alias kw="pkill -9 -f ~/workforce/workforce.py"
 alias checktemp="watch -n 2 sensors"
 alias starwars="telnet towel.blinkenlights.nl"
 

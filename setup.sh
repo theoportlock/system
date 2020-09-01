@@ -1,4 +1,5 @@
 #!/bin/bash
+# need to change the copy rc files to hard links (ln)
 hostnam=$(hostname)
 
 # install programs and copy rc files from another computer
