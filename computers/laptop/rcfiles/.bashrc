@@ -32,8 +32,6 @@ alias gpull="git pull --all"
 alias gcm="git checkout master"
 alias gcf="git checkout feature"
 alias gd="git difftool"
-alias gdm="git difftool master"
-alias gdf="git difftool feature"
 alias gspull="git subtree pull --prefix tester https://github.com/theoportlock/tester.git master --squash"
 alias gspush="git subtree push --prefix tester https://github.com/theoportlock/tester.git master" 
 alias f="find . -iname"
@@ -66,7 +64,6 @@ export PYTHONBREAKPOINT=ipdb.set_trace
 
 # better autocomplete
 bind 'set show-all-if-ambiguous on'
-bind 'TAB:menu-complete'
 
 # change prompt colour
 git_branch() {
