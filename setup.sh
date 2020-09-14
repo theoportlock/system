@@ -45,15 +45,9 @@ then
 fi
 
 if [[ $install_git_repositories == "y" ]]
-then
-	cd &&
-	git clone https://github.com/theoportlock/thoughts.git ;
-	git clone https://github.com/theoportlock/tis.git ;
-	git clone https://github.com/theoportlock/workforce.git ;
-	git clone https://github.com/theoportlock/proteintools.git ;
-	git clone https://github.com/theoportlock/thesis.git ;
-	git clone https://github.com/theoportlock/notes.git ;
-	git clone https://github.com/theoportlock/todo.git
+while read repo; do
+    git clone "$repo"
+done < ~/system/computers/$copy_computer_profile_name/programs/gitlist 
 fi
 
 # history settings
