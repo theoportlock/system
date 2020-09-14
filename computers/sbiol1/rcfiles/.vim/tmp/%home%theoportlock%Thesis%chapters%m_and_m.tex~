@@ -1,0 +1,178 @@
+\chapter{Materials and Methods}
+\section{Materials}
+\section{Methods}
+\subsection{Bioinformatic analyses}
+DNA and amino acid sequences were analysed using BLAST REF. Were analysed using biopython protparam REF
+
+\subsection{Cloning}
+SHOULD HAVE SOMETHING ABOUT PET EXPRESSION SYSTEMS
+PROBABLY COULD INCLUDE FIGURES IN HERE TOO
+NEED TO INCLUDE MUTAGENESIS AND SPR STUFF
+NEED TO INCLUDE MEDIA RECIPES
+MAYBE HAVE SOME TABLE WITH OPTIMISED GROWTH CONDITIONS AND INFO IN SUPPL
+SAY A FULL SET OF PROTOCOLS CAN BE FOUND ON GITHUB ETC
+METHODS INTRODUCTION?
+
+\subsubsection{PCR reaction and programs}
+A 10 nM stock of each primer was prepared using milliQ H2O filtered with the Milli-Q purification system (Sigma) to a resistivity at 25 \degree C of 18.2 M Omega cm. PCR reactions were conducted according to the “PCR Using Q5 \textsuperscript{\textcopyright} High-Fidelity DNA Polymerase (M0491)” (NEB) protocol using the PCR thermal cycler (BIO-RAD) and template DNA sourced from Legionella pneumophila strain 130b (Wadsworth) (Schroeder et al., 2010)
+
+\subsubsection{DNA purity analysis}
+DNA purity was estimated from the A260/A280 ratio.
+
+\subsubsection{Restriction enzyme digestion}
+DNA was digested according to the New England Biolabs protocols
+
+\subsubsection{Sticky-end ligation reactions}
+DNA fragments were ligated using T4 DNA ligase for New England Biolabs and according to their protocols
+
+\subsubsection{In-Fusion cloning}
+In-Fusion cloning method for TAKARA was undertaken according to their protocols
+
+\subsection{Bacterial transformation}
+BL21 DE3 E. coli competent cells from New England Biolabs were transformed according to the manufacturers instructions
+Bacterial Growth was measured at 3 timepoints and estimated
+
+\subsection{Autoinduced protein expression}
+Inoculate 500 ml of LB/YT/TB containing 1 g lactose and 0.25 g of glucose
+Grow for 24 hrs at 30 \degree C at 300 RPM and harvest the cells by centrifugation at 4 \degree C and 5000 RPM for 15 mins. Cell pellets can then be frozen.
+
+\subsection{IPTG induced protein expression}
+Inoculate 10 ml of LB (with appropriate antibiotic) with a single colony of cells.
+Grow overnight at 37 \degree C whilst shaking at 200 RPM
+Inoculate 0.5 L of LB/YT/TB/Minimal Media containing antibiotic, with the overnight culture.
+Bacterial growth was measured at three timepoints after innoculation. From this, the following equation was used to model the logistic growth as to accurately estimate the timepoint at which the bacteria will approach midexponential phase.
+Grow at 37 \degree C at 300 RPM until an OD600 nm = 0.7 has been reached and then induce expression (use 0.5 mM IPTG for pET vectors or 0.2\% L-arabinose for pBAD vectors; if co-expressing with both use both IPTG and L-arabinose)  
+Grow overnight at 18 \degree C whilst shaking at 200 RPM
+
+\subsection{Protein Purification}
+Resuspend cell pellets in 30 ml of lysis buffer per 1 L of cell culture pellet and pour into centrifuge tubes
+Lyse cells by sonication (tubes cooled in a beaker containing an ethanol ice mix for 3 mins, 2 second on, 2 second off pulses) or by cell disruption (chill cell disrupter 10 mins before, wash, and lyse cells at 20-30 KPSI)
+Centrifuge at 15000 rpm for 30 min at 4 \degree C
+Wash NiNTA column with 10 CV dH2O, 10 CV 50 mM NiCl, and 20 CV 1x Wash buffer respectively
+Load the supernatant and wash with 20 CV 1x Wash buffer
+Elute with 5 CV 1x elution buffer and collect into 50 ml falcon tube
+Strip column with 10 CV strip buffer, then store in 20\% EtOH.
+Filter and degas 20\% EtOH, dH2O, and Gel filtration buffer
+Wash the Gel Filtration column with 1 CV dH2O (0.3 mPa pressure limit, 1.0 ml/min for s200 column) then 2 CV of Gel filtration buffer (0.3 mPa pressure limit, 2.0 ml/min for s200 column)
+Inject sample onto the column and run at flow rate of 2 ml/min collecting 3 ml fraction for 1 CV 
+Collect appropriate fractions for SDS PAGE, store in fridge, wash the GF column in 1 CV dH2O and store in 1 CV 20\% EtOH
+Protein Purification - Purification began with the addition of 10 ml of Lysis buffer (1X TBS, 5 mM MgCl2,\SI{6}{\micro\gram\per\milli\metre} lysozyme (Sigma Aldrich™), \SI{1}{\micro\gram\per\milli\metre} DNaseI (Sigma Aldrich™)) to the cell pellets and left to homogenize with agitation until resuspended. Cell cultures were placed on ice and sonicated on ice (90 secs/L, 20W, 1 sec pulse). Lysed cells were centrifuged at 15000 RPM for 30 mins at 4 \degree C. A gravity column containing 2 ml of nickel-nitrilotriacetate resin was equilibrated with 10 Column Volumes (CV) of wash buffer (300 mM NaCl, 20 mM Tris pH 8.0, 50 mM imidazole). Supernatant was loaded onto the column and washed with 30 CV of wash buffer. Proteins were retrieved using 5 CV of elution buffer (300 mM NaCl, 20 mM Tris pH 8.0, 500 mM Imidazole). Protein samples were concentrated to 3 ml and injected individually onto a gel filtration Superdex p200 column preequilibrated with gel filtration buffer (20 mM Tris-HCl pH 8.0, 200 mM NaCl for crystal trials and 20 mM Sodium Phosphate pH 7.0, 100 mM NaCl for NMR experiments). Proteins were excluded by size at a flow rate of 2 ml/min, collecting 3 ml fractions at 0.3 mPa of pressure. Fractions with the highest UV absorbance were analyzed using 12\% Acrylamide/bis SDS PAGE and were pooled.
+
+Buffers - 
+5x Wash buffer = 100 mM Tris pH 8, 1.5 M NaCl, 100 mM imidazole, appropriate detergent (membrane protein purification only)
+5x Elution buffer = 100 mM Tris pH 8, 1.5 M NaCl, 1.5 M imidazole, appropriate detergent (membrane protein purification only)
+Lysis buffer = 1x Wash buffer including ,5 mM MgCl2, \SI{6}{\micro\gram\per\milli\metre} lysozyme (Sigma), \SI{1}{\micro\gram\per\milli\metre} DNaseI (Sigma)
+Tris Gel Filtration buffer = 20 mM Tris pH 8, 200 mM NaCl
+HEPES Gel Filtration buffer = 10 mM HEPES pH 7.4, 150 mM NaCl
+Phosphate GF buffer = 50 mM NaCl, 20 mM Sodium phosphate (use online phosphate buffer calculator)
+Nickel Charge buffer = 50 mM NiCl2
+Strip buffer = 100 mM EDTA
+Membrane Extraction buffer = 20 mM Tris pH8, 500 mM NaCl, 10\% Glycerol, 10mM Imidozole, 1.5\% DDM
+
+\subsection{Protein purity analylsis}
+The Biorad REF gel electrophoresis set was followed according to protocol (GIVE NUMBER). BRAND OF GELS AND PERCENTAGE AGAROSE USED. ALSO PROVIDE TABLE WITH THE COMPOSITION OF THE GEL
+Electrophoresis was performed using 180 V in running buffer
+
+\subsection{Determination of protein concentration}
+
+\subsection{Protein NMR experiments}
+assigning side chain amide on hsqc using hbha and noesy
+getting the beta and gamma protons in glutamine (2 strips(Hb1,Hb2,Hg1,Hg2))
+getting the alpha and beta protons in asparagine (2 strips(Hb1,Hb2,Ha))
+
+\subsubsection{Sample preparation}
+Optimize and pick a suitable condition for the titration with regards to the following variables:
+Buffer
+Salt – low as possible while maintaining protein stability (check by incubating protein O/N at room temperature and running SDS PAGE)
+pH – low as possible, also not equal to or between the theoretical pI of labelled protein and titrant
+Buffering agent – not tris (or any other buffer with exchangeable protons)
+Bear in mind that you will be adding up to 10\% D2O so adjust buffer content concentrations to account for this dilution Additives that should be considered: Replacing some or all of the salt with an Arg-Glu mix (magic mix) (around 50 mM) has been shown to increase sensitivity. Small amounts of glycerol can be added if needed (<5\%)
+Additives that should not be considered: DTT, EDTA, SDS, and DPC all have exchangeable protons
+Tube – Shigemi for volumes of around 310 ul (2 cm) and above, regular glass tube for volumes of 600 ul and above (4 cm)
+Temperature
+Experiment dependent (310 K (37 degrees C) is often preferred)
+Protein dependent (melting point and aggregation must be considered)
+Time 
+Number of scans, titration points, and other factors influencing experimental time using the spectrometer should be optimized prior 
+
+\subsubsection{Data processing}
+
+\subsubsection{Peak assignment}
+
+\subsubsection{Structure calculation}
+
+\subsubsection{Titration}
+
+\paragraph{Collecting the reference spectra data}
+Concentrate titrant and labelled protein as much as possible
+Add D2O to each sample so that the final volume is 10\% D2O according to this calculation:
+V1 = Volume of protein, V2 = Amount of D2O to add
+%V_1+0.1*(V_1+V_2)=V_1+V_2
+%0.1*V_1+0.1*V_2=V_2
+%0.1*V_1=0.9*V_2
+%V_2=V_1/9
+Decide on an appropriate reference concentration that will allow you to produce the sharpest spectra whilst simultaneously allowing you to achieve the highest molar ratio of titrant
+Create a 1 ml stock of buffer + D2O by adding 0.1 ml of D2O to 0.9 ml of the chosen buffer.
+Using this buffer, create the reference sample and collect HSQC data.
+\par
+
+\paragraph{Collecting the titration data}
+Check that the reference spectra is suitable (good sharp peaks around 15-20 contours above noise, ideally not much degradation) 
+To remove the dilution effect of the titrant on the 15N labelled sample, add stock 15N sample to the stock titrant up to the concentration of the reference sample using the following calculation:
+C1 = Stock 15N protein concentration, V1 = amount of Stock to add, C2 = Adjusted titrant 15N protein concentration, V2 =  Volume of stock titrant
+\[C_1*V_1=C_2*V_1+V_2\]
+\[C_1*V_1=C_2*V_1+C_2*V_2\]
+\[C_1*V_1-C_2*V_1=C_2*V_2\]
+\[V_1*C_1-C_2=C_2*V_2\]
+\[V_1=(C_2*V_2)/(C_1-C_2 )\]
+alculate the volume of adjusted titrant required to replace the previous sample to create any given molar ratio using the following calculation:
+C1 = Adjusted titrant stock concentration, V1 = Volume of adjusted titrant stock to replace previous sample, C2 = Previous sample titrant concentration, C3 = New target titrant concentration, V3 = Target sample volume
+\[C1*V1+C2*V3-V1=C3*V3\]
+\[C1*V1+C2*V3-C2*V1=C3*V3\]
+\[C1*V1-C2*V1=C3*V3-C2*V3\]
+\[V1*C1-C2=V3*C3-C2\]
+\[V1=V3*(C3-C2)C1-C2\]
+In order to plan efficient use of all titrant, construct a table with the variables “Experiment Order”, “Molar excess”, “Titrant concentration”, and “Replacement volume of titrant” with the “Replacement volume of titrant” calculated using the prior equation. An example data set would look like the following:
+\begin{table}[]
+\centering
+\begin{tabular}{cccc}
+Experiment Order&Molar excess&Titrant concentration (mM)&Replacement Volume of titrant (uL)\\
+                1&            0&                          0&-\\
+                2&            1&                          0&                                100\\
+                3&            2&                          1&                                200\\
+                4&            3&                          1&                                400
+\end{tabular}
+\end{table}
+For the proposed example, the volume of adjusted titrant stock required is calculated by taking the sum of all required titratrant additions for all titration experiments as follows:
+%V3*(C3-C2)C1-C2
+If this value is greater than the volume of adjusted titrant stock then a new set of titrations with a lower number of experiments or lower molar excess must be planned. 
+Each new titration should be prepared in the following manner:
+\par
+
+\begin{center}
+\includegraphics[scale=0.4]{figures/titration_schematic.jpg}
+\end{center}
+Remove the previous sample, pipette into an eppendorf and keep on ice.
+Into a new labelled eppendorf tube on ice, add both the calculated volume of titrant and newly calculated volume of previous sample.
+Mix and pipette into NMR tube for data collection.
+\paragraph{Weighted chemical shift pertubation calculations}
+\par
+
+\subsubsection{Spin labelling}
+Spin labels used:
+Materials section table
+0.2 mM of 15N labelled protein
+Find saturation
+Example calculation of spin label required:
+For 10X, 2 mM is needed
+For a 500 ul 
+
+\subsubsection{PRE driven protein-protein docking}
+Protein docking was simulated using the program HADDOCK REF 
+guided by nmr titration, mutagenesis, and relaxation data etc
+A bit about AIRS
+talk fancy maths
+add the protocol in the supplimentary
+
+
+\subsection{Surface plasmon resonance}

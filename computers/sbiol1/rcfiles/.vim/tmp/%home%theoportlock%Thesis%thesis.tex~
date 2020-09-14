@@ -1,0 +1,47 @@
+\documentclass{report}
+\usepackage{apacite}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage{siunitx}
+
+\title{Title}
+\author{Theo Portlock}
+\begin{document}
+\frontmatter
+\maketitle
+
+\chapter{Abstract}
+The bacterial type II secretion system (T2SS) is a multiprotein assembly that ejects folded protein substrates from the periplasm into the extracellular milieu. These substrates are essential for pathogenesis in humans, animals and plants. Although much is known about the structures of the compositional proteins of the system, recognition and recruitment of substrates by the system is a poorly understood process. Observation of binding between putative substrates and the periplasmic elements of the secretin GspD as well as the inner membrane platform protein GspC has implied their importance in performing this task. In this study, the structure of the N0 domain of the \emph{Legionella pneumophila} homologue of GspD (LspD), the TMHRHR region of GspC (LspC), and the substrate NttA were solved by solution NMR. Then, through computationally docking the system elements and NttA, guided by NMR titration data, a recognition complex was characterised revealing amino acid residues essential for binding. This study suggests a novel pharmacophore model that can ultimately be used in the antibiotic drug design of inhibitors to the formation of the recognition complex. Hypothetical recognition mechanisms that align with both binding analysis data and previously published works will be suggested.
+
+\chapter{Dedication}
+I dedicate this work to my supportive family and lab
+
+\chapter{Declaration}
+I declare that no conflicts of interest
+
+\chapter{Acknowledgements}
+I acknowledge blah blah
+
+\tableofcontents{}
+\listoffigures
+\listoftables
+\mainmatter
+\include{chapters/introduction}
+\include{chapters/nmr_theory}
+\include{chapters/m_and_m}
+\include{chapters/interactions}
+\include{chapters/t2ss_structures}
+\include{chapters/recognition_complexes}
+\include{chapters/discussion}
+
+\backmatter
+\chapter{Acknowledgements}
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{apacite}
+\bibliography{library}
+
+\appendix
+\chapter{appendix one}
+\include{chapters/appendix}
+\end{document}

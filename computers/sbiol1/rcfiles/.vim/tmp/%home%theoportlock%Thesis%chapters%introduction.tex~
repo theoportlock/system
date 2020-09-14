@@ -1,0 +1,65 @@
+\chapter{Introduction}
+
+MAYBE SOMETHING TO DO WITH EXPLAINING DIFFERENCE BETWEEN GRAM NEGATIVE AND POSITIVE? LIKE Structural studies of the Dickeya dadantii type II secretion system protein GspB. THIS INTRODUCES SECRETION SYSTEMS NICELY
+\section{Antibiotics}
+\subsection{A brief history of antibiotics}
+\subsection{Bacterial achilles heels}
+\subsection{Antibiotic resistance}
+\section{Bacterial secretion systems}
+\section{Legionella}
+\subsection{Discovery of the Legionella}
+\subsection{The lifecycle of a Legionella bacterium}
+\subsection{Legionella pathology}
+
+The undeniable success of antibiotics of the twentieth century has brought along with it a misguided sense of closure to the field. As a consequence of this complacency, funding into the design and development of novel antibiotic classes was severely reduced \cite{culotta1994}. Indiscriminate antibiotic prescription by health care professionals, overuse in agriculture and industry, in addition to global transport connectivity has selectively resulted in the initial bacterial acquisition of antibiotic resistance genes (Laxminarayan, 2014). The increase in infection incidence of drug resistant strains of bacteria is a major threat to mankind and poses a genuine global crisis to human health that can be remedied only through a better understanding of bacterial resistance mechanisms.
+
+Legionella pneumophila is an aquatic aerobic Gram-negative rod class of bacteria that have been observed in some strains to harbor a resistance to most conventionally prescribed antibiotic therapies (Moffie and Mouton, 1988). In addition to this, resistance to chlorine treatments ubiquitously used as a disinfectant has been observed (Storey et al., 2004). This bacterial species is an opportunistic human pathogen and plays a key role in chronic infectious diseases such as Pneumonia, Pontiac fever (Febrile illness) and chronic wounds which, without treatment, can lead to mortality (Brenner, Steigerwalt and McDade, 1979). The Type 2 secret;ion system (T2SS) and the Type 4 secretion system (T4SS) are two virulence factors employed by L. pneumophila that are crucial for pathogenesis.
+
+Legionella pneumophila are an aquatic aerobic Gram-negative rod class of bacteria that have been observed in some strains to harbor a resistance to most conventionally prescribed antibiotic therapies. The bacteria employs both of the aforementioned protection mechanisms and so is a valuable organism for understanding multiple aspects of bacterial virulence. The natural habitat of Legionella is within freshwater environments between the temperatures of 25-42 $^\circ$C. Amoeba of the genera Acanthamoeba and Naegleria typically feed on bacterial biofilm but when they encounter Legionella, the bacteria exploits the amoeba by evading coiling phagocytosis through the use of the Dot/Icm type IV B and Type 2 secretion systems (Rowbotham, 1993; Rowbotham et al., 1980; Ohno et al., 2008). Once in the intracellular environment, this system releases effector proteins from the resultant stationary-phase Legionella containing vacuole that prevent lysosome - phagosome fusion and consequential Legionella cell death. At temperatures of 20 $^\circ$C or less, amoeba enter an encystation differentiation process that actively digests Legionella thus ending the host-parasite relationship (Ohno et al., 2008). However, if the amoeba are subjected to an environmental stress (e.g. during an increase in temperature to over 20 $^\circ$C), Legionella activate the global regulator gene csrA resulting in rapid reproduction by binary fission (Molofsky and Swanson, 2003). The LCV then recruits mitochondria and ribosomes causing the fusion of vesicles from the Golgi apparatus thus stabilizing the membrane during rapid growth. At this point, Legionella cells can then either exocytose from amoeba within protective vacuoles and continue to propagate infection, or escape the phagosome, replicate within the cytosol and cause necrosis of the amoeba thereby releasing Legionella into the extracellular environment (Molmeret et al., 2004)
+
+\section{The legionella T2SS}
+
+SOME FIGURE WITH ANCESTRY FOR FULL SYSTEM AND COMPARISON WITH T4SS 
+TALK ABOUT SUPERSCRIPT NOTATION FOR PROTEIN NAMING EG GSPC^LSPC
+PROTEIN DOMAIN IMAGE MAKER IN PYTHON OR SOMETHING
+
+The Type 2 Secretion System (T2SS) is a transmembrane protein assembly used to export substrates from the periplasm, across the Outer Membrane (OM) and into the surrounding extracellular millieu. A number of these substrates provide the means to switch growth pattern to a biofilm formation enabling evasion of the immune reaction of an infected host, evasion of antibiotic therapy, in addition to other virulent characteristics. A functioning T2SS is crucial for bacterial virulence, survival, and the capacity to thrive in a number of environments (Söderberg et al., 2008). 
+
+The fifteen composite proteins of the T2SS, referred to as the Legionella secretory pathway (Lsp) associate to form four main subassemblies: the inner membrane (IM) platform (comprised of proteins LspC, LspF, LspL and LspM), the OM secretin complex (a dodecamer of LspD), the pseudopilus (comprised of pseudopillin proteins LspG, LspH, LspI, LspJ, and LspK), and the cytoplasmic ATPase (LspE) (Fig. 1).
+
+The secretion mechanism is a multistep process that begins with the translocation of cytoplasmic exoproteins into the periplasm. This process is mediated either using the TAT translocon, whereby folded substrates are translocated, or the SEC translocon, whereby unfolded substrates are translocated into the periplasm where they are subsequently folded (Kudva et al., 2013). The IM platform subassembly interacts with all other subassemblies. Recognition of substrates by periplasmic facing elements including those found in the IM platform triggers signaling by allosteric modification to the other subassemblies of the system (Fig. 2). After associating with the tip region of the pseudopilus subassembly, the substrate is forced out of the OM through rapid polymerization of pseudopilus, ejecting the substrate from the system through the OM complex in a hypothetical syringe like mechanism (Douzi et al., 2011). Extension of this pseudopilus is driven by the cytoplasmic ATPase subassembly that provides the system with chemical energy. Once secretion is complete, the pseudopillin structure has been suggested to depolymerize thereby resetting the secretion process although this process is yet to be fully characterized (Forsberg and Guina, 2007).
+
+Figure 1: Hypothetical model of the T2SS in L. pneumophila using their assumed locations and interactions within the system alongside the substrate NttA (Based on a figure by McLaughlin, Haft and Forest, (2012). NttA structure provided by Dr James Garnett. LspD structure adapted from Yan et al. (2017).
+
+Figure 2: Schematic representation of the proteins in the L. pneumophila T2SS that are likely candidates for providing specificity of substrate secretion to the system
+
+\subsection{The inner membrane platform}
+\paragraph{LspL}
+Nature paper that shows how GspL oligomerises in the system
+\cite{fulara2018structure}
+
+\paragraph{LspM}
+\paragraph{LspC}
+\paragraph{LspF}
+\subsection{The ATPase}
+\paragraph{LspE}
+ENERGISES
+\subsection{The pseudopillus}
+\paragraph{The tip complex}
+\paragraph{lspG}
+\subsection{The secretin}
+
+\section{Substrates of the Legionella T2SS}
+
+\cite{debroy2006legionella}
+The discovery of 20 substrates of the T2SS secretome. Also showed how ChiA mutants were unable to infect
+
+The large variety of secretion systems found in Gram negative bacteria results in the large variety of specific protein structures that bacteria can export (Fig. 3). As the proteins that the T2SS secretes are generally highly oligomeric and contain disulphide bonds with complex cofactors, the proteins must enter the periplasm first. Legionella T2SS exports 25 known, and 35 additional predicted substrates as identified using two dimensional proteomic analysis (Cianciotto, 2009; Vandersmissen et al., 2010). Substrates have been demonstrated to play a role in subversion of host immune responses, enabling the formation of biofilm, scavenging nutrients from the extracellular milieu, and toxin production (Ball et al., 2002). With the intrinsic specificity of substrate secretion, a recognition sequence on the folded substrate sequence is implied but, not as of yet, determined. In L. pneumophila, there are key structural differences in the domains of LspC when compared to other orthologues. These differences have been proposed as an explanation to the greater variety of substrates L. pneumophila are able to secrete using its T2SS. A key structural distinction between the T2SS of L. pneumophila is evident by the lack of a PDZ domain ordinarily located after the HR domain in LspC (Fig. 2).
+
+Figure 3: Structures of T2SS substrates solved previously in the group using X-ray crystallography. A) 02811 dimer. B) NttC monomer. C) 10421 dimer. D) C-terminal domain of Legionella Collagen-like protein trimer. E) NttA monomer. F) SAXS model of ChiA monomer
+
+Within the Legionella secretome lies virulence factors that remain to be poorly defined. Legionella Collagen-like protein (Lcl) is an immunogenic glycosaminoglycan binding adhesin exclusively secreted by Legionella. This substrate can be found docked to the OM, or secreted extracellularly promoting interactions with lung epithelial cells and itself resulting in the exacerbation of biofilm in the presence of divalent cations (Vandersmissen et al., 2010; Duncan et al., 2011). ChiA is known to be secreted by the T2SS and has been shown to increase intracellular survival in infected mice resulting in an antibody response (DebRoy et al., 2006). NttA and NttC are substrates of the T2SS that have no similarity to any known proteins and when either are knocked out, intracellular multiplication was impaired (Tyson et al., 2013; Tyson, Vargas and Cianciotto, 2014). 
+
+The specificity of the T2SS suggests the recognition of a three dimensional structural motif however to this date, no such motif has been confirmed  (Pineau et al., 2014). Previous NMR data obtained in the group has demonstrated an interaction between a three dimensional signal sequence on a number of substrates of the T2SS and TMHR region of LspC (Table 1). 
+
+Table 1: Interaction profile of LspC TMHR and LspD N0 with putative T2SS substrates.
