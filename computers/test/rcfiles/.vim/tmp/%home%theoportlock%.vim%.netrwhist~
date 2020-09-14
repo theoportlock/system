@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/theoportlock/data/nmr/ntta/relax2/102'
+let g:netrw_dirhist_2='/home/theoportlock/data/nmr/ntta/relax2'
+let g:netrw_dirhist_3='/home/theoportlock/data/nmr/ntta/ccpnmr/run48analysis'
+let g:netrw_dirhist_4='/home/theoportlock/.vimtmp'
+let g:netrw_dirhist_5='/home/theoportlock/todo'
+let g:netrw_dirhist_6='/home/theoportlock/Thesis'
+let g:netrw_dirhist_7='/home/theoportlock/.ssh'
