@@ -1,10 +1,10 @@
 #!/bin/bash
 # need to change the copy rc files to hard links (ln)
-echo 'Input computer name'
-read hostnam
 
 # wificard=$(ip link | grep -m 1 -o "w\w\+[^:]")
 if [[ ! -e ~/.computer ]]; then
+	echo 'Input computer name'
+	read hostnam
 	echo "name=$hostnam" >> ~/.computer
 	# echo "wifi_card=$wificard" >> ~/.computer
 	echo "copy_computer_profile_name=" >> ~/.computer
