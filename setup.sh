@@ -1,13 +1,12 @@
 #!/bin/bash
 # need to change the copy rc files to hard links (ln)
-hostnam=$(hostname)
+echo 'Input computer name'
+read hostnam
 
-# install programs and copy rc files from another computer
-hostnam=$(hostname)
-wificard=$(ip link | grep -m 1 -o "w\w\+[^:]")
+# wificard=$(ip link | grep -m 1 -o "w\w\+[^:]")
 if [[ ! -e ~/.computer ]]; then
 	echo "name=$hostnam" >> ~/.computer
-	echo "wifi_card=$wificard" >> ~/.computer
+	# echo "wifi_card=$wificard" >> ~/.computer
 	echo "copy_computer_profile_name=" >> ~/.computer
 	echo "package_manager_install_command=" >> ~/.computer
 	echo "copy_rcfiles=n" >> ~/.computer
@@ -45,9 +44,10 @@ then
 fi
 
 if [[ $install_git_repositories == "y" ]]
-while read repo; do
-    git clone "$repo"
-done < ~/system/computers/$copy_computer_profile_name/programs/gitlist 
+then
+	while read repo; do
+	    git clone "$repo"
+	done < ~/system/computers/$copy_computer_profile_name/programs/gitlist 
 fi
 
 # history settings
@@ -55,7 +55,7 @@ shopt -s histappend &&
 shopt -s cmdhist
 
 # stats
-screenfetch -Nn > ~/system/computers/$hostnam/stats
+# screenfetch -Nn > ~/system/computers/$hostnam/stats
 
 # copy current packages
-sudo dpkg-query -f '${binary:Package}\n' -W > ~/system/computers/$hostnam/programlist
+# sudo dpkg-query -f '${binary:Package}\n' -W > ~/system/computers/$hostnam/programlist
