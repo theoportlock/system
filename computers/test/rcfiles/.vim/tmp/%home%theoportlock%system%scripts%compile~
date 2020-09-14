@@ -1,7 +1,0 @@
-#!/bin/bash
-nam=$(echo $1 | cut -f 1 -d  '.')
-pdflatex $1 && 
-bibtex $nam && 
-pdflatex $1 && 
-pdflatex $1 & 
-zathura $nam.pdf &

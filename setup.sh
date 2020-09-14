@@ -29,6 +29,7 @@ mkdir -p ~/system/computers/$hostnam && cp -r ~/system/computers/$copy_computer_
 if [[ $copy_rcfiles == "y" ]]
 then
 	cp -a ~/system/computers/$hostnam/rcfiles/. ~
+	mkdir -p ~/.vim/tmp
 	source ~/.bashrc
 	# ln -s ~/system/computers/$hostnam/rcfiles/. ~
 fi
