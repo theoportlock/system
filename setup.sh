@@ -3,7 +3,7 @@
 if [[ ! -e ~/.computer ]]; then
 	# wificard=$(ip link | grep -m 1 -o "w\w\+[^:]")
 	# echo "wifi_card=$wificard" >> ~/.computer
-	echo 'Input computer name'
+	printf 'Input computer name'
 	read hostnam
 	echo "name=$hostnam" >> ~/.computer
 	echo "copy_computer_profile_name=" >> ~/.computer
@@ -25,49 +25,50 @@ install_git_repositories=$(sed -n -e 's/^install_git_repositories=//p' ~/.comput
 
 # setup computer
 if [[ ! -e ~/system/computers/$hostnam ]]; then
-	echo "Creating new machine profile"
+	printf "Creating new machine profile"
 	mkdir -p ~/system/computers/$hostnam && cp -r ~/system/computers/$copy_computer_profile_name/* ~/system/computers/$hostnam
-	echo "Done\n"
+	printf "Done\n"
 fi
 
 if [[ $copy_rcfiles == "y" ]]
 then
-	echo "Copying rc files"
+	printf "Copying rc files"
 	cp -a ~/system/computers/$hostnam/rcfiles/. ~
 	mkdir -p ~/.vim/tmp
 	# ln -s ~/system/computers/$hostnam/rcfiles/. ~
-	echo "Done\n"
+	printf "Done\n"
 fi
 
 if [[ $install_bash_programs == "y" ]]
 then
-	echo "Installing bash programs"
+	printf "Installing bash programs"
 	xargs -a ~/system/computers/$hostnam/programs/bashlist $package_manager_install_command
-	echo "Done\n"
+	printf "Done\n"
 fi
 
 if [[ $install_pip_programs == "y" ]]
 then
-	echo "Installing python-pip programs"
+	printf "Installing python-pip programs"
 	pip install -r ~/system/computers/$hostnam/programs/pythonlist 
-	echo "Done\n"
+	printf "Done\n"
 fi
 
 if [[ $install_git_repositories == "y" ]]
 then
-	echo "Installing git programs"
+	printf "Installing git programs"
 	while read repo; do
 	    git clone "$repo"
 	done < ~/system/computers/$hostnam/programs/gitlist 
-	echo "Done\n"
+	printf "Done\n"
 fi
 
 # history settings
 shopt -s histappend &&
 shopt -s cmdhist
 
-echo "Completed"
+printf "Completed\n"
 # stats
 # screenfetch -Nn > ~/system/computers/$hostnam/stats
 # copy current packages
 # dpkg-query -f '${binary:Package}\n' -W > ~/system/computers/$hostnam/programlist
+# pip freeze | sed s/=.*// > piplist
