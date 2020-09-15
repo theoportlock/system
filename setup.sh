@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# quits out on error
-set -e
-
 if [[ ! -e ~/.computer ]]; then
 	# wificard=$(ip link | grep -m 1 -o "w\w\+[^:]")
 	# echo "wifi_card=$wificard" >> ~/.computer
