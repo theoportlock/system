@@ -1,5 +1,4 @@
 #!/bin/bash
-
 if [[ ! -e ~/.computer ]]; then
 	# wificard=$(ip link | grep -m 1 -o "w\w\+[^:]")
 	# echo "wifi_card=$wificard" >> ~/.computer
@@ -65,8 +64,8 @@ fi
 # history settings
 shopt -s histappend &&
 shopt -s cmdhist
-
 printf "Completed\n"
+
 # stats
 # screenfetch -Nn > ~/system/computers/$hostnam/stats
 # copy current packages

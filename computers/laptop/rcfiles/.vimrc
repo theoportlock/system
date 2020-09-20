@@ -87,6 +87,8 @@ set undofile
 " Display name of file
 set statusline +=%{resolve(expand('%:p'))}\ %*
 
+" Remove folding from vimdiff
+set nofoldenable
 
 " Omnicomplete
 filetype plugin on
