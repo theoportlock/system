@@ -43,17 +43,26 @@ alias wf="~/workforce/workforce.py"
 alias checktemp="watch -n 2 sensors"
 alias starwars="telnet towel.blinkenlights.nl"
 
-## special functions
 c() {
     builtin cd "$@" && l 
     }
-
 goo() {
     IFS=+ w3m https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"
 }
-
 wiki() {
     IFS=+ w3m https://en.wikipedia.org/w/index.php?search="$*"
+}
+git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+acolor() {
+  [[ -n $(git status --porcelain=v2 2>/dev/null) ]] && echo 31 || echo 33
+}
+function cpr() {
+  rsync --archive -hh --partial --info=stats1 --info=progress2 --modify-window=1 "$@"
+}
+function mvr() {
+  rsync --archive -hh --partial --info=stats1 --info=progress2 --modify-window=1 --remove-source-files "$@"
 }
 
 # scripts
@@ -64,15 +73,6 @@ export PYTHONBREAKPOINT=ipdb.set_trace
 
 # better autocomplete
 bind 'set show-all-if-ambiguous on'
-
-# change prompt colour
-git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-
-acolor() {
-  [[ -n $(git status --porcelain=v2 2>/dev/null) ]] && echo 31 || echo 33
-}
 
 # prompt configuration
 export PS1="\[\e[01;36m\]\u@\h \[\e[01;32m\]\\w\[\e[01;\$(acolor)m\]\$(git_branch)\[\e[01;00m\] "
