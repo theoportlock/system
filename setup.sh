@@ -70,4 +70,5 @@ printf "Completed\n"
 # screenfetch -Nn > ~/system/computers/$hostnam/stats
 # copy current packages
 # dpkg-query -f '${binary:Package}\n' -W > ~/system/computers/$hostnam/programlist
+# pacman -Qqe > bashlist
 # pip freeze | sed s/=.*// > piplist
