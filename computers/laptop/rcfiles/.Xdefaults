@@ -7,6 +7,7 @@ urxvt.perl-ext-common:
 urxvt.perl-ext:
 urxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=13:weight=bold
 urxvt.letterSpace: -1
+URxvt.cursorBlink: 1
 URxvt.color0: rgb:00/00/00
 URxvt.color1: rgb:CC/00/00
 URxvt.color2: rgb:4E/9A/06
