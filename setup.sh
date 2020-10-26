@@ -2,7 +2,7 @@
 if [[ ! -e ~/.computer ]]; then
 	# wificard=$(ip link | grep -m 1 -o "w\w\+[^:]")
 	# echo "wifi_card=$wificard" >> ~/.computer
-	printf 'Input computer name'
+	printf 'Input computer name: '
 	read hostnam
 	echo "name=$hostnam" >> ~/.computer
 	echo "copy_computer_profile_name=" >> ~/.computer
