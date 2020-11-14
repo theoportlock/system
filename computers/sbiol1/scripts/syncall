@@ -1,3 +1,10 @@
 #!/bin/bash
 sudo apt-get update && sudo apt-get upgrade
-pip freeze — local | grep -v ‘^\-e’ | cut -d = -f 1 | xargs -n1 sudo pip install -U
+pip list --outdated --format=freeze | grep -v ‘^\-e’ | cut -d = -f 1 | xargs -n1 pip install -U
+git -C ~/thoughts pull ;
+git -C ~/tis pull ;
+git -C ~/workforce pull ;
+git -C ~/proteintools pull ;
+git -C ~/thesis pull ;
+git -C ~/notes pull ;
+git -C ~/todo pull
