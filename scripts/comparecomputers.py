@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import pandas as pd
 import os
-top = "/home/theo/system/computers/"
+top = os.path.expanduser("~/system/computers")
 files = os.listdir(top)
 df = []
 for file in files:

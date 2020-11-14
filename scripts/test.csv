@@ -1,0 +1,7 @@
+, OS, Kernel, Uptime, Packages, Shell, Resolution, WM, GTK Theme, Disk, CPU, RAM, GPU, DE, WM Theme, Icon Theme, Font
+ theo@raspi, Arch Linux , aarch64 Linux 5.5.4-1-ARCH, 6m, 501, bash 5.0.16, 1920x1080, i3, Adwaita [GTK3], 4.5G / 15G (32%), Unknown @ 4x 1.4GHz, 134MiB / 902MiB,,,,,
+ fake@DESKTOP-VNOENED, Debian , x86_64 Linux 4.4.0-18362-Microsoft, 1h 31m, 415, bash 5.0.3,, Not Found,,, Intel Core i5-2550K @ 4x 3.701GHz, 3709MiB / 8175MiB, ,,,,
+ theoportlock@sbiol1, Ubuntu 19.10 eoan, x86_64 Linux 5.3.0-26-generic, 1h 22m, 2878, bash 5.0.3, 1920x1080, GNOME Shell, Yaru [GTK2/3],, Intel Core i5-6500 @ 4x 3.6GHz [27.8°C], 1910MiB / 7857MiB, Mesa DRI Intel(R) HD Graphics 530 (Skylake GT2) , GNOME , Adwaita, Yaru, Ubuntu 11
+ theo@THEO_DESKTOP, Debian 10 buster, x86_64 Linux 4.19.104-microsoft-standard, 7h 35m, 1164, bash 5.0.3,, ,,, Intel Core i5-2550K @ 4x 3.392GHz, 121MiB / 6332MiB, ,,,,
+ theo@netbook, Arch Linux , x86_64 Linux 5.3.13-arch1-1, 22m, 658, bash 5.0.11, 1024x600, i3, Adwaita [GTK3], 8.4G / 229G (4%), Intel Atom N550 @ 4x 1.5GHz, 240MiB / 972MiB, Intel Corporation Atom Processor D4xx/D5xx/N4xx/N5xx Integrated Graphics Controller (rev 02),,,,
+ theo@laptop, Arch Linux , x86_64 Linux 5.3.6-arch1-1-ARCH, 2m, 775, bash 5.0.11, 1366x768, i3, Adwaita [GTK3], 80G / 917G (10%), Intel Core i5-6200U @ 4x 2.8GHz [28.0°C], 386MiB / 3734MiB, HD Graphics 520,,,,
