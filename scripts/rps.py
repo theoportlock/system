@@ -1,4 +1,7 @@
+#!/usr/bin/env python3
 import random
+import os
+
 scoring = [
         [ 0, 1,-1],
         [-1, 0, 1],
@@ -6,8 +9,7 @@ scoring = [
 score = 0
 
 while True:
-    inp = input("Rock, paper, scissors (rps): ")
+    os.system('clear')
+    inp = input(f"Score:{score}\nRock, paper, scissors (rps): ")
     ans = random.choice("rps")
-    print(ans)
     score += scoring["rps".find(ans)]["rps".find(inp)]
-    print(score)

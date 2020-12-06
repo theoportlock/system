@@ -1,12 +1,15 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# start X application on windows by runing xming and selecting the no access control option
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
+#export DISPLAY=127.0.0.1:0.0
+#export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0.0
+
 # shortcut aliases
 alias l='ls --color=auto -lrth'
-alias ls='ls --color=auto -lrth'
 alias v='vim'
 alias vi='vim'
-alias vd='vim -d'
 alias lock='i3lock -c 000000'
 alias fehsvg='feh --conversion-timeout 1'
 alias m='mkdir'
@@ -74,6 +77,7 @@ wo() {
 
 # scripts
 export PATH=$PATH:~/system/scripts/
+export PATH=$PATH:/home/theo/.local/bin/
 
 # change prompt colour
 git_branch() {
