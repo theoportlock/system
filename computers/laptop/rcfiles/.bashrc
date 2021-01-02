@@ -5,22 +5,20 @@ setxkbmap gb
 
 # shortcut aliases
 alias l='ls -tr --color=auto'
+alias re='ls -tr | tail -n 1'
 alias v='vim'
-alias vi='vim'
 alias lock='i3lock -c 000000'
 alias m='mkdir'
 alias t='touch'
 alias b='cd ../;l'
 alias r='mv -t /tmp'
-alias v='vim'
-alias p='python3'
-alias pt='python3 -m unittest discover -v'
+alias p='python'
+alias pt='python -m unittest discover -v'
 alias te='tar -xzvf'
 alias ch='chmod a+x'
 alias pi='sudo pacman -S'
 alias pu='sudo pacman -Syu'
 alias pr='sudo pacman -Rns'
-alias p='python3'
 alias ipython='python -m IPython --no-confirm-exit'
 alias va='source venv/bin/activate'
 alias venv='python3 -m venv venv'
@@ -67,12 +65,13 @@ function mvr() {
 
 # scripts
 export PATH=$PATH:~/system/scripts/
+export PATH=$PATH:~/.local/bin/
 
-# ipdb
+# python
 export PYTHONBREAKPOINT=ipdb.set_trace
 
 # better autocomplete
-bind 'set show-all-if-ambiguous on'
+# bind 'set show-all-if-ambiguous on'
 
 # prompt configuration
 export PS1="\[\e[01;36m\]\u@\h \[\e[01;32m\]\\w\[\e[01;\$(acolor)m\]\$(git_branch)\[\e[01;00m\] "
