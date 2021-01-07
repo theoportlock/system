@@ -5,16 +5,18 @@ setxkbmap gb
 
 # shortcut aliases
 alias l='ls -tr --color=auto'
-alias re='ls -tr | tail -n 1'
 alias v='vim'
-alias lock='i3lock -c 000000'
 alias m='mkdir'
 alias t='touch'
-alias b='cd ../;l'
+alias b='cd ../;l;pwd > ~/.last_dir'
 alias r='mv -t /tmp'
 alias p='python'
+alias f="find . -iname"
+alias h="history"
+alias re='ls -tr | tail -n 1'
+alias lock='i3lock -c 000000'
 alias pt='python -m unittest discover -v'
-alias te='tar -xzvf'
+alias te='mkdir -p extract; tar -C extract -xzvf' 
 alias ch='chmod a+x'
 alias pi='sudo pacman -S'
 alias pu='sudo pacman -Syu'
@@ -32,18 +34,28 @@ alias gcf="git checkout feature"
 alias gd="git difftool"
 alias gspull="git subtree pull --prefix tester https://github.com/theoportlock/tester.git master --squash"
 alias gspush="git subtree push --prefix tester https://github.com/theoportlock/tester.git master" 
-alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
 alias poweroff="sync; poweroff"
 alias reboot="sync; reboot"
+alias tree="tree -C"
 alias wf="~/workforce/workforce.py"
 alias checktemp="watch -n 2 sensors"
 alias starwars="telnet towel.blinkenlights.nl"
 
+#c() {
+#    builtin cd "$@" && l 
+#    }
+
+# save path on cd
 c() {
-    builtin cd "$@" && l 
-    }
+    builtin cd $@ && l
+    pwd > ~/.last_dir
+}
+if [ -f ~/.last_dir ]
+    then cd `cat ~/.last_dir`
+fi
+
 goo() {
     IFS=+ w3m https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"
 }
@@ -72,6 +84,7 @@ export PYTHONBREAKPOINT=ipdb.set_trace
 
 # better autocomplete
 # bind 'set show-all-if-ambiguous on'
+# bind "\"\\eOQ\":\"\e[1~ls;#\\n\""
 
 # prompt configuration
 export PS1="\[\e[01;36m\]\u@\h \[\e[01;32m\]\\w\[\e[01;\$(acolor)m\]\$(git_branch)\[\e[01;00m\] "

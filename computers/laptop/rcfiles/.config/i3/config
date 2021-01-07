@@ -12,6 +12,7 @@ bindsym $mod+q kill
 
 # run program
 bindsym $mod+Return exec --no-startup-id urxvt
+bindsym $mod+Shift+Return exec /home/theo/system/scripts/urx_curr_dir.sh
 bindsym $mod+d exec dmenu_run
 bindsym $mod+c exec google-chrome-stable
 bindsym $mod+m exec youtube-music-desktop-app
@@ -148,9 +149,9 @@ bar {
 
 # Pulse Audio controls
 #might be 1 sometimes
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5% 
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5%
-bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5%; exec pactl set-sink-volume 0 +5% 
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5%; exec pactl set-sink-volume 0 -5% 
+bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle; exec pactl set-sink-mute 0 toggle
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -162,7 +163,8 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
-# start tray applications
+# Misc
 exec --no-startup-id nm-applet
-exec --no-startup-id feh --bg-fill ~/Downloads/rn47l3d8wkbz.jpg
 exec /home/theo/.screenlayout/left.sh
+exec --no-startup-id feh --bg-fill ~/Downloads/rn47l3d8wkbz.jpg
+#focus_follows_mouse no

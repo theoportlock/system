@@ -47,7 +47,7 @@ bindsym $mod+i split v
 new_window 1pixel
 
 # i3lock
-exec --no-startup-id xautolock -time 10 -locker 'i3lock -c 000000'
+#exec --no-startup-id xautolock -time 10 -locker 'i3lock -c 000000'
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
