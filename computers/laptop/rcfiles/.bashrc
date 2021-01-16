@@ -8,6 +8,7 @@ alias l='ls -tr --color=auto'
 alias v='vim'
 alias m='mkdir'
 alias t='touch'
+alias z='zsh'
 alias b='cd ../;l;pwd > ~/.last_dir'
 alias r='mv -t /tmp'
 alias p='python'
@@ -43,11 +44,7 @@ alias wf="~/workforce/workforce.py"
 alias checktemp="watch -n 2 sensors"
 alias starwars="telnet towel.blinkenlights.nl"
 
-#c() {
-#    builtin cd "$@" && l 
-#    }
 
-# save path on cd
 c() {
     builtin cd $@ && l
     pwd > ~/.last_dir
@@ -69,7 +66,7 @@ acolor() {
   [[ -n $(git status --porcelain=v2 2>/dev/null) ]] && echo 31 || echo 33
 }
 function cpr() {
-  rsync --archive -hh --partial --info=stats1 --info=progress2 --modify-window=1 "$@"
+  rsync --archive -hh -zrav --delete --partial --info=stats1 --info=progress2 --modify-window=1 "$@"
 }
 function mvr() {
   rsync --archive -hh --partial --info=stats1 --info=progress2 --modify-window=1 --remove-source-files "$@"
@@ -81,6 +78,10 @@ export PATH=$PATH:~/.local/bin/
 
 # python
 export PYTHONBREAKPOINT=ipdb.set_trace
+
+# default editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
 
 # better autocomplete
 # bind 'set show-all-if-ambiguous on'

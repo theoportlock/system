@@ -33,7 +33,6 @@ if [[ $copy_rcfiles == "y" ]]
 then
 	printf "Copying rc files"
 	cp -a ~/system/computers/$hostnam/rcfiles/. ~
-	mkdir -p ~/.vim/tmp
 	# ln -s ~/system/computers/$hostnam/rcfiles/. ~
 	printf "Done\n"
 fi
