@@ -1,8 +1,3 @@
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-xset r rate 300 50
-setxkbmap gb
-
 # shortcut aliases
 alias l='ls -tr --color=auto'
 alias v='vim'
@@ -17,9 +12,9 @@ alias p='python3'
 alias pt='python3 -m unittest discover -v'
 alias te='tar -xzvf'
 alias ch='chmod a+x'
-alias pi='sudo pacman -S'
-alias pu='sudo pacman -Syu'
-alias pr='sudo pacman -Rns'
+alias pi='apt-get install'
+alias pu='apt-get update && apt-get upgrade'
+alias pr='apt-get remove'
 alias p='python3'
 alias ipython='python -m IPython --no-confirm-exit'
 alias va='source venv/bin/activate'
