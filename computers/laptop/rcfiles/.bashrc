@@ -35,6 +35,7 @@ alias gcf="git checkout feature"
 alias gd="git difftool"
 alias gspull="git subtree pull --prefix tester https://github.com/theoportlock/tester.git master --squash"
 alias gspush="git subtree push --prefix tester https://github.com/theoportlock/tester.git master" 
+alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
 alias poweroff="sync; poweroff"
@@ -43,7 +44,6 @@ alias tree="tree -C"
 alias wf="~/workforce/workforce.py"
 alias checktemp="watch -n 2 sensors"
 alias starwars="telnet towel.blinkenlights.nl"
-
 
 c() {
     builtin cd $@ && l
