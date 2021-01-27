@@ -1,2 +1,4 @@
 #!/bin/bash
-urxvt -e sh -c "bash" &
+arg="\""$@"\""
+com="bash -i -c $arg"
+urxvt -e sh -c "$com" &

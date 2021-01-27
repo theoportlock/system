@@ -1,5 +1,6 @@
 source $VIMRUNTIME/defaults.vim
-let mapleader = ","
+set clipboard=unnamed
+set pastetoggle=<F10>
 
 " omnicomplete
 filetype plugin on
@@ -20,12 +21,14 @@ set encoding=utf-8
 nnoremap <buffer> H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
 autocmd FileType python nnoremap <F5> <esc>:w<enter>:!%:p<enter>
 autocmd FileType python inoremap <Leader>m if __name__ == "__main__":<enter>
+autocmd FileType python nnoremap <Leader>h ggO#!/usr/bin/env python3
 autocmd FileType python set omnifunc=python3complete#Complete
 
 " latex setup
-autocmd FileType tex inoremap <Leader>r \ref{}<Space><Esc>T{i
+autocmd FileType tex inoremap <Leader>a \autoref{}<Space><Esc>T{i
 autocmd FileType tex inoremap <Leader>c \cite{}<Space><Esc>T{i
 autocmd FileType tex inoremap <Leader>g \gls{}<Space><Esc>T{i
+autocmd FileType tex inoremap <Leader>l \label{}<Space><Esc>T{i
 autocmd FileType tex map <F5> <esc>:wa<enter>:!~/system/scripts/com %<enter><enter>
 autocmd FileType tex map <leader>ss :setlocal spell!<cr>
 

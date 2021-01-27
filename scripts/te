@@ -1,0 +1,3 @@
+#!/bin/bash
+mkdir extract &&
+tar -xzvf $1 -C extract
