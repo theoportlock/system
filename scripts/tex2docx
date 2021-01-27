@@ -1,0 +1,2 @@
+#!/bin/bash
+pandoc $1 -f latex --bibliography=library.bib -o $1.docx
