@@ -54,10 +54,10 @@ if [ -f ~/.last_dir ]
 fi
 
 goo() {
-    IFS=+ w3m https://google.com/search?hl=en\&q="$*"\&btnI= https://google.com/search?hl=en\&q="$*"
+    ifs=+ w3m https://google.com/search?hl=en\&q="$*"\&btni= https://google.com/search?hl=en\&q="$*"
 }
 wiki() {
-    IFS=+ w3m https://en.wikipedia.org/w/index.php?search="$*"
+    ifs=+ w3m https://en.wikipedia.org/w/index.php?search="$*"
 }
 git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
