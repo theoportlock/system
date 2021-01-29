@@ -1,3 +1,2 @@
 #!/bin/bash
-fusermount -uz $1 ;
-rm -r $1
+fusermount -uz ~/drives/$1 ;
