@@ -7,16 +7,27 @@ sudo pacman --needed -S - < programlist ;
 # copy rc files
 sudo cp -a rcfiles/. ~/
 
-# make wifi work
-sudo echo "nameserver 8.8.8.8" > /etc/resolv.conf
-
 # make autostart work - not sure about this yet as may remove the symbolic link
-sudo cp autostart/getty\@tty1.service /etc/systemd/system/getty.target.wants/
+systemctl edit getty@tty1
+[Service]
+ExecStart=
+ExecStart=-/usr/bin/agetty --autologin username --noclear %I $TERM
+save
+
+# remove weird audit messages
+# Uncomment the following to stop low-level messages on console
+# edit /etc/sysctl.conf
+sysctl -w kernel.printk="2 4 1 7"
+
+# fix pacman slow settings in /etc/pacman.conf
+uncomment color
+DisableDownloadTImeout below options
+ILoveCandy
 
 # install git projects
-cd && 
-git clone https://github.com/theoportlock/thoughts.git &&
-git clone https://github.com/theoportlock/tis.git
+# user stuff
+
+gpasswd -a alarm wheel
 
 # change history setup
 shopt -s histappend
