@@ -1,0 +1,4 @@
+#!/bin/bash
+for drive in $(cat /mnt/drives/list); do
+	rclone mount $drive: /mnt/drives/$drive &
+done

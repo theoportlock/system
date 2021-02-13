@@ -18,7 +18,8 @@ bindsym $mod+Shift+v exec /home/theo/system/scripts/newshell vim
 bindsym $mod+c exec google-chrome-stable
 bindsym $mod+m exec youtube-music-desktop-app
 bindsym $mod+Shift+s exec sync; exec poweroff
-bindsym Print exec scrot /tmp/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym --release Print exec scrot /tmp/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym --release Shift+Print exec /home/theo/system/scripts/screenclip
 
 # change focus
 bindsym $mod+h focus left
@@ -157,8 +158,8 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5%; exec pactl set-si
 bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle; exec pactl set-sink-mute 0 toggle
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -168,5 +169,4 @@ bindsym XF86AudioPrev exec playerctl previous
 
 ## Misc
 exec --no-startup-id nm-applet
-exec --no-startup-id /home/theo/.screenlayout/left.sh; feh --bg-fill ~/Downloads/space.jpg
-#focus_follows_mouse no
+# exec --no-startup-id /home/theo/.screenlayout/right.sh; feh --bg-fill ~/Downloads/space.jpg
