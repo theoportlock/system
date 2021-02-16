@@ -3,19 +3,23 @@
 xset r rate 300 50
 #setxkbmap gb
 setxkbmap us
+tput cup $(tput lines) 0
 #setxkbmap -option "caps:swapescape"
 
 # shortcut aliases
 alias l='ls -thr --color=auto'
 alias ll='ls -lthra --color=auto'
+alias lr='grep --color -E -- "$(ls -rtl | tail -n3)|$" <(ls -l)'
 alias v='vim'
 alias m='mkdir'
 alias t='touch'
+alias w='watch --color'
 alias z='zsh'
 alias b='cd ../;l;pwd > ~/.last_dir'
 alias r='mv -t /tmp'
 alias j='jobs -l'
 alias p='python'
+alias par='time parallel -j+0 --eta'
 alias d='dirs -v'
 alias f="find . -iname"
 alias h="history"
@@ -49,11 +53,6 @@ alias wf="workforce"
 alias checktemp="watch -n 2 sensors"
 alias starwars="telnet towel.blinkenlights.nl"
 alias twineup="twine upload --repository-url https://upload.pypi.org/legacy/ dist/*"
-
-alias laptop="192.168.0.21"
-alias phont="192.168.0.11"
-alias phone="192.168.0.11"
-alias moto="192.168.0.116"
 
 c() {
     builtin cd $@ && l
