@@ -15,18 +15,15 @@ ExecStart=-/usr/bin/agetty --autologin username --noclear %I $TERM
 save
 
 # remove weird audit messages
-# Uncomment the following to stop low-level messages on console
-# edit /etc/sysctl.conf
-sysctl -w kernel.printk="2 4 1 7"
+touch and add in /etc/sysctl.d/sysctl.conf
+kernel.printk="2 4 1 7"
 
 # fix pacman slow settings in /etc/pacman.conf
 uncomment color
 DisableDownloadTImeout below options
-ILoveCandy
 
 # install git projects
 # user stuff
-
 gpasswd -a alarm wheel
 
 # change history setup
@@ -35,3 +32,9 @@ shotp -s cmdhist
 
 # change git commit editor
 git config --global core.editor "vim"
+
+# fix locales
+echo "LC_ALL=en_GB.UTF-8" >> /etc/environment
+echo "en_GB.UTF-8 UTF-8" >> /etc/locale.gen
+echo "LANG=en_GB.UTF-8" > /etc/locale.conf
+sudo locale-gen

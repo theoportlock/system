@@ -1,3 +1,3 @@
 #!/bin/bash
-mkdir -p ~/drives/$1 &&
-rclone mount $1: ~/drives/$1 &
+mkdir -p /mnt/drives/$1 &&
+rclone mount $1: /mnt/drives/$1 &

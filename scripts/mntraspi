@@ -1,0 +1,3 @@
+#!/bin/bash
+mkdir -p /mnt/drives/raspi &&
+sshfs theo@192.168.0.110:/home/alarm /mnt/drives/raspi
