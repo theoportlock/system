@@ -53,15 +53,17 @@ alias wf="workforce"
 alias checktemp="watch -n 2 sensors"
 alias starwars="telnet towel.blinkenlights.nl"
 alias twineup="twine upload --repository-url https://upload.pypi.org/legacy/ dist/*"
+alias wp="watch ps -a1 --forest"
+alias pssh="parallel --nonall --progress -S moto,moto_old,moto_old_old,sony,tablet "
 
 c() {
     builtin cd $@ && l
     pwd > ~/.last_dir
 }
-if [ -f ~/.last_dir ]
-    then cd `cat ~/.last_dir`
-fi
 
+if [ -f ~/.last_dir ]
+then cd $(cat ~/.last_dir)
+fi
 
 function pd() {
 	pushd $@ && l
