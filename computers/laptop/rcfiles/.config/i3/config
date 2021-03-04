@@ -10,12 +10,16 @@ floating_modifier $mod
 # kill focused window
 bindsym $mod+q kill
 
-# start program
-bindsym $mod+Return exec --no-startup-id urxvt
+# run program
+bindsym $mod+Return exec --no-startup-id xterm
+bindsym $mod+Shift+Return exec /home/theo/system/scripts/urx_curr_dir.sh
 bindsym $mod+d exec dmenu_run
+bindsym $mod+Shift+v exec /home/theo/system/scripts/newshell vim
 bindsym $mod+c exec google-chrome-stable
 bindsym $mod+m exec youtube-music-desktop-app
-bindsym Print exec scrot /tmp/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym $mod+Shift+s exec sync; exec poweroff
+bindsym --release Print exec scrot /tmp/`date +%Y-%m-%d_%H:%M:%S`.png
+bindsym --release Shift+Print exec /home/theo/system/scripts/screenclip
 
 # change focus
 bindsym $mod+h focus left
@@ -112,7 +116,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec i3-msg exit
  
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -120,37 +125,48 @@ mode "resize" {
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
         bindsym $mod+r mode "default"
 }
+mode "workspace" {
+	bindsym h exec /home/theo/.screenlayout/left.sh
+	bindsym l exec /home/theo/.screenlayout/right.sh
+	bindsym j exec /home/theo/.screenlayout/default.sh
+	bindsym Left exec /home/theo/.screenlayout/left.sh
+	bindsym Right exec /home/theo/.screenlayout/right.sh
+	bindsym Down exec /home/theo/.screenlayout/default.sh
+        bindsym Return mode "default"
+        bindsym $mod+w mode "default"
+}
 
 bindsym $mod+r mode "resize"
+bindsym $mod+w mode "workspace"
+bindsym $mod+p move workspace to output right
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
-        status_command i3status
+       status_command i3status
 }
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+#might be 1 sometimes
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 +5%; exec pactl set-sink-volume 0 +5% 
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -5%; exec pactl set-sink-volume 0 -5% 
+bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle; exec pactl set-sink-mute 0 toggle
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+## Misc
+exec --no-startup-id nm-applet
+#exec --no-startup-id /home/theo/.screenlayout/right.sh; feh --bg-fill ~/Downloads/space.jpg

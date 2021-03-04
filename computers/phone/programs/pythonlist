@@ -1,0 +1,5 @@
+importlib-metadata
+matplotlib
+numpy
+pandas
+biopython
