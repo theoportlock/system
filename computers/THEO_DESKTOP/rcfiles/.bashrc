@@ -52,7 +52,6 @@ alias pms="export PATH=$PATH:/home/theo/proteintools/scripts"
 alias pms-ls="ls ~/proteintools/scripts"
 alias starwars="telnet towel.blinkenlights.nl"
 alias hom="cd /mnt/c/Users/User/"
-alias thesis="vim ~/thesis/thesis.tex ~/thesis/chapters/*.tex ~/thesis/library.bib "
 
 ## special functions
 c() {
