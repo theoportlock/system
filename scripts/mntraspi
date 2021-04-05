@@ -1,3 +1,14 @@
 #!/bin/bash
-mkdir -p /mnt/drives/raspi &&
-sshfs theo@192.168.0.110:/home/alarm /mnt/drives/raspi
+
+devicelist=(
+	moto_old
+	moto_old_old
+	tablet
+	sony
+)
+
+#mkdir -p /mnt/devices/${devicelist[@]} &&
+
+for i in ${devicelist[@]}; do
+	sshfs theo@$i:~/storage/ /mnt/devices/$i
+done
