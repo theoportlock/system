@@ -1,14 +1,8 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# shortcut aliases
-alias l='ls --color=auto -lrth'
-alias ls='ls --color=auto -lrth'
+alias l='ls --color=auto -rth'
 alias v='vim'
-alias vi='vim'
-alias vd='vim -d'
-alias lock='i3lock -c 000000'
-alias fehsvg='feh --conversion-timeout 1'
 alias m='mkdir'
 alias t='touch'
 alias b='cd ../;l'
@@ -19,7 +13,8 @@ alias pu='sudo pacman -Syu'
 alias pr='sudo pacman -Rns'
 alias tks='tmux kill-server'
 alias p='python'
-alias ve='source venv/bin/activate'
+alias va='source venv/bin/activate'
+alias venv='python -m venv venv'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 alias gs="git add .; git commit"
 alias gm="git merge"
@@ -44,12 +39,11 @@ alias f="find . -iname"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -sel clip"
 alias r='mv -t /tmp'
-alias poweroff="sync; poweroff"
-alias pms="export PATH=$PATH:/home/theo/proteintools/scripts"
-alias pms-ls="ls ~/proteintools/scripts"
+alias poweroff="sync; sudo poweroff"
+alias tree='tree -C'
 alias starwars="telnet towel.blinkenlights.nl"
+alias temp="sudo vcgencmd measure_temp"
 
-## special functions
 function c {
     builtin cd "$@" && l 
     }
@@ -62,13 +56,8 @@ wiki() {
     IFS=+ w3m https://en.wikipedia.org/w/index.php?search="$*"
 }
 
-# scripts
 export PATH=$PATH:~/system/scripts/
 
-# setting the uk keyboard
-setxkbmap gb
-
-# change prompt colour
 git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
@@ -76,13 +65,12 @@ acolor() {
   [[ -n $(git status --porcelain=v2 2>/dev/null) ]] && echo 31 || echo 33
 }
 
-# prompt configuration
 export PS1="\[\e[01;36m\]\u@\h \[\e[01;32m\]\\w\[\e[01;\$(acolor)m\]\$(git_branch)\[\e[01;00m\] "
-# vim navigation commands
 
-# bash history
 HISTSIZE=100000
 HISTCONTROL=ignoreboth
 HISTIGNORE='ls:history'
 HISTTIMEFORMAT='%F %T '
 PROMPT_COMMAND='history -a'
+
+[ -z "$TMUX" ] && { tmux attach || exec tmux new-session -A -s main && exit;}
