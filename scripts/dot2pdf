@@ -1,6 +1,7 @@
 #!/bin/bash
 nam=$(echo $1 | cut -f 1 -d  '.')
-dot -Tpdf -Kcirco -o ${nam}.pdf $1 && zathura ${nam}.pdf &
+#dot -Tpdf -Kcirco -o ${nam}.pdf $1 && zathura ${nam}.pdf &
+dot -Tpdf -Kcirco -o ${nam}.pdf $1
 #can also use the -K<format> where format is
 #neato
 #fdp
