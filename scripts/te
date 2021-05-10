@@ -1,3 +1,5 @@
 #!/bin/bash
-mkdir extract &&
-tar -xzvf $1 -C extract
+name=$(basename $1 .tar.gz)
+echo $name
+mkdir $name &&
+tar -xzvf $1 -C $name
