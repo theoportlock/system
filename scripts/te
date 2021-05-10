@@ -1,5 +1,2 @@
 #!/bin/bash
-name=$(basename $1 .tar.gz)
-echo $name
-mkdir $name &&
-tar -xzvf $1 -C $name
+tar -xzvf $1 --one-top-level
