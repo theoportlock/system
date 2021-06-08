@@ -1,0 +1,3 @@
+#!/bin/bash
+name=$(basename $1).tar.gz
+tar -czvf $name $1

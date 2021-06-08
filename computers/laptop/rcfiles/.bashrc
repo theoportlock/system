@@ -53,20 +53,27 @@ alias wf="workforce"
 alias checktemp="watch -n 2 sensors"
 alias starwars="telnet towel.blinkenlights.nl"
 alias twineup="twine upload --repository-url https://upload.pypi.org/legacy/ dist/*"
+alias wp="watch -c 'pstree -C age'"
+alias wt="watch -c tree --du -hC"
 
 c() {
     builtin cd $@ && l
     pwd > ~/.last_dir
 }
+
 if [ -f ~/.last_dir ]
-    then cd `cat ~/.last_dir`
+	then cd $(cat ~/.last_dir)
 fi
-
-
-function pd() {
+function ppssh {
+	parallel --nonall --progress -S moto,moto_old,moto_old_old,sony,tablet tmux send-keys -t main \""${*:1}"\" ENTER
+}
+function pssh {
+	ssh $1 tmux send-keys -t main \""${*:2}"\" ENTER
+}
+function pd {
 	pushd $@ && l
 }
-function pod() {
+function pod {
 	popd && l
 }
 goo() {
@@ -85,8 +92,11 @@ function cpr() {
 	rsync -aurvP "$@"
 }
 function mvr() {
-	rsync --archive -hh --partial --info=stats1 --info=progress2 --modify-window=1 --remove-source-files "$@"
+	rsync -aurvP --remove-source-files "$@"
 }
+#function mvr() {
+#	rsync --archive -hh --partial --info=stats1 --info=progress2 --modify-window=1 --remove-source-files "$@"
+#}
 
 # scripts
 export PATH=$PATH:~/system/scripts/

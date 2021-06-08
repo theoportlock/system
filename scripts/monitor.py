@@ -6,7 +6,7 @@ import time
 
 s = speedtest.Speedtest()
 while True:
-    with open('/home/theo/wifispeed.csv', mode='a+') as speedcsv:
+    with open('wifispeed.csv', mode='a+') as speedcsv:
         csv_writer = csv.DictWriter(speedcsv, fieldnames=['time', 'downspeed', 'upspeed'])
         if speedcsv.tell() == 0:
             csv_writer.writeheader()
@@ -18,4 +18,4 @@ while True:
             'downspeed': downspeed,
             "upspeed": upspeed
         })
-        #time.sleep(60)
+        time.sleep(60)
