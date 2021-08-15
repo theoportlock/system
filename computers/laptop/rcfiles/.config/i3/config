@@ -4,6 +4,9 @@ set $mod Mod1
 # Font for window titles
 font pango:monospace 8
 
+# Alt-tab
+bindsym $mod+Tab workspace back_and_forth
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -133,12 +136,9 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 mode "workspace" {
-	bindsym h exec /home/theo/.screenlayout/left.sh
-	bindsym l exec /home/theo/.screenlayout/right.sh
-	bindsym j exec /home/theo/.screenlayout/default.sh
-	bindsym Left exec /home/theo/.screenlayout/left.sh
-	bindsym Right exec /home/theo/.screenlayout/right.sh
-	bindsym Down exec /home/theo/.screenlayout/default.sh
+	bindsym l exec /home/theo/.screenlayout/left.sh
+	bindsym r exec /home/theo/.screenlayout/right.sh
+	bindsym d exec /home/theo/.screenlayout/default.sh
         bindsym Return mode "default"
         bindsym $mod+w mode "default"
 }

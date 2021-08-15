@@ -48,21 +48,33 @@ let g:netrw_browse_split = 2
 let g:netrw_winsize = 25
 
 " Leader commands
+" autocmd FileType python nnoremap <leader>t <esc>:let @" = expand("%")<CR> <bar> :vert rightbelow term<CR>./<C-W>"0<CR>
+" autocmd FileType python nnoremap <leader>tl <esc>:let @" = expand("%")<CR> <bar> :vert rightbelow term<CR>ipython <C-W>"0<CR><C-W><C-W>
+" autocmd FileType python nnoremap <leader>i :vert rightbelow term<CR>ipython<CR><C-W><C-W>
+" autocmd FileType python nnoremap <leader>i <esc>let s:path = expand('<sfile>:p:h')<CR> <bar> :vert rightbelow term<CR>cd <C-W>"0<CR>ipython<CR><C-W><C-W>
+" autocmd FileType python vnoremap <leader>h :let @" = expand("%")<CR> <bar> :<C-U>!pydoc3 % <CR>
+" autocmd FileType python nnoremap <leader>H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
+" autocmd FileType python nnoremap <leader>f :w<enter>:let @" = expand("%")<CR> <bar> :!flake8 %
+" autocmd FileType python set textwidth=80
+" autocmd FileType python set formatoptions+=tautocmd FileType python
+autocmd FileType python set shell=ipython3
+autocmd FileType r set shell=R
+autocmd FileType bash set shell=bash
+nnoremap <leader>t :vert rightbelow term<CR><C-W><C-W>
+nnoremap <leader>r yy<C-W><C-W><C-W>"0<C-W><C-W>j
+vnoremap <leader>r y<C-W><C-W><C-W>"0<C-W><C-W><esc>j
 nnoremap <leader>a <esc>:Lexplore<enter>
 nnoremap <leader>; :w<enter>:let @" = expand("%")<CR> <bar> :silent !urxvt -hold -e bash --rcfile <(echo '. ~/.bashrc; ./%') & <CR> 
-nnoremap <leader>t <esc>:let @" = expand("%")<CR> <bar> :vert rightbelow term<CR>./<C-W>"0<CR>
 nnoremap <leader>lc :w<enter>:silent !urxvt -hold -e bash --rcfile <(echo '. ~/.bashrc; ./compile.sh') & <CR>
 nnoremap <F5> <esc>:w<enter>:!%:p<enter>
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>p :bprevious<CR>
 nnoremap <leader>ss :setlocal spell!<CR>
 vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
-" vnoremap <leader>h :let @" = expand("%")<CR> <bar> :<C-U>!pydoc3 % <CR>
-" nnoremap <leader>H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
-nnoremap <leader>f :w<enter>:let @" = expand("%")<CR> <bar> :!flake8 %
 
 " Normal mode for terminal
 tnoremap <F1> <C-W>N
+autocmd QuitPre * call range(1, bufnr('$'))->filter('getbufvar(v:val, "&buftype") == "terminal"')->map('term_setkill(v:val, "hup")')
 
 " For indenting wrapped text properly
 set breakindent
@@ -73,10 +85,6 @@ inoremap jk <Esc>
 inoremap Jk <Esc>
 inoremap jK <Esc>
 inoremap JK <esc>
-vnoremap jk <Esc>
-vnoremap jK <Esc>
-vnoremap Jk <Esc>
-vnoremap JK <Esc>
 
 " set backups, swp, tmp
 set backupdir=~/.vim/backup//
@@ -93,8 +101,6 @@ set nofoldenable
 " Omnicomplete
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
-
-" Omnicomplete remove popup
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
@@ -118,10 +124,6 @@ autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 " Make Y yank till end of line
 nnoremap Y y$
-
-" Python support
-" autocmd BufNewFile,BufRead *.py set textwidth=80
-" autocmd BufNewFile,BufRead *.py set formatoptions+=t
 
 " Tag support
 set tagrelative

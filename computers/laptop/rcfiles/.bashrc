@@ -1,9 +1,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 xset r rate 300 50
+#remove beeper
+xset -b
 #setxkbmap gb
 setxkbmap us
-tput cup $(tput lines) 0
+#tput cup $(tput lines) 0
 #setxkbmap -option "caps:swapescape"
 
 # shortcut aliases
@@ -23,10 +25,9 @@ alias par='time parallel -j+0 --eta'
 alias d='dirs -v'
 alias f="find . -iname"
 alias h="history"
-alias re='ls -tr | tail -n 1'
+alias vr='vim $(ls -tr | tail -n 1)'
 alias lock='i3lock -c 000000'
 alias pt='python -m unittest discover -v'
-alias te='mkdir -p extract; tar -C extract -xzvf' 
 alias ch='chmod a+x'
 alias pi='sudo pacman -S'
 alias pu='sudo pacman -Syu'
@@ -34,16 +35,13 @@ alias pr='sudo pacman -Rns'
 alias ipython='python -m IPython --no-confirm-exit'
 alias va='source venv/bin/activate'
 alias venv='python3 -m venv venv'
+alias g="git"
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
-alias gs="git add .; git commit"
-alias gr="git add .;git reset --hard"
-alias gpush="git push --all origin"
-alias gpull="git pull --all"
+alias gs="git add -A; git commit"
+alias gr="git add -A;git reset --hard"
 alias gcm="git checkout master"
 alias gcf="git checkout feature"
 alias gd="git difftool"
-alias gspull="git subtree pull --prefix tester https://github.com/theoportlock/tester.git master --squash"
-alias gspush="git subtree push --prefix tester https://github.com/theoportlock/tester.git master" 
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -i -selection clipboard -f | xclip -i -selection primary"
 alias poweroff="sync; poweroff"
@@ -54,7 +52,12 @@ alias checktemp="watch -n 2 sensors"
 alias starwars="telnet towel.blinkenlights.nl"
 alias twineup="twine upload --repository-url https://upload.pypi.org/legacy/ dist/*"
 alias wp="watch -c 'pstree -C age'"
-alias wt="watch -c tree --du -hC"
+alias wt="watch -c tree --du"
+alias lb="cd /home/theo/postdoc/labbook/"
+alias rf="readlink -f"
+alias inter="srun -p shared --pty /bin/bash"
+alias dush="du -sh *"
+alias o="xdg-open"
 
 c() {
     builtin cd $@ && l
@@ -65,12 +68,12 @@ if [ -f ~/.last_dir ]
 	then cd $(cat ~/.last_dir)
 fi
 function ppssh {
-	parallel --nonall --progress -S moto,moto_old,moto_old_old,sony,tablet tmux send-keys -t main \""${*:1}"\" ENTER
+	parallel --nonall --progress -S moto_old,moto_old_old,sony,tablet tmux send-keys -t main \""${*:1}"\" ENTER
 }
 function pssh {
 	ssh $1 tmux send-keys -t main \""${*:2}"\" ENTER
 }
-function pd {
+function pud {
 	pushd $@ && l
 }
 function pod {
@@ -94,9 +97,6 @@ function cpr() {
 function mvr() {
 	rsync -aurvP --remove-source-files "$@"
 }
-#function mvr() {
-#	rsync --archive -hh --partial --info=stats1 --info=progress2 --modify-window=1 --remove-source-files "$@"
-#}
 
 # scripts
 export PATH=$PATH:~/system/scripts/
@@ -125,3 +125,9 @@ HISTCONTROL=ignoreboth
 HISTIGNORE='ls:history'
 HISTTIMEFORMAT='%F %T '
 PROMPT_COMMAND='history -a'
+
+# ctrll for clear screen
+bind -m vi-insert "\C-l":clear-screen
+
+#for zathura
+export NO_AT_BRIDGE=1
