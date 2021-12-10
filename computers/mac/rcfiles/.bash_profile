@@ -1,5 +1,5 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-	exec startx
-fi
+# Seq compiler path (added by install script)
+export PATH=/Users/theoportlock/.seq/bin:$PATH
+export BASH_SILENCE_DEPRECATION_WARNING=1

@@ -1,14 +1,10 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-xset r rate 300 50
-#setxkbmap gb
-setxkbmap us
-tput cup $(tput lines) 0
-#setxkbmap -option "caps:swapescape"
 
 # shortcut aliases
-alias l='ls -thr --color=auto'
-alias ll='ls -lthra --color=auto'
+alias l='ls -thr --color'
+alias o='open'
+alias ll='ls -lthra --color'
 alias lr='grep --color -E -- "$(ls -rtl | tail -n3)|$" <(ls -l)'
 alias v='vim'
 alias m='mkdir'
@@ -18,7 +14,7 @@ alias z='zsh'
 alias b='cd ../;l;pwd > ~/.last_dir'
 alias r='mv -t /tmp'
 alias j='jobs -l'
-alias p='python'
+alias p='python3'
 alias par='time parallel -j+0 --eta'
 alias d='dirs -v'
 alias f="find . -iname"
@@ -28,9 +24,9 @@ alias lock='i3lock -c 000000'
 alias pt='python -m unittest discover -v'
 alias te='mkdir -p extract; tar -C extract -xzvf' 
 alias ch='chmod a+x'
-alias pi='sudo pacman -S'
-alias pu='sudo pacman -Syu'
-alias pr='sudo pacman -Rns'
+alias pi='brew install'
+alias pu='brew update; brew upgrade'
+alias pr='brew uninstall'
 alias ipython='python -m IPython --no-confirm-exit'
 alias va='source venv/bin/activate'
 alias venv='python3 -m venv venv'
@@ -55,6 +51,7 @@ alias starwars="telnet towel.blinkenlights.nl"
 alias twineup="twine upload --repository-url https://upload.pypi.org/legacy/ dist/*"
 alias wp="watch -c 'pstree -C age'"
 alias wt="watch -c tree --du -hC"
+alias rf="readlink -f"
 
 c() {
     builtin cd $@ && l
@@ -118,6 +115,10 @@ export EDITOR="$VISUAL"
 
 # prompt configuration
 export PS1="\[\e[01;36m\]\u@\h \[\e[01;32m\]\\w\[\e[01;\$(acolor)m\]\$(git_branch)\[\e[01;00m\] "
+
+# for brew
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # bash history
 HISTSIZE=100000
