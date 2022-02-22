@@ -1,2 +1,3 @@
 #!/bin/bash
 ssh raspi 'journalctl -f -u sshd'
+
