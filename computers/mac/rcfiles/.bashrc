@@ -13,6 +13,7 @@ alias w='watch --color'
 alias z='zsh'
 alias b='cd ../;l;pwd > ~/.last_dir'
 alias r='mv -t /tmp'
+alias f='find . -iname '
 alias j='jobs -l'
 alias p='python3'
 alias par='time parallel -j+0 --eta'
@@ -20,6 +21,8 @@ alias d='dirs -v'
 alias f="find . -iname"
 alias h="history"
 alias re='ls -tr | tail -n 1'
+alias vr='vim $(ls -tr | tail -n 1)'
+alias cr='cd $(ls -trd */ | tail -n 1)'
 alias lock='i3lock -c 000000'
 alias pt='python -m unittest discover -v'
 alias te='mkdir -p extract; tar -C extract -xzvf' 
@@ -38,8 +41,6 @@ alias gpull="git pull --all"
 alias gcm="git checkout master"
 alias gcf="git checkout feature"
 alias gd="git difftool"
-alias gspull="git subtree pull --prefix tester https://github.com/theoportlock/tester.git master --squash"
-alias gspush="git subtree push --prefix tester https://github.com/theoportlock/tester.git master" 
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
 alias xc="xclip -i -selection clipboard -f | xclip -i -selection primary"
 alias poweroff="sync; poweroff"
@@ -61,6 +62,11 @@ c() {
 if [ -f ~/.last_dir ]
 	then cd $(cat ~/.last_dir)
 fi
+
+gdestroy() {
+	git filter-branch --force --index-filter "git rm --cached --ignore-unmatch $1" --prune-empty --tag-name-filter cat -- --all
+}
+
 function ppssh {
 	parallel --nonall --progress -S moto,moto_old,moto_old_old,sony,tablet tmux send-keys -t main \""${*:1}"\" ENTER
 }
