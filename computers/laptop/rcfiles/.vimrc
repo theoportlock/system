@@ -57,7 +57,7 @@ let g:netrw_winsize = 25
 " autocmd FileType python nnoremap <leader>f :w<enter>:let @" = expand("%")<CR> <bar> :!flake8 %
 " autocmd FileType python set textwidth=80
 " autocmd FileType python set formatoptions+=tautocmd FileType python
-autocmd FileType python set shell=ipython3
+autocmd FileType python set shell=ipython
 autocmd FileType r set shell=R
 autocmd FileType bash set shell=bash
 nnoremap <leader>t :vert rightbelow term<CR><C-W><C-W>

@@ -18,4 +18,4 @@ while True:
             'downspeed': downspeed,
             "upspeed": upspeed
         })
-        time.sleep(60)
+        time.sleep(2)

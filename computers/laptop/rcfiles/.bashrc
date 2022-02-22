@@ -19,13 +19,14 @@ alias w='watch --color'
 alias z='zsh'
 alias b='cd ../;l;pwd > ~/.last_dir'
 alias r='mv -t /tmp'
+alias f='find . -iname '
 alias j='jobs -l'
 alias p='python'
 alias par='time parallel -j+0 --eta'
 alias d='dirs -v'
-alias f="find . -iname"
 alias h="history"
 alias vr='vim $(ls -tr | tail -n 1)'
+alias cr='cd $(ls -trd */ | tail -n 1)'
 alias lock='i3lock -c 000000'
 alias pt='python -m unittest discover -v'
 alias ch='chmod a+x'
@@ -58,6 +59,7 @@ alias rf="readlink -f"
 alias inter="srun -p shared --pty /bin/bash"
 alias dush="du -sh *"
 alias o="xdg-open"
+alias dclean="docker system prune -a -f"
 
 c() {
     builtin cd $@ && l
@@ -67,6 +69,11 @@ c() {
 if [ -f ~/.last_dir ]
 	then cd $(cat ~/.last_dir)
 fi
+
+gdestroy() {
+	git filter-branch --force --index-filter "git rm --cached --ignore-unmatch $1" --prune-empty --tag-name-filter cat -- --all
+}
+
 function ppssh {
 	parallel --nonall --progress -S moto_old,moto_old_old,sony,tablet tmux send-keys -t main \""${*:1}"\" ENTER
 }
