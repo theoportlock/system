@@ -36,7 +36,6 @@ alias pr='sudo pacman -Rns'
 alias ipython='python -m IPython --no-confirm-exit'
 alias va='source venv/bin/activate'
 alias venv='python3 -m venv venv'
-alias g="git"
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 alias gs="git add -A; git commit"
 alias gr="git add -A;git reset --hard"
