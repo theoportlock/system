@@ -1,2 +1,4 @@
 #!/bin/bash
-sudo mount -o uid=1000,gid=1000 /dev/sda1 /mnt/usb
+sudo mkdir /mnt/backup &&\
+sudo chmod -R 777 /mnt/backup &&\
+sudo mount -o noacl /dev/sda1 /mnt/backup

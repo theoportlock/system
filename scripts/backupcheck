@@ -1,2 +1,2 @@
 #!/bin/bash
-rsync -aurvnP /home/theop/ /mnt/usb/
+rsync -aurvPn -O --delete-after --no-perms --no-group --no-owner --links --exclude=".*" /home/theop/ /mnt/backup/
