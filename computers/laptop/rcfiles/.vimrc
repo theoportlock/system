@@ -89,7 +89,7 @@ inoremap JK <esc>
 " set backups, swp, tmp
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
-set undodir=~/.vim/undo//,
+set undodir=~/.vim/undo//
 set undofile
 
 " Display name of file

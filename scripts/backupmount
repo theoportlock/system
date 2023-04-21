@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo mkdir /mnt/backup &&\
+sudo chmod -R 777 /mnt/backup &&\
+sudo mount -o noacl /dev/sda1 /mnt/backup
