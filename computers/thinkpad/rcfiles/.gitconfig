@@ -1,0 +1,32 @@
+[user]
+	email = zn.tportlock@gmail.com
+	name = theoportlock
+[core]
+	editor = vim
+[credential]
+	helper = store
+[http]
+	sslverify = false
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[merge]
+	tool = vimdiff
+[pull]
+	rebase = false
+[mergetool]
+	keepBackup = false
+[alias]
+        graphviz = "!f() { echo 'digraph git {' ; git log --pretty='format:  %h -> { %p }' \"$@\" | sed 's/[0-9a-f][0-9a-f]*/\"&\"/g' ; echo '}'; }; f"
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+	grep = auto
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

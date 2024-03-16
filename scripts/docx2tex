@@ -1,0 +1,2 @@
+#!/bin/bash
+pandoc --extract-media ./myMediaFolder $1 -o main.tex

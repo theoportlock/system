@@ -1,0 +1,44 @@
+Host raspi
+	HostName 192.168.0.110
+	User theo
+
+Host laptop
+	HostName 192.168.0.21
+	User theo
+
+Host uppmax
+	HostName rackham.uppmax.uu.se
+	User saeeds
+
+Host rosalind
+	HostName login.rosalind.kcl.ac.uk
+	User k1809704
+
+Host nmrbox
+	HostName carbon.nmrbox.org
+	User tportlock
+
+Host moto
+	HostName 192.168.0.136
+	Port 8022
+
+Host moto_old
+	HostName 192.168.0.11
+	Port 8022
+
+Host moto_old_old
+	HostName 192.168.0.116
+	Port 8022
+
+Host sony
+	HostName 192.168.0.117
+	Port 8022
+	
+Host tablet
+	HostName 192.168.0.115
+	Port 8022
+
+Host pc
+	HostName 192.168.0.123
+	User theo
+	Port 2222
