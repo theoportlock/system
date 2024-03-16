@@ -54,6 +54,10 @@ alias wp="watch -c 'pstree -C age'"
 alias wt="watch -c tree --du -hC"
 alias rf="readlink -f"
 
+function matlab {
+	/Applications/MATLAB*.app/bin/matlab -nodisplay -nosplash -nodesktop -r "try, run(\"$(readlink -f test.m)\"), catch, exit, end, exit"
+}
+
 c() {
     builtin cd $@ && l
     pwd > ~/.last_dir
