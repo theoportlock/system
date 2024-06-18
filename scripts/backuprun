@@ -15,5 +15,5 @@ rsync \
 	--no-owner\
 	--copy-links\
 	--human-readable\
-	/home/theop/ /run/media/theop/maindrive/
+	/run/media/theop/maindrive/ /run/media/theop/6E5B-FB77
 

@@ -16,4 +16,4 @@ rsync \
 	--human-readable\
 	--stats\
 	--dry-run\
-	/home/theop/ /run/media/theop/maindrive/
+	/run/media/theop/maindrive/ /run/media/theop/Elements/
