@@ -1,9 +1,12 @@
 db=$1
 out=$2
+inname=$(readlink -f $db)
+outname=$(pwd)/$out
+
 schemacrawler \
 	--server=sqlite \
-	--database=$db \
+	--database=$inname \
 	--command=schema \
 	--output-format=pdf \
 	--info-level=standard \
-	--output-file=$out
+	--output-file=$outname
