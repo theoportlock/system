@@ -1,15 +1,22 @@
-# If not running interactively, don't do anything
+#
+# ~/.bashrc
+#
+
 [[ $- != *i* ]] && return
+xset r rate 300 50
+
+#remove beeper
+xset -b
 
 # shortcut aliases
 alias l='ls -thr --color'
-alias o='open'
 alias ll='ls -lthra --color'
 alias lr='grep --color -E -- "$(ls -rtl | tail -n3)|$" <(ls -l)'
 alias v='vim'
 alias m='mkdir'
 alias t='touch'
-alias w='watch --color'
+alias own='sudo chown -R $USER:$USER'
+alias w='watch -c -d'
 alias z='zsh'
 alias b='cd ../;l;pwd > ~/.last_dir'
 alias r='mv -t /tmp'
@@ -19,25 +26,25 @@ alias p='python3'
 alias par='time parallel -j+0 --eta'
 alias d='dirs -v'
 alias f="find . -iname"
-alias h="history"
+alias h="history | tail -n 30"
 alias re='ls -tr | tail -n 1'
 alias vr='vim $(ls -tr | tail -n 1)'
 alias cr='cd $(ls -trd */ | tail -n 1)'
 alias lock='i3lock -c 000000'
 alias pt='python -m unittest discover -v'
-alias te='mkdir -p extract; tar -C extract -xzvf' 
+#alias te='mkdir -p extract; tar -C extract -xzvf' 
+alias te='tar --one-top-level -xvf'
+alias tz='tar -czvf archive.tar.gz' 
 alias ch='chmod a+x'
-alias pi='brew install'
-alias pu='brew update; brew upgrade'
-alias pr='brew uninstall'
+alias pi='sudo pacman -S'
+alias pu='sudo pacman -Syu'
+alias pr='sudo pacman -Rns'
 alias ipython='python -m IPython --no-confirm-exit'
 alias va='source venv/bin/activate'
 alias venv='python3 -m venv venv'
 alias gl="git log --pretty=format:'%Cblue%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset' --abbrev-commit --date=relative"
 alias gs="git add .; git commit"
 alias gr="git add .;git reset --hard"
-alias gpush="git push --all origin"
-alias gpull="git pull --all"
 alias gcm="git checkout master"
 alias gcf="git checkout feature"
 alias gd="git difftool"
@@ -53,14 +60,20 @@ alias twineup="twine upload --repository-url https://upload.pypi.org/legacy/ dis
 alias wp="watch -c 'pstree -C age'"
 alias wt="watch -c tree --du -hC"
 alias rf="readlink -f"
-
-function matlab {
-	/Applications/MATLAB*.app/bin/matlab -nodisplay -nosplash -nodesktop -r "try, run(\"$(readlink -f test.m)\"), catch, exit, end, exit"
-}
+alias dclean="docker system prune -a -f"
+# conda activate:
+source /opt/anaconda/bin/activate root
+alias labbook="cd /run/media/theop/maindrive/todo/labbook/"
+alias store='cd /run/media/theop/maindrive/'
+alias ph="cd '/run/user/1000/gvfs/mtp:host=Google_Pixel_7_2B251FDH2004XA/Internal shared storage'"
 
 c() {
     builtin cd $@ && l
     pwd > ~/.last_dir
+}
+
+o() {
+    xdg-open "$@" & disown -a
 }
 
 if [ -f ~/.last_dir ]
@@ -68,7 +81,7 @@ if [ -f ~/.last_dir ]
 fi
 
 gdestroy() {
-	git filter-branch --force --index-filter "git rm --cached --ignore-unmatch $1" --prune-empty --tag-name-filter cat -- --all
+	git filter-branch --force --index-filter "git rm -r --cached --ignore-unmatch $1" --prune-empty --tag-name-filter cat -- --all
 }
 
 function ppssh {
@@ -77,7 +90,7 @@ function ppssh {
 function pssh {
 	ssh $1 tmux send-keys -t main \""${*:2}"\" ENTER
 }
-function pd {
+function pud {
 	pushd $@ && l
 }
 function pod {
@@ -101,23 +114,21 @@ function cpr() {
 function mvr() {
 	rsync -aurvP --remove-source-files "$@"
 }
-#function mvr() {
-#	rsync --archive -hh --partial --info=stats1 --info=progress2 --modify-window=1 --remove-source-files "$@"
-#}
 
 # scripts
+# need to sort this so it works with the mounted drive
 export PATH=$PATH:~/system/scripts/
-export PATH=$PATH:~/.local/bin/
 
-# meteor
-export PATH=$PATH:~/postdoc/meteor/
+# omicsbuilder
+# need to sort this so it works with the mounted drive
+export PATH=$PATH:~/omicsbuilder/
 
 # python
 export PYTHONBREAKPOINT=ipdb.set_trace
 
 # default editor
+export EDITOR=vim
 export VISUAL=vim
-export EDITOR="$VISUAL"
 
 # better autocomplete
 # bind 'set show-all-if-ambiguous on'
@@ -126,13 +137,16 @@ export EDITOR="$VISUAL"
 # prompt configuration
 export PS1="\[\e[01;36m\]\u@\h \[\e[01;32m\]\\w\[\e[01;\$(acolor)m\]\$(git_branch)\[\e[01;00m\] "
 
-# for brew
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-
 # bash history
-HISTSIZE=100000
+HISTSIZE=1000000
 HISTCONTROL=ignoreboth
 HISTIGNORE='ls:history'
 HISTTIMEFORMAT='%F %T '
 PROMPT_COMMAND='history -a'
+
+# to fix cytoscape for some reason
+export EXTRA_JAVA_OPTS="-Djdk.util.zip.disableZip64ExtraFieldValidation=true"
+#export TERMINFO=/usr/share/terminfo/
+export TERMINAL=/bin/xterm
+
+conda activate yourenvname
