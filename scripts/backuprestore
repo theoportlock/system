@@ -1,0 +1,2 @@
+#!/bin/bash
+rsync -aurvP -O --delete-after --no-perms --no-group --no-owner --links --exclude=".*" /mnt/backup /home/theop/

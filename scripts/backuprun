@@ -1,3 +1,19 @@
 #!/bin/bash
-rsync -aurvP -O --delete-after --no-perms --no-group --no-owner --links --exclude=".*" /home/theop/ /mnt/backup
+#rsync -aurvP -O --delete-after --no-perms --no-group --no-owner --links --exclude=".*" /home/theop/ /mnt/backup
 #rsync -aurvP "$@" raspi:/mnt/fileserver
+
+rsync \
+	--archive\
+	--update\
+	--recursive\
+	--verbose\
+	--progress\
+	--omit-dir-times\
+	--delete-after\
+	--no-perms\
+	--no-group\
+	--no-owner\
+	--copy-links\
+	--human-readable\
+	/home/theop/ /run/media/theop/maindrive/
+

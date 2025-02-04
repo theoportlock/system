@@ -42,3 +42,5 @@ xorg-xinit
 xterm
 pulseaudio
 pavucontrol
+udisks2
+udiskie
