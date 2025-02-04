@@ -20,5 +20,4 @@ def get_searches(key_word):
 
 if __name__ == "__main__":
     get_searches(str(sys.argv[1]))
-    #plt.savefig("output.png")
     plt.show()
