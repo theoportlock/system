@@ -1,4 +1,6 @@
 #!/bin/bash
 file=$(date +%F)
-echo $file | xargs touch -a
+if [ ! -f "$file" ]; then
+	cat `ls 2* | tail -1` > $file
+fi
 vim $file
