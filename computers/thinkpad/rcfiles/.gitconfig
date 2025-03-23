@@ -1,3 +1,5 @@
+[credential]
+	helper = store
 [user]
 	email = zn.tportlock@gmail.com
 	name = theoportlock
@@ -7,6 +9,7 @@
 	helper = store
 [http]
 	sslverify = false
+	postBuffer = 524288000
 [diff]
 	tool = vimdiff
 [difftool]

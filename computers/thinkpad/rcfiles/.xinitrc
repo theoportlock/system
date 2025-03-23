@@ -9,5 +9,8 @@ fi
 
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
+udiskie &
+dunst &
+autorandr --change
+
 exec i3
-exec dunst

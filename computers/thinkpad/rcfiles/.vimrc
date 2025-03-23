@@ -48,29 +48,47 @@ let g:netrw_browse_split = 2
 let g:netrw_winsize = 25
 
 " Leader commands
-" autocmd FileType python nnoremap <leader>t <esc>:let @" = expand("%")<CR> <bar> :vert rightbelow term<CR>./<C-W>"0<CR>
-" autocmd FileType python nnoremap <leader>tl <esc>:let @" = expand("%")<CR> <bar> :vert rightbelow term<CR>ipython <C-W>"0<CR><C-W><C-W>
-" autocmd FileType python nnoremap <leader>i :vert rightbelow term<CR>ipython<CR><C-W><C-W>
-" autocmd FileType python nnoremap <leader>i <esc>let s:path = expand('<sfile>:p:h')<CR> <bar> :vert rightbelow term<CR>cd <C-W>"0<CR>ipython<CR><C-W><C-W>
-" autocmd FileType python vnoremap <leader>h :let @" = expand("%")<CR> <bar> :<C-U>!pydoc3 % <CR>
-" autocmd FileType python nnoremap <leader>H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
-" autocmd FileType python nnoremap <leader>f :w<enter>:let @" = expand("%")<CR> <bar> :!flake8 %
-" autocmd FileType python set textwidth=80
-" autocmd FileType python set formatoptions+=tautocmd FileType python
+" NEXT THREE CAN UNCOMMENT
 autocmd FileType python set shell=ipython
 autocmd FileType r set shell=R
 autocmd FileType bash set shell=bash
 nnoremap <leader>t :vert rightbelow term<CR><C-W><C-W>
-nnoremap <leader>r yy<C-W><C-W><C-W>"0<C-W><C-W>j
-vnoremap <leader>r y<C-W><C-W><C-W>"0<C-W><C-W><esc>j
+"nnoremap <leader>r yy<C-W><C-W><C-W>"0<C-W><C-W>j
+"vnoremap <leader>r y<C-W><C-W><C-W>"0<C-W><C-W>gvV
 nnoremap <leader>a <esc>:Lexplore<enter>
 nnoremap <leader>; :w<enter>:let @" = expand("%")<CR> <bar> :silent !urxvt -hold -e bash --rcfile <(echo '. ~/.bashrc; ./%') & <CR> 
-nnoremap <leader>lc :w<enter>:silent !urxvt -hold -e bash --rcfile <(echo '. ~/.bashrc; ./compile.sh') & <CR>
-nnoremap <F5> <esc>:w<enter>:!%:p<enter>
+nnoremap <leader>lc :w<enter>:silent !xterm -hold -e bcsh --rcfile <(echo '. ~/.bashrc; ./compile.sh') & <CR>
+"noremap <F5> <esc>:!&filetype %<CR>
+noremap <F5> <esc> :!xterm -hold -e ' . &filetype . ' %'
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>p :bprevious<CR>
 nnoremap <leader>ss :setlocal spell!<CR>
-vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
+"vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
+"vnoremap <silent> <Leader>y :<C-U>call system('xclip -sel clip', join(getline("'<", "'>"), "\n"))<CR>
+"vnoremap <silent> <Leader>y :<C-U>call system('xclip -sel clip', join(getline("'<", "'>"), "\n") . "\n")<CR>
+
+" For normal mode (sends the current line)
+nnoremap <leader>r yy:call SendToTerm()<CR>j
+
+" For visual mode (sends the selected text)
+vnoremap <leader>r y:call SendToTerm()<CR>gvVj
+
+" Helper function to send text to the terminal
+function! SendToTerm() range
+    let l:content = getreg('"')
+    let l:paste_start = "\e[200~"
+    let l:paste_end = "\e[201~"
+    let l:full_content = l:paste_start . l:content . l:paste_end . "\<CR>"
+
+    " Switch to the terminal window (adjust the window navigation as needed)
+    execute "normal! \<C-W>w"
+
+    " Send the content to the terminal
+    call term_sendkeys('', l:full_content)
+
+    " Switch back to the original window
+    execute "normal! \<C-W>w"
+endfunction
 
 " Normal mode for terminal
 tnoremap <F1> <C-W>N
@@ -79,17 +97,24 @@ autocmd QuitPre * call range(1, bufnr('$'))->filter('getbufvar(v:val, "&buftype"
 " For indenting wrapped text properly
 set breakindent
 set linebreak
+"
+" Setting the clipboard
+set clipboard=unnamedplus
 
 " Make jk do esc
 inoremap jk <Esc>
 inoremap Jk <Esc>
 inoremap jK <Esc>
 inoremap JK <esc>
+inoremap kj <Esc>
+inoremap kJ <Esc>
+inoremap Kj <Esc>
+inoremap KJ <esc>
 
 " set backups, swp, tmp
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
+set backupdir=/run/media/theop/maindrive/.vim/backup//
+set directory=/run/media/theop/maindrive/.vim/swap//
+set undodir=/run/media/theop/maindrive/.vim/undo//
 set undofile
 
 " Display name of file
@@ -128,3 +153,7 @@ nnoremap Y y$
 " Tag support
 set tagrelative
 set tags=./tags,tags;
+
+" Set always equal windows
+set equalalways
+autocmd VimResized * wincmd = 

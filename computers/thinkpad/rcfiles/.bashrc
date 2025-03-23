@@ -1,22 +1,56 @@
-#
-# ~/.bashrc
-#
-
+# Increases cursor speed
 [[ $- != *i* ]] && return
 xset r rate 300 50
 
-#remove beeper
+# Remove beeper
 xset -b
 
-# shortcut aliases
+# Blinking cursor
+echo -e -n "\x1b[\x35 q" # changes to blinking bar
+
+# Default editor
+export EDITOR=vim
+export VISUAL=vim
+
+# Prompt configuration
+export PS1="\[\e[01;36m\]\u@\h \[\e[01;32m\]\\w\[\e[01;\$(acolor)m\]\$(git_branch)\[\e[01;00m\] "
+
+# Check the window size after each command and, if necessary, update the values of LINES and COLUMNS
+shopt -s checkwinsize
+
+# Bash history
+HISTFILESIZE=-1
+HISTCONTROL=ignoreboth
+HISTIGNORE='ls:history'
+HISTTIMEFORMAT='%F %T '
+PROMPT_COMMAND='history -a'
+
+# Causes bash to append to history instead of overwriting it so if you start a new terminal, you have old session history
+shopt -s histappend
+PROMPT_COMMAND='history -a'
+
+# Naviage to prevous directory
+if [ -f ~/.last_dir ]
+	then cd $(cat ~/.last_dir)
+fi
+
+# Aliases
+alias cp='cp -i'
+alias mv='mv -i'
+#alias rm='rm -iv'
+alias mkdir='mkdir -p'
 alias l='ls -thr --color'
 alias ll='ls -lthra --color'
 alias lr='grep --color -E -- "$(ls -rtl | tail -n3)|$" <(ls -l)'
+alias cod='cd ../code; ls -thr --color'
+alias res='cd ../results; ls -thr --color'
+alias lr='grep --color -E -- "$(ls -rtl | tail -n3)|$" <(ls -l)'
 alias v='vim'
 alias m='mkdir'
-alias t='touch'
+alias t='tmux'
 alias own='sudo chown -R $USER:$USER'
 alias w='watch -c -d'
+alias wl='watch -c ls -ltha --color'
 alias z='zsh'
 alias b='cd ../;l;pwd > ~/.last_dir'
 alias r='mv -t /tmp'
@@ -53,7 +87,8 @@ alias xc="xclip -i -selection clipboard -f | xclip -i -selection primary"
 alias poweroff="sync; poweroff"
 alias reboot="sync; reboot"
 alias tree="tree -C"
-alias wf="workforce"
+alias wpw="watch -c pstree $(pgrep workforce) -apC age"
+alias wpt="watch -c \" column -ts $'\t'\""
 alias checktemp="watch -n 2 sensors"
 alias starwars="telnet towel.blinkenlights.nl"
 alias twineup="twine upload --repository-url https://upload.pypi.org/legacy/ dist/*"
@@ -61,29 +96,23 @@ alias wp="watch -c 'pstree -C age'"
 alias wt="watch -c tree --du -hC"
 alias rf="readlink -f"
 alias dclean="docker system prune -a -f"
-# conda activate:
-source /opt/anaconda/bin/activate root
 alias labbook="cd /run/media/theop/maindrive/todo/labbook/"
-alias store='cd /run/media/theop/maindrive/'
-alias ph="cd '/run/user/1000/gvfs/mtp:host=Google_Pixel_7_2B251FDH2004XA/Internal shared storage'"
+alias store='cd /run/media/theop/maindrive/ && ls -thr --color'
+alias tool='cd /run/media/theop/maindrive/metatoolkit/ && ls -thr --color'
+alias please='/usr/bin/sudo $(history -p !!)'
+alias rss='newsboat'
 
+# Custom functions
 c() {
     builtin cd $@ && l
     pwd > ~/.last_dir
 }
-
 o() {
     xdg-open "$@" & disown -a
 }
-
-if [ -f ~/.last_dir ]
-	then cd $(cat ~/.last_dir)
-fi
-
 gdestroy() {
 	git filter-branch --force --index-filter "git rm -r --cached --ignore-unmatch $1" --prune-empty --tag-name-filter cat -- --all
 }
-
 function ppssh {
 	parallel --nonall --progress -S moto,moto_old,moto_old_old,sony,tablet tmux send-keys -t main \""${*:1}"\" ENTER
 }
@@ -114,39 +143,68 @@ function cpr() {
 function mvr() {
 	rsync -aurvP --remove-source-files "$@"
 }
+# Extracts any archive(s) (if unp isn't installed)
+extract () {
+	for archive in $*; do
+		if [ -f $archive ] ; then
+			case $archive in
+				*.tar.bz2)   tar xvjf $archive    ;;
+				*.tar.gz)    tar xvzf $archive    ;;
+				*.bz2)       bunzip2 $archive     ;;
+				*.rar)       rar x $archive       ;;
+				*.gz)        gunzip $archive      ;;
+				*.tar)       tar xvf $archive     ;;
+				*.tbz2)      tar xvjf $archive    ;;
+				*.tgz)       tar xvzf $archive    ;;
+				*.zip)       unzip $archive       ;;
+				*.Z)         uncompress $archive  ;;
+				*.7z)        7z x $archive        ;;
+				*)           echo "don't know how to extract '$archive'..." ;;
+			esac
+		else
+			echo "'$archive' is not a valid file!"
+		fi
+	done
+}
 
 # scripts
-# need to sort this so it works with the mounted drive
 export PATH=$PATH:~/system/scripts/
+export PATH=$PATH:~/bin/
 
-# omicsbuilder
-# need to sort this so it works with the mounted drive
-export PATH=$PATH:~/omicsbuilder/
-
-# python
+# Python
 export PYTHONBREAKPOINT=ipdb.set_trace
 
-# default editor
-export EDITOR=vim
-export VISUAL=vim
-
-# better autocomplete
-# bind 'set show-all-if-ambiguous on'
-# bind "\"\\eOQ\":\"\e[1~ls;#\\n\""
-
-# prompt configuration
-export PS1="\[\e[01;36m\]\u@\h \[\e[01;32m\]\\w\[\e[01;\$(acolor)m\]\$(git_branch)\[\e[01;00m\] "
-
-# bash history
-HISTSIZE=1000000
-HISTCONTROL=ignoreboth
-HISTIGNORE='ls:history'
-HISTTIMEFORMAT='%F %T '
-PROMPT_COMMAND='history -a'
-
-# to fix cytoscape for some reason
+# cytoscape
+export PATH=$PATH:~/Cytoscape_v3.10.2/
 export EXTRA_JAVA_OPTS="-Djdk.util.zip.disableZip64ExtraFieldValidation=true"
-#export TERMINFO=/usr/share/terminfo/
+export TERMINFO=/usr/share/terminfo/
 export TERMINAL=/bin/xterm
 
-conda activate yourenvname
+# >>> conda initialize >>>
+#__conda_setup="$('/opt/anaconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/opt/anaconda/etc/profile.d/conda.sh" ]; then
+## . "/opt/anaconda/etc/profile.d/conda.sh"  # commented out by conda initialize
+#    else
+## export PATH="/opt/anaconda/bin:$PATH"  # commented out by conda initialize
+#    fi
+#fi
+#unset __conda_setup
+
+# Maaslin2
+export PATH=$PATH:/run/media/theop/maindrive/github_programs/Maaslin2/R/
+
+# sparcc
+export PATH=$PATH:/run/media/theop/maindrive/github_programs/SparCC/
+
+# literature-cli
+export PATH=$PATH:/run/media/theop/maindrive/github_programs/literature-cli/
+
+# colabfold
+export PATH="/home/theop/localcolabfold/localcolabfold/colabfold-conda/bin:$PATH"
+
+# fzf
+eval "$(fzf --bash)"
+
