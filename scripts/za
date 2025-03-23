@@ -1,2 +1,2 @@
 #!/bin/bash
-zathura $1 & 
+zathura "$1" & 
