@@ -8,14 +8,14 @@ alias ll='ls -lthra --color'
 alias lr='grep --color -E -- "$(ls -rtl | tail -n3)|$" <(ls -l)'
 alias v='vim'
 alias m='mkdir'
-alias t='touch'
+alias t='tmux'
 alias w='watch --color'
 alias z='zsh'
 alias b='cd ../;l;pwd > ~/.last_dir'
 alias r='mv -t /tmp'
 alias f='find . -iname '
 alias j='jobs -l'
-alias p='python3'
+alias p='python'
 alias par='time parallel -j+0 --eta'
 alias d='dirs -v'
 alias f="find . -iname"
@@ -42,17 +42,17 @@ alias gcm="git checkout master"
 alias gcf="git checkout feature"
 alias gd="git difftool"
 alias fr="find . -not -path '*/\.*' -type f -mtime -7"
-alias xc="xclip -i -selection clipboard -f | xclip -i -selection primary"
 alias poweroff="sync; poweroff"
 alias reboot="sync; reboot"
 alias tree="tree -C"
-alias wf="workforce"
 alias checktemp="watch -n 2 sensors"
 alias starwars="telnet towel.blinkenlights.nl"
 alias twineup="twine upload --repository-url https://upload.pypi.org/legacy/ dist/*"
 alias wp="watch -c 'pstree -C age'"
 alias wt="watch -c tree --du -hC"
 alias rf="readlink -f"
+alias store="cd /Volumes/maindrive"
+alias labbook="cd /Volumes/maindrive/todo/labbook/"
 
 function matlab {
 	/Applications/MATLAB*.app/bin/matlab -nodisplay -nosplash -nodesktop -r "try, run(\"$(readlink -f test.m)\"), catch, exit, end, exit"
@@ -108,9 +108,17 @@ function mvr() {
 # scripts
 export PATH=$PATH:~/system/scripts/
 export PATH=$PATH:~/.local/bin/
+export PATH=$PATH:~/metatoolkit/
+export PATH=$PATH:~/tsv-utils/bin
+
+# python
+export PATH="/usr/local/bin:$HOME/.local/bin:$PATH"
 
 # meteor
 export PATH=$PATH:~/postdoc/meteor/
+
+# Maaslin2
+export PATH=$PATH:/Volumes/maindrive/github_programs/Maaslin2/R/
 
 # python
 export PYTHONBREAKPOINT=ipdb.set_trace
@@ -136,3 +144,8 @@ HISTCONTROL=ignoreboth
 HISTIGNORE='ls:history'
 HISTTIMEFORMAT='%F %T '
 PROMPT_COMMAND='history -a'
+
+# for stupid matlab
+export ILOG_CPLEX_PATH="/Applications/CPLEX_Studio221"
+
+

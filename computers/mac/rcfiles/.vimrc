@@ -48,21 +48,18 @@ let g:netrw_browse_split = 2
 let g:netrw_winsize = 25
 
 " Leader commands
-" autocmd FileType python nnoremap <leader>t <esc>:let @" = expand("%")<CR> <bar> :vert rightbelow term<CR>./<C-W>"0<CR>
-" autocmd FileType python nnoremap <leader>tl <esc>:let @" = expand("%")<CR> <bar> :vert rightbelow term<CR>ipython <C-W>"0<CR><C-W><C-W>
-" autocmd FileType python nnoremap <leader>i :vert rightbelow term<CR>ipython<CR><C-W><C-W>
-" autocmd FileType python nnoremap <leader>i <esc>let s:path = expand('<sfile>:p:h')<CR> <bar> :vert rightbelow term<CR>cd <C-W>"0<CR>ipython<CR><C-W><C-W>
-" autocmd FileType python vnoremap <leader>h :let @" = expand("%")<CR> <bar> :<C-U>!pydoc3 % <CR>
-" autocmd FileType python nnoremap <leader>H :<C-u>execute "!pydoc3 " . expand("<cWORD>")<CR>
-" autocmd FileType python nnoremap <leader>f :w<enter>:let @" = expand("%")<CR> <bar> :!flake8 %
-" autocmd FileType python set textwidth=80
-" autocmd FileType python set formatoptions+=tautocmd FileType python
-autocmd FileType python set shell=ipython3
-autocmd FileType r set shell=R
-autocmd FileType bash set shell=bash
+" For Python filetypes, run ipython3 in a vertical split terminal
+autocmd FileType python nnoremap <leader>t :vert rightbelow term ipython3<CR><C-W><C-W>
+
+" For R filetypes, run R in a vertical split terminal
+autocmd FileType r nnoremap <leader>t :vert rightbelow term R<CR><C-W><C-W>
+
+" Regular terminal for other filetypes
+nnoremap <leader>t :vert rightbelow term<CR><C-W><C-W>
+
 nnoremap <leader>t :vert rightbelow term<CR><C-W><C-W>
 nnoremap <leader>r yy<C-W><C-W><C-W>"0<C-W><C-W>j
-vnoremap <leader>r y<C-W><C-W><C-W>"0<C-W><C-W><esc>j
+vnoremap <leader>r y<C-W><C-W><C-W>"0<C-W><C-W>gvV
 nnoremap <leader>a <esc>:Lexplore<enter>
 nnoremap <leader>; :w<enter>:let @" = expand("%")<CR> <bar> :silent !urxvt -hold -e bash --rcfile <(echo '. ~/.bashrc; ./%') & <CR> 
 nnoremap <leader>lc :w<enter>:silent !urxvt -hold -e bash --rcfile <(echo '. ~/.bashrc; ./compile.sh') & <CR>
@@ -70,7 +67,15 @@ nnoremap <F5> <esc>:w<enter>:!%:p<enter>
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>p :bprevious<CR>
 nnoremap <leader>ss :setlocal spell!<CR>
-vnoremap <silent><Leader>y "yy <Bar> :call system('xclip -sel clip', @y)<CR> :call system('xclip', @y)<CR>
+
+" Yank to clipboard
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+
+" Paste from clipboard
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
+
 
 " Normal mode for terminal
 tnoremap <F1> <C-W>N
