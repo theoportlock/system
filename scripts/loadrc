@@ -1,6 +1,19 @@
 #!/bin/bash
-dir1=~
-dir2=~/system/computers/$1/rcfiles
-for files in $(diff -rq $dir1 $dir2|grep 'differ$'|sed "s/^Files //g;s/ differ$//g;s/ and /:/g"); do
-	vimdiff ${files%:*} ${files#*:};
+
+if [ "$#" -eq 1 ]; then
+    # When one argument is given, compare your home directory rcfiles with the computer’s rcfiles.
+    dir1=~
+    dir2=~/system/computers/$1/rcfiles
+elif [ "$#" -eq 2 ]; then
+    # When two arguments are given, compare rcfiles between the two specified computers.
+    dir1=~/system/computers/$1/rcfiles
+    dir2=~/system/computers/$2/rcfiles
+else
+    echo "Usage: $0 <computer> [computer2]"
+    exit 1
+fi
+
+# Compare the directories recursively and for each differing file, open vimdiff.
+for files in $(diff -rq "$dir1" "$dir2" | grep 'differ$' | sed "s/^Files //g;s/ differ$//g;s/ and /:/g"); do
+    vimdiff "${files%:*}" "${files#*:}"
 done
