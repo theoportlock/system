@@ -8,9 +8,11 @@ xset -b
 # Blinking cursor
 echo -e -n "\x1b[\x35 q" # changes to blinking bar
 
-# Default editor
+# Defaults
 export EDITOR=vim
 export VISUAL=vim
+export TERMINFO=/usr/share/terminfo/
+export TERMINAL=/bin/xterm
 
 # Prompt configuration
 export PS1="\[\e[01;36m\]\u@\h \[\e[01;32m\]\\w\[\e[01;\$(acolor)m\]\$(git_branch)\[\e[01;00m\] "
@@ -19,30 +21,31 @@ export PS1="\[\e[01;36m\]\u@\h \[\e[01;32m\]\\w\[\e[01;\$(acolor)m\]\$(git_branc
 shopt -s checkwinsize
 
 # Bash history
-HISTFILESIZE=-1
+HISTSIZE=
+HISTFILESIZE=
 HISTCONTROL=ignoreboth
 HISTIGNORE='ls:history'
 HISTTIMEFORMAT='%F %T '
 PROMPT_COMMAND='history -a'
-
-# Causes bash to append to history instead of overwriting it so if you start a new terminal, you have old session history
 shopt -s histappend
-PROMPT_COMMAND='history -a'
 
 # Naviage to prevous directory
 if [ -f ~/.last_dir ]
 	then cd $(cat ~/.last_dir)
 fi
 
+# fzf
+eval "$(fzf --bash)"
+
 # Aliases
 alias cp='cp -i'
 alias mv='mv -i'
-#alias rm='rm -iv'
 alias mkdir='mkdir -p'
 alias l='ls -thr --color'
 alias ll='ls -lthra --color'
 alias lr='grep --color -E -- "$(ls -rtl | tail -n3)|$" <(ls -l)'
 alias cod='cd ../code; ls -thr --color'
+alias dat='cd ../data; ls -thr --color'
 alias res='cd ../results; ls -thr --color'
 alias lr='grep --color -E -- "$(ls -rtl | tail -n3)|$" <(ls -l)'
 alias v='vim'
@@ -63,10 +66,10 @@ alias f="find . -iname"
 alias h="history | tail -n 30"
 alias re='ls -tr | tail -n 1'
 alias vr='vim $(ls -tr | tail -n 1)'
+alias pyr='python $(ls -tr | tail -n 1)'
 alias cr='cd $(ls -trd */ | tail -n 1)'
 alias lock='i3lock -c 000000'
 alias pt='python -m unittest discover -v'
-#alias te='mkdir -p extract; tar -C extract -xzvf' 
 alias te='tar --one-top-level -xvf'
 alias tz='tar -czvf archive.tar.gz' 
 alias ch='chmod a+x'
@@ -101,8 +104,18 @@ alias store='cd /run/media/theop/maindrive/ && ls -thr --color'
 alias tool='cd /run/media/theop/maindrive/metatoolkit/ && ls -thr --color'
 alias please='/usr/bin/sudo $(history -p !!)'
 alias rss='newsboat'
+alias ap='add_to_path'
 
 # Custom functions
+add_to_path() {
+    if [ -d "$1" ]; then
+        export PATH="$1:$PATH"
+        echo "Added $1 to PATH"
+    else
+        echo "Directory does not exist: $1"
+        return 1
+    fi
+}
 c() {
     builtin cd $@ && l
     pwd > ~/.last_dir
@@ -167,18 +180,23 @@ extract () {
 	done
 }
 
-# scripts
-export PATH=$PATH:~/system/scripts/
-export PATH=$PATH:~/bin/
+recent() {
+  local cmd=$1
+  shift
+
+  local file
+  file=$(find . -maxdepth 1 -type f -printf "%T@ %p\n" 2>/dev/null | sort -n | tail -n1 | cut -d' ' -f2-)
+
+  if [ -n "$file" ]; then
+    "$cmd" "$@" "$file"
+  else
+    echo "No recent file found." >&2
+    return 1
+  fi
+}
 
 # Python
 export PYTHONBREAKPOINT=ipdb.set_trace
-
-# cytoscape
-export PATH=$PATH:~/Cytoscape_v3.10.2/
-export EXTRA_JAVA_OPTS="-Djdk.util.zip.disableZip64ExtraFieldValidation=true"
-export TERMINFO=/usr/share/terminfo/
-export TERMINAL=/bin/xterm
 
 # >>> conda initialize >>>
 #__conda_setup="$('/opt/anaconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -193,6 +211,11 @@ export TERMINAL=/bin/xterm
 #fi
 #unset __conda_setup
 
+# Exports
+# Cytoscape
+export PATH=$PATH:~/Cytoscape_v3.10.2/
+export EXTRA_JAVA_OPTS="-Djdk.util.zip.disableZip64ExtraFieldValidation=true"
+
 # Maaslin2
 export PATH=$PATH:/run/media/theop/maindrive/github_programs/Maaslin2/R/
 
@@ -203,8 +226,10 @@ export PATH=$PATH:/run/media/theop/maindrive/github_programs/SparCC/
 export PATH=$PATH:/run/media/theop/maindrive/github_programs/literature-cli/
 
 # colabfold
-export PATH="/home/theop/localcolabfold/localcolabfold/colabfold-conda/bin:$PATH"
+#export PATH=$PATH:~/localcolabfold/localcolabfold/colabfold-conda/bin/
 
-# fzf
-eval "$(fzf --bash)"
+# scripts
+export PATH=$PATH:~/system/scripts/
+export PATH=$PATH:~/bin/
+
 
